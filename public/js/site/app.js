@@ -4,22 +4,22 @@ var Main = {
 
         if($("#privacy-policies").length) {
             $("#accept-policies").on("click", function(){
+                let url = document.getElementById("name_route_accept_policies").value
                 let form = $("#privacy-policies");
                 let data = new FormData(form[0])
 
                 $.ajax({
                     type: "POST",
-                    url: 'https://tsconsultoria.com.br/accept-policies',
+                    url: url,
                     data: data,
                     enctype: 'multipart/form-data',
                     processData: false,
                     contentType: false,
                     cache: false,
-                    timeout: 800000,
-                    success: function (data) {
-                        $("#privacy-policies").fadeOut();
-                    }
-                });         
+                    timeout: 800000
+                }).done(data => {
+                    $("#privacy-policies").fadeOut();
+                });
             })
         }
         if($("#home").length) {
@@ -87,9 +87,9 @@ var Main = {
 
                 });
             }
-            
-         
-            
+
+
+
         }
         $(".burguer-menu").on("click", function(){
             $(this).hide()
@@ -112,7 +112,7 @@ var Main = {
         if($("#vagas-page").length || $("#vaga-interno").length) {
             __this.Vagas.setup();
         }
-        
+
     },
     Sobre: {
         setup: function() {
@@ -133,7 +133,7 @@ var Main = {
                 modal.find("h1").text(name)
                 modal.find("h2").text(cargo)
                 modal.find(".desc").text(desc)
-       
+
                 modal.fadeIn()
             })
 
@@ -160,7 +160,7 @@ var Main = {
                 form.find("#email").removeClass("border-danger")
                 form.find("#mensagem").removeClass("border-danger")
             })
-           
+
 
             $(".contato-form button").on("click", function() {
 
@@ -182,7 +182,7 @@ var Main = {
 
                 let data = new FormData(form[0])
 
-                  
+
                 $.ajax({
                     type: "POST",
                     url: '/contato/send',
@@ -193,26 +193,26 @@ var Main = {
                     cache: false,
                     timeout: 800000,
                     beforeSend: function() {
-                        $(".contato-form button").text("ENVIANDO...") 
-                        $(".contato-form button").prop("disabled", true) 
+                        $(".contato-form button").text("ENVIANDO...")
+                        $(".contato-form button").prop("disabled", true)
                     },
                     success: function (data) {
-                      
-                        
+
+
                     }
                 }).done(function(data){
                     if(data.status == 200) {
-                        $(".contato-form button").text("ENVIADO COM SUCESSO!") 
+                        $(".contato-form button").text("ENVIADO COM SUCESSO!")
                         form.find("#nome").val("")
                         form.find("#email").val("")
                         form.find("#mensagem").val("")
                         setTimeout(function(){
-                            $(".contato-form button").text("ENTRAR EM CONTATO") 
-                            $(".contato-form button").prop("disabled", false) 
+                            $(".contato-form button").text("ENTRAR EM CONTATO")
+                            $(".contato-form button").prop("disabled", false)
                         }, 1500)
                     }
-                });                
-                
+                });
+
             })
         }
     },
@@ -221,7 +221,7 @@ var Main = {
             let _this = this;
 
             $(".encontre-form button").on("click", function(e) {
-              
+
                 $.ajax({
                     type: "GET",
                     url: '/vagas/search?filtro='+$(".encontre-form input").val(),
@@ -230,9 +230,9 @@ var Main = {
                             let button = $(".moreActionVagas");
                             $(".moreActionVagas").remove();
                             $(".vagas-container").html('')
-    
+
                             data.vagas.map(function(item){
-                                
+
                                 let box =   `<div class='vagas-box'>
                                                 <span class='time'>
                                                     <img src='/img/site/Time Circle.png'>
@@ -254,15 +254,15 @@ var Main = {
                                                     <a href='/vagas/detalhes/${item.id}'>Ver mais sobre</a>
                                                 </div>
                                             </div>`;
-    
+
                                 $(".vagas-container").append(box)
-    
+
                             })
-    
+
                             $(".vagas-container").append(button)
                             $(".moreActionVagas").text("Ver mais vagas");
-                            $(".moreActionVagas").append("<span class='border'></span>"); 
-                            
+                            $(".moreActionVagas").append("<span class='border'></span>");
+
                             var offset = 0;
                             var target = '#vagas-title';
                             if ($(this).data('offset') != undefined) offset = $(this).data('offset');
@@ -274,16 +274,16 @@ var Main = {
                         }else {
                             window.location.href = "/vagas";
                         }
-                    
+
                     }
-                });   
+                });
             });
 
 
 
 
 
-            $(".filtro-input").on("change", function() {  
+            $(".filtro-input").on("change", function() {
                 let _this = $(this);
                 let filtro = $(this).data("filtro");
                 let value = $(this).val()
@@ -297,7 +297,7 @@ var Main = {
                             $(".vagas-container").html('')
 
                             data.vagas.map(function(item){
-                                
+
                                 let box =   `<div class='vagas-box'>
                                                 <span class='time'>
                                                     <img src='/img/site/Time Circle.png'>
@@ -319,16 +319,16 @@ var Main = {
                                                     <a href='/vagas/detalhes/${item.id}'>Ver mais sobre</a>
                                                 </div>
                                             </div>`;
-    
+
                                 $(".vagas-container").append(box)
-    
+
                             })
-    
+
                             $(".vagas-container").append(button)
                             $(".moreActionVagas").text("Ver mais vagas");
-                            $(".moreActionVagas").append("<span class='border'></span>");  
+                            $(".moreActionVagas").append("<span class='border'></span>");
                         }
-                    });   
+                    });
                 }else {
                     $.ajax({
                         type: "GET",
@@ -340,7 +340,7 @@ var Main = {
                             $(".vagas-container").html('')
 
                             data.vagas.map(function(item){
-                                
+
                                 let box =   `<div class='vagas-box'>
                                                 <span class='time'>
                                                     <img src='/img/site/Time Circle.png'>
@@ -362,16 +362,16 @@ var Main = {
                                                     <a href='/vagas/detalhes/${item.id}'>Ver mais sobre</a>
                                                 </div>
                                             </div>`;
-    
+
                                 $(".vagas-container").append(box)
-    
+
                             })
-    
+
                             $(".vagas-container").append(button)
                             $(".moreActionVagas").text("Ver mais vagas");
-                            $(".moreActionVagas").append("<span class='border'></span>");  
+                            $(".moreActionVagas").append("<span class='border'></span>");
                         }
-                    });   
+                    });
                 }
             });
 
@@ -393,7 +393,7 @@ var Main = {
                         success: function (data) {
                             $(".moreActionVagas").remove();
                             data.vagas.map(function(item){
-    
+
                                 let box =   `<div class='vagas-box'>
                                                 <span class='time'>
                                                     <img src='/img/site/Time Circle.png'>
@@ -415,17 +415,17 @@ var Main = {
                                                     <a href='/vagas/detalhes/${item.id}'>Ver mais sobre</a>
                                                 </div>
                                             </div>`;
-    
+
                                 $(".vagas-container").append(box)
-    
+
                             })
-    
+
                             $(".vagas-container").append(button)
                             $(".moreActionVagas").text("Ver mais vagas");
                             $(".moreActionVagas").append("<span class='border'></span>");
-                            
+
                         }
-                    });   
+                    });
                 }, 1500)
             });
 
@@ -436,27 +436,27 @@ var Main = {
         setup: function() {
             var __this = this;
             $(".homePageLink").addClass("active")
-            
-            
+
+
             __this.Servicos.setup();
-            
+
         },
         Servicos: {
             setup: function() {
 
-                
+
                 $(".servicoBox h4").on("click", function(){
                     let _this = $(this);
                     let box = _this.parent()
-                    
+
                     $(".servicoBox").removeClass("servicoBoxActive")
                     box.addClass("servicoBoxActive")
                 })
-                
-                
-               
+
+
+
             }
-        } 
+        }
     },
     Cases: {
         setup: function() {
@@ -478,7 +478,7 @@ var Main = {
                         slidesToScroll: 1,
                       }
                     },
-                    
+
                   ]
             });
             $('.skills-container').slick({
@@ -504,7 +504,7 @@ var Main = {
                           slidesToScroll: 1,
                         }
                       },
-                    
+
                   ]
             });
             $('.equipe-container').slick({
@@ -547,7 +547,7 @@ var Main = {
                 });
             }
 
-            
+
             var window_size = window.matchMedia('(max-width: 500px)');
             if (!window.matchMedia('(max-width: 769px)').matches) {
                 let height = $(".content-header-right").height() + 300;
@@ -588,10 +588,10 @@ var Main = {
             $(".collapse-header").on("click", function(){
                 let __this = $(this);
                 let box = __this.parent();
-                
+
                 $(".collapse-box").removeClass("collapse-active");
                 box.toggleClass("collapse-active")
-                
+
             })
 
         }
@@ -625,19 +625,19 @@ var Main = {
 
             $(".submitCandidatura").on("click", function(){
                 let form = $(".candidatura-form");
-                
+
                 form.find(".data-form").each(function(index, item) {
                     if($(item).val() == '') {
                         $(item).addClass("border-danger");
                         return
                     }
                 })
-                
+
                 form = form[0]
                 let data = new FormData(form);
-                
-            
-                
+
+
+
                 $.ajax({
                     type: "POST",
                     url: '/candidaturas/send',
@@ -649,12 +649,12 @@ var Main = {
                     timeout: 800000,
                     success: function (data) {
                         $(".candidatura-form .feedback").find('p').text(data.msg);
-                        
+
                         $(".candidatura-form .content").hide();
                         $(".candidatura-form .feedback").addClass('feedback-active');
 
                         console.log(data)
-                        
+
                         setTimeout(function(){
                             $(".candidatura-content").removeClass("candidatura-content-active")
                             $(".candidatura-form").find("#name").val("")
@@ -667,10 +667,10 @@ var Main = {
                             $(".candidatura-form .feedback").hide();
 
                         }, 2000);
-                        
+
                     }
-                });                
-                
+                });
+
             })
         }
     }
@@ -680,4 +680,3 @@ $(function(){
     Main.setup();
 })
 
- 

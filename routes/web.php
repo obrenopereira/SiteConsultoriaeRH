@@ -20,14 +20,15 @@ Route::get('/cases/detalhes/{id}', 'site\CasesController@case');
 Route::get('/contato', 'site\ContatoController@index');
 Route::post('/contato/send', 'site\ContatoController@sendEmail');
 Route::get('/sobre', 'site\SobreController@index');
-Route::get('/vagas', 'site\VagasController@index');
+Route::get('/vagas', 'site\VagasController@index')->name('vagas.index');
 Route::get('/vagas/get', 'site\VagasController@getVagas');
 Route::get('/vagas/search', 'site\VagasController@search');
 Route::get('/vagas/remove-filter', 'site\VagasController@removeFilter');
 Route::get('/vagas/detalhes/{id}', 'site\VagasController@detalhes');
 Route::post('/candidaturas/send', 'site\CandidaturasController@send');
 Route::get('/politicas-privacidade', 'site\HomepageController@policies');
-Route::post('/accept-policies', 'site\HomepageController@acceptPolicies');
+Route::post('/accept-policies', 'site\HomepageController@acceptPolicies')
+    ->name('accept_policies');
 
 Auth::routes();
 

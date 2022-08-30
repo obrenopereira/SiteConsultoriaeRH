@@ -27,9 +27,7 @@
 
 </head>
 
-<body id='body'>  
-
- 
+<body id='body'>
     <main>
         <header class="@yield('headerInterno')">
            <nav>
@@ -45,9 +43,9 @@
                     <li><a href="/cases" title="Cases" alt="Cases">Cases</a></li>
                     @endif
                     <li><a href="/contato" title="Contato" alt="Contato">Contato</a></li>
-                    <li><a href="/vagas" title="Vagas" alt="Vagas">Vagas</a></li>
+                    <li><a href="{{ route('vagas.index') }}" title="Vagas" alt="Vagas">Vagas</a></li>
                 </ul>
-                
+
                 <div class='menu-mobile'>
                     <button type='button' class='burguer-menu'>
                         <img src="/img/site/Burger.png" alt="">
@@ -77,7 +75,7 @@
                         <li><a href="/sobre">A Empresa</a></li>
                         <li><a href="/cases">Cases</a></li>
                         <li><a href="/contato">Contato</a></li>
-                        <li><a href="/vagas">Vagas</a></li>
+                        <li><a href="{{ route('vagas.index') }}">Vagas</a></li>
                     </nav>
                     <ul>
                         @if($configuracoes->facebook)
@@ -106,19 +104,19 @@
     </main>
     @if(!$policies)
     <form id='privacy-policies'>
-
-    @csrf
+        @csrf
         <div>
             <h2>Políticas de Privacidade</h2>
             <legend>Ao fechar esse banner, você concorda com as nossas políticas de privacidade (LGPD).  Clique aqui e <a href="/politicas-privacidade">saiba mais</a></legend>
         </div>
+        <input id="name_route_accept_policies" type="hidden" value="{{ route('accept_policies') }}">
         <button type='button' id='accept-policies'>Concordo com as Políticas de Privacidade</button>
     </form>
     @endif
- 
-    <script src="/js/plugins/jquery.min.js" type="text/javascript"></script>
+
+    <script src="{{ asset('js/plugins/jquery.min.js') }}" type="text/javascript"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="/js/site/app.js"></script>
+    <script src="{{ asset('js/site/app.js') }}"></script>
 
 </body>
 </html>
