@@ -31,11 +31,11 @@
     <div class="container">
         <div class='casesDesc'>
             <h1>Conheça um pouco sobre a TS Consultoria</h1>
-            <p>Com uma equipe de mais de 18 anos de experiência na área, a TS Consultoria tem como principal objetivo promover o desenvolvimento de pessoas e organizações, para que possam alcançar o seu máximo potencial. 
+            <p>Com uma equipe de mais de 18 anos de experiência na área, a TS Consultoria tem como principal objetivo promover o desenvolvimento de pessoas e organizações, para que possam alcançar o seu máximo potencial.
             Com qualidade e responsabilidade, já auxiliamos mais de 120 clientes a desenvolver pessoas e processos na busca dos resultados, de estruturação de planejamentos. </p>
         </div>
         <div class='casesBackground'>
-            <img src="<?php echo asset('storage/galeria/'.$bannerPrincipal->imagem); ?>" alt="<?=$bannerPrincipal->alt_seo?>" title="<?=$bannerPrincipal->title_seo?>">
+            <img src="<?php echo asset('galeria/'.$bannerPrincipal->imagem); ?>" alt="<?=$bannerPrincipal->alt_seo?>" title="<?=$bannerPrincipal->title_seo?>">
             <div class="case-tags">
                 <a href="#contentExibicao" class="setaScrollDown"><img src="/img/site/seta_yellow.svg" class="scrollSeta" ></a>
             </div>
@@ -45,7 +45,7 @@
 
 <section id='contentExibicao'>
     <div class='bg'>
-        <img src="<?php echo asset('storage/galeria/'.$bannerSecundario->imagem); ?>" alt="<?=$bannerSecundario->alt_seo?>" title="<?=$bannerSecundario->title_seo?>">
+        <img src="<?php echo asset('galeria/'.$bannerSecundario->imagem); ?>" alt="<?=$bannerSecundario->alt_seo?>" title="<?=$bannerSecundario->title_seo?>">
     </div>
     <div class='text-content'>
         <h2>Desenvolvemos pessoas e processos que geram resultados</h2>
@@ -101,7 +101,7 @@
                     <h3>Visão</h3>
                 </span>
                 <p class="case-text">Despontar entre as principais empresas de Consultorias em Gestão Estratégica Empresarial e de Desenvolvimento Humano do Estado do Rio Grande do Sul, sendo reconhecida pela sua alta performance em resultados e diferenciada pela customização dos projetos, respeitando a cultura de cada instituição. </p>
-               
+
             </div>
             <div class="caseBox">
                 <span class="caseImg">
@@ -123,9 +123,9 @@
         <div class="title">
             <h2>Conheça um pouco da nossa equipe</h2>
             <span class="border"></span>
-        </div> 
+        </div>
         <legend>Especialistas capacitados para atender a sua empresa da forma que ela precisa. Trabalhamos como um time. São essas pessoas que estarão ao seu lado para te ajudar a alcançar o resultado que você deseja.</legend>
-    
+
         <div class='equipe-container'>
             <div class='equipe-box' >
                 <span class='gradient'></span>
@@ -145,7 +145,7 @@
                     <h4>Alan da Costa</h4>
                     <p class='cargo'>Gerente de projetos e obras</p>
                     <span class='border'></span>
-                    <legend style="display: none;">Com mais de 18 anos de experiência no ambiente corporativo em multinacional líder do segmento de armazenagem de grãos nas áreas de Engenharias e Planejamento (Gestão de S&OP), atuou durante vários anos no desenvolvimento de layouts e sistemas de armazenagem de grãos na agroindústria. 
+                    <legend style="display: none;">Com mais de 18 anos de experiência no ambiente corporativo em multinacional líder do segmento de armazenagem de grãos nas áreas de Engenharias e Planejamento (Gestão de S&OP), atuou durante vários anos no desenvolvimento de layouts e sistemas de armazenagem de grãos na agroindústria.
                         Por 8 anos foi responsável pela coordenação técnica de equipes de engenharia no desenvolvimento de projetos de unidades agrícolas. Desde o nível fazenda até grandes sistemas de transporte e armazenagem de alta capacidade. Também responsável pela gestão de equipes multidisciplinares e equipes terceirizadas, voltado na implantação de melhores práticas na gestão de obras e projetos, desenvolvendo atividades deste a avaliação de viabilidade até a montagem final.
                     </legend>
                 </div>
@@ -181,7 +181,7 @@
                     <span class='border'></span>
 
                     <legend style="display: none;">Manufacturing<br/>
-                        Engenheiro de qualidade com mais de cinco anos de experiência em qualidade, atuando em diferentes áreas da qualidade, manufatura e vendas. 
+                        Engenheiro de qualidade com mais de cinco anos de experiência em qualidade, atuando em diferentes áreas da qualidade, manufatura e vendas.
                         </legend>
                     <textarea style="display: none;"></textarea>
                 </div>

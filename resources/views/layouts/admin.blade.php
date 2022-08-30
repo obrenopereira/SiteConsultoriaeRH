@@ -27,10 +27,10 @@
     <link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
     <link rel="stylesheet" href="/css/plugins/richtext.min.css">
     <link rel="stylesheet" href="/css/admin/app.css">
-    
+
 </head>
 
-<body id='body-admin'>  
+<body id='body-admin'>
 
     <main>
         <header>
@@ -41,7 +41,7 @@
         </header>
         <nav>
             <a href="/admin/vagas" class='logotipo' title="TS - Consultoria Logotipo" alt="TS - Consultoria Ínicio">
-                <img src="<?php echo asset('storage/configuracoes/'.$configuracoes->logotipo_1); ?>">
+                <img src="<?php echo asset('configuracoes/'.$configuracoes->logotipo_1); ?>">
             </a>
                 <ul class="navbar">
                     <li class="link-vagas">
@@ -86,15 +86,15 @@
                         </form>
                     </li>
                 </ul>
-                
-            
+
+
         </nav>
         @yield('content')
         <footer>
            <p>Copyright (c) 2022 Agência Fenix MKT All Rights Reserved</p>
         </footer>
     </main>
- 
+
     <script src="/js/plugins/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>

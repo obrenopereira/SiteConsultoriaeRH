@@ -78,7 +78,7 @@
         <div class='box-left'>
             <div class='header-box'>
                 <div class='imagem'>
-                    <img src="<?php echo asset('storage/empresas/'.$vaga->thumbnail); ?>" alt="">
+                    <img src="<?php echo asset('empresas/'.$vaga->thumbnail); ?>" alt="">
                 </div>
                 <div class='text'>
                     <h1><?php echo $vaga->name?></h1>
@@ -131,7 +131,7 @@
         <div class='box-right'>
             <div class='box-right-header'>
                 <div class='imagem'>
-                    <img src="<?php echo asset('storage/empresas/'.$vaga->thumbnail); ?>" alt="">
+                    <img src="<?php echo asset('empresas/'.$vaga->thumbnail); ?>" alt="">
                 </div>
                 <h3><?php echo $vaga->name?></h3>
                 <img src="/img/site/share_tiny.png" class='sharebutton' alt="">

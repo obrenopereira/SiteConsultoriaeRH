@@ -27,7 +27,7 @@
                     <i class="fa fa-arrow-left" aria-hidden="true"></i>
                    Voltar para Listagem
                 </a>
-        
+
                 <a href="javascript:void(0)" class="enviar">
                     <i class="fa fa-<?php echo @($cliente) ? 'floppy-o': 'plus' ?>" aria-hidden="true"></i>
                    <?php echo @($cliente) ? 'Salvar Edição' : 'Cadastrar Cliente'; ?>
@@ -39,7 +39,7 @@
                 @csrf
                 <input type="hidden" id='id' value="<?php echo @($cliente) ? $cliente->id : '' ?>">
                 <input type="hidden" class="url" value="/admin/clientes/sendform">
-            
+
                 <div class='row'>
                     <div class='form-group' style='width: 100%'>
                         <label for="titulo">Nome:</label>
@@ -52,13 +52,13 @@
                         <label>Logotipo:</label>
                         <input type="file" accept=".jpeg, .jpg, .png" hidden id='imagem' class='data-form input_upload' name='imagem'>
                         <label for="imagem" class='preview <?php echo @($cliente && $cliente->imagem != '') ? 'preview-active' : '' ?>'>
-                            <img src="<?php echo @($cliente) ?  asset('storage/clientes/'.$cliente->imagem) : '' ?>" alt="">
+                            <img src="<?php echo @($cliente) ?  asset('clientes/'.$cliente->imagem) : '' ?>" alt="">
                             <button type='button'>Enviar imagem</button>
                             <span class='gradient'>
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                             </span>
                         </label>
-                    </div>                 
+                    </div>
                 </div>
             </form>
         </div>

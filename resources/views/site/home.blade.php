@@ -9,7 +9,7 @@
         <span class='gradient1'></span>
         <span class='gradient2'></span>
         <span class='gradient3'></span>
-        <img src="<?php echo asset('storage/galeria/'.$bannerPrincipal->imagem); ?>"  class='bannerIMG' alt="<?=$bannerPrincipal->alt_seo?>" title="<?=$bannerPrincipal->title_seo?>">
+        <img src="<?php echo asset('galeria/'.$bannerPrincipal->imagem); ?>"  class='bannerIMG' alt="<?=$bannerPrincipal->alt_seo?>" title="<?=$bannerPrincipal->title_seo?>">
 
         <div class="bannerHomeText">
             <h1>Você com os resultados que sempre planejou!</h1>
@@ -136,7 +136,7 @@
 <section id='backgroundhOME'>
     <div class='backgroundHomeContainer'>
         <div class="backgroundHomeImg">
-            <img src="<?php echo asset('storage/galeria/'.$bannerSecundario->imagem); ?>" alt="<?=$bannerSecundario->alt_seo?>" title="<?=$bannerSecundario->title_seo?>">
+            <img src="<?php echo asset('galeria/'.$bannerSecundario->imagem); ?>" alt="<?=$bannerSecundario->alt_seo?>" title="<?=$bannerSecundario->title_seo?>">
         </div>
         <div class='BackgroundHomeText'>
             <h2>Desenvolvemos pessoas e processos que geram resultados</h2>
@@ -157,7 +157,7 @@
 	<div class="slide-track">
         <?php foreach($clientes as $cliente) { ?>
         <a href="javascript:void(0)" class='empresasBoxA'>
-            <img src="<?php echo asset('storage/clientes/'.$cliente->imagem); ?>" alt="Cliente - <?=$cliente->name?>" title="Cliente - <?=$cliente->name?>">
+            <img src="<?php echo asset('clientes/'.$cliente->imagem); ?>" alt="Cliente - <?=$cliente->name?>" title="Cliente - <?=$cliente->name?>">
         </a>
         <?php } ?>
 	</div>

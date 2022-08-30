@@ -31,7 +31,7 @@
                     <tr>
                         <td style='width: 0.5em; padding: 2em 1em;'><?=$cliente->id?></td>
                         <td class='td-image'>
-                            <span><img src="<?php echo asset('storage/clientes/'.$cliente->imagem); ?>" alt=""></span>
+                            <span><img src="<?php echo asset('clientes/'.$cliente->imagem); ?>" alt=""></span>
                         </td>
                         <td><?=$cliente->name?></td>
                         <td class="td-acoes" style='width: 16em'>
@@ -59,5 +59,5 @@
         border-bottom: 1px solid #173979;
         margin-bottom: 0.5em
     }
- 
+
 </style>

@@ -35,7 +35,7 @@
                         <td><?=$value->name?></td>
                         <td class='td-preview'>
                             <span>
-                                <img src="<?php echo asset('storage/galeria/'.$value->imagem); ?>" alt="">
+                                <img src="<?php echo asset('galeria/'.$value->imagem); ?>" alt="">
                             </span>
                         </td>
                         <td class="td-acoes">

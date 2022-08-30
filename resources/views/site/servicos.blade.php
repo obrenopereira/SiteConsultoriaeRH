@@ -19,8 +19,8 @@
             <h3>Metodologia</h3>
             <h2>Nossa metodologia de trabalho</h2>
         </div>
-        <p class="descMetodologia">Consiste em um formato de trabalho personalizado para cada serviço que disponibilizamos, entregando o melhor resultado dentro dos padrões de cada cliente e de mercado. Para isso, um forte sistema de capacitação de pessoas, com processos bem definidos e estruturados, levam a cada cliente o resultado que as pessoas e as organizações esperam. 
-            Trabalhamos a partir do diagnóstico de cada situação para entregar a melhor solução, seja na área de Consultoria em Gestão Empresarial, em Gestão Estratégica de Pessoas, Recrutamento e Seleção de Pessoal, Coaching ou Gerenciamento de Projetos. 
+        <p class="descMetodologia">Consiste em um formato de trabalho personalizado para cada serviço que disponibilizamos, entregando o melhor resultado dentro dos padrões de cada cliente e de mercado. Para isso, um forte sistema de capacitação de pessoas, com processos bem definidos e estruturados, levam a cada cliente o resultado que as pessoas e as organizações esperam.
+            Trabalhamos a partir do diagnóstico de cada situação para entregar a melhor solução, seja na área de Consultoria em Gestão Empresarial, em Gestão Estratégica de Pessoas, Recrutamento e Seleção de Pessoal, Coaching ou Gerenciamento de Projetos.
             Vamos contribuir para o desenvolvimento organizacional e o crescimento de seu capital humano, buscando alavancar os Resultados Estratégicos da Empresa e da Carreira das pessoas que nela atuam, gerando, assim, engajamento e sucesso empresarial e profissional. <br/>Para termos todos estes dados bem alinhados para você Gestor, realizamos:
         </p>
 
@@ -60,7 +60,7 @@
                </div>
             </div>
             <!-- ----- -->
-           
+
         </div>
         <div class="subtitle">
             <h2>Quais serviços a TS Consultoria oferece?</h2>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="collapse-body">
                     <p>Atuamos com ações e estratégias aplicadas de forma personalizada em cada empresa, proporcionando uma visão holística e estratégica das atividades empresariais, com foco na criação de valor e resultados planejados para a sua empresa.
-                        Nosso trabalho é desenvolvido a partir processos de consultoria, coaching em grupo e individual, gerenciamento de projetos, treinamentos e palestras para atingir o seu resultado. 
+                        Nosso trabalho é desenvolvido a partir processos de consultoria, coaching em grupo e individual, gerenciamento de projetos, treinamentos e palestras para atingir o seu resultado.
                         A TS Consultoria orienta você, empresário, na tomada de decisões estratégicas que buscam o sucesso sustentável, a partir da realização do Diagnóstico Organizacional, da elaboração do Planejamento Estratégico e Análise e Implementação de Processos, Fluxo e Desenvolvimento Humano.</p>
                     <a href="https://api.whatsapp.com/send?phone=5555996879915" target="_blank">Fale com um especialista <img src="/img/site/seta_preta.svg" alt=""></a>
                 </div>
@@ -157,7 +157,7 @@
         <h3>Resultados</h3>
     </div>
     <div class="banner">
-        <img src="<?php echo asset('storage/galeria/'.$bannerUnico->imagem); ?>" alt="<?=$bannerUnico->alt_seo?>" title="<?=$bannerUnico->title_seo?>">
+        <img src="<?php echo asset('galeria/'.$bannerUnico->imagem); ?>" alt="<?=$bannerUnico->alt_seo?>" title="<?=$bannerUnico->title_seo?>">
     </div>
 </section>
 <section id="contato" class="contato">

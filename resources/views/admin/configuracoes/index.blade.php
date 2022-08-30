@@ -97,7 +97,7 @@
                         <label for="logotipo_1">Logotipo Primária:</label>
                         <input type="file" accept=".jpeg, .jpg, .png" hidden id='logotipo_1' class='data-form input_upload' name='logotipo_1'>
                         <label for="logotipo_1" style='height: 3em' class='preview <?php echo @($configuracoes && $configuracoes->logotipo_1 != '') ? 'preview-active' : '' ?>'>
-                            <img src="<?php echo @($configuracoes) ?  asset('storage/configuracoes/'.$configuracoes->logotipo_1) : '' ?>" alt="">
+                            <img src="<?php echo @($configuracoes) ?  asset('configuracoes/'.$configuracoes->logotipo_1) : '' ?>" alt="">
                             <button type='button'>Enviar imagem</button>
                             <span class='gradient'>
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -108,7 +108,7 @@
                         <label for="logotipo_2">Logotipo Secundária:</label>
                         <input type="file" accept=".jpeg, .jpg, .png" hidden id='logotipo_2' class='data-form input_upload' name='logotipo_2'>
                         <label for="logotipo_2" style='height: 3em' class='preview <?php echo @($configuracoes && $configuracoes->logotipo_2 != '') ? 'preview-active' : '' ?>'>
-                            <img src="<?php echo @($configuracoes) ?  asset('storage/configuracoes/'.$configuracoes->logotipo_2) : '' ?>" alt="">
+                            <img src="<?php echo @($configuracoes) ?  asset('configuracoes/'.$configuracoes->logotipo_2) : '' ?>" alt="">
                             <button type='button'>Enviar imagem</button>
                             <span class='gradient'>
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -116,7 +116,7 @@
                         </label>
                     </div>
                 </div>
-             
+
             </form>
         </div>
    </div>

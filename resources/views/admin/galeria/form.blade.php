@@ -67,7 +67,7 @@
                         <label for="">Imagem:</label>
                         <input type="file" accept=".jpeg, .jpg, .png" hidden id='imagem' class='data-form input_upload' name='imagem'>
                         <label for='imagem' class='imagem-content <?php echo @($galeria && $galeria->imagem != '') ? 'preview-active' : '' ?>'>
-                            <img src="<?php echo @($galeria) ?  asset('storage/galeria/'.$galeria->imagem) : '' ?>" alt="">
+                            <img src="<?php echo @($galeria) ?  asset('galeria/'.$galeria->imagem) : '' ?>" alt="">
                             <button type='button'>Enviar imagem</button>
                             <span class='gradient'>
                                 <i class="fa fa-pencil" aria-hidden="true"></i>

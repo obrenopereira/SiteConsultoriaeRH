@@ -36,7 +36,7 @@
                 @csrf
                 <input type="hidden" id='id' value="<?php echo @($empresa) ? $empresa->id : '' ?>">
                 <input type="hidden" class="url" value="/admin/empresas/sendform">
-            
+
                 <div class='row'>
                     <div class='form-group' style='width: 46% !important'>
                         <label for="titulo">Título:</label>
@@ -54,7 +54,7 @@
                         <label>Imagem principal:</label>
                         <input type="file" accept=".jpeg, .jpg, .png" hidden id='imagem_principal' class='data-form input_upload' name='imagem_principal'>
                         <label for="imagem_principal" class='preview <?php echo @($empresa && $empresa->logotipo != '') ? 'preview-active' : '' ?>'>
-                            <img src="<?php echo @($empresa) ?  asset('storage/empresas/'.$empresa->logotipo) : '' ?>" alt="">
+                            <img src="<?php echo @($empresa) ?  asset('empresas/'.$empresa->logotipo) : '' ?>" alt="">
                             <button type='button'>Enviar imagem</button>
                             <span class='gradient'>
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -65,7 +65,7 @@
                         <label>Imagem Secundaria:</label>
                         <input type="file" hidden accept=".jpeg, .jpg, .png" id='imagem_secundaria' class='data-form input_upload' name='imagem_secundaria'>
                         <label  for="imagem_secundaria" class='preview <?php echo @($empresa && $empresa->thumbnail != '') ? 'preview-active' : '' ?>' style='width: 9em'>
-                            <img style='width: 56%' src="<?php echo @($empresa) ?  asset('storage/empresas/'.$empresa->thumbnail) : '' ?>" alt="">
+                            <img style='width: 56%' src="<?php echo @($empresa) ?  asset('empresas/'.$empresa->thumbnail) : '' ?>" alt="">
                             <button type='button'>Enviar imagem</button>
                             <span class='gradient'>
                                 <i class="fa fa-pencil" aria-hidden="true"></i>

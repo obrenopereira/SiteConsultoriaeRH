@@ -13,7 +13,7 @@
             <p>Entenda como a nossa metodologia e a forma que trabalhamos ajudou algumas empresas a conseguirem melhores resultados organizacionais.</p>
         </div>
         <div class='casesBackground'>
-            <img src="<?php echo asset('storage/galeria/'.$bannerPrincipal->imagem); ?>" alt="<?=$bannerPrincipal->alt_seo?>" title="<?=$bannerPrincipal->title_seo?>">
+            <img src="<?php echo asset('galeria/'.$bannerPrincipal->imagem); ?>" alt="<?=$bannerPrincipal->alt_seo?>" title="<?=$bannerPrincipal->title_seo?>">
         </div>
     </div>
 </section>
@@ -99,14 +99,14 @@
 <section id="depoimentos">
     <div class="container">
         <div class="depoimentos-list">
-            
+
             <div class='depoimentos-container'>
                 <div class="depoimentos-list-content">
                     <h2>Depoimentos</h2>
                     <h3>O que nossos clientes falam sobre nosso trabalho</h3>
-            
+
                     <div class="depoimentos-box boxActive" data-title="Sementes Costa Beber" data-text="Com o suporte da TS Consultoria evoluímos na estruturação da área de Recursos Humanos, focando em políticas mais humanas, aprimorando processos, implantando ferramentas e desenvolvendo, sobretudo, pessoas. Contamos com treinamentos de alto nível para desenvolver nosso time.  Somos responsáveis pela vida do colaborador durante a sua permanência na empresa e ter apoio de especialistas para, aos poucos, transformar a área de Gestão de Pessoas em estratégia de negócio, é fundamental.">
-                        <span class='picture-box'> 
+                        <span class='picture-box'>
                             <img src="img/site/Angela.jpg" alt="">
                         </span>
                         <div>
@@ -133,7 +133,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="depoimentosBoxContent">
                     <img src="/img/site/aspas.svg" alt="" class="aspas">
                     <h4>Sementes Costa Bebe</h4>
@@ -149,7 +149,7 @@
                     </p>
                     <span class='border'>
                     </span>
-                    
+
                     <h5 class="depoimentoAutor">Angela Hendges</h5>
                 </div>
             </div>

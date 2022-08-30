@@ -12,7 +12,7 @@
         <legend>Acesse todas as nossa vagas e participe <strong>gratuitamente</strong> dos melhores processos e oportunidades para a sua carreira!</legend>
     </div>
     <div class="box-right">
-        <img src="<?php echo asset('storage/galeria/'.$bannerPrincipal->imagem); ?>" alt="<?=$bannerPrincipal->alt_seo?>" title="<?=$bannerPrincipal->title_seo?>">
+        <img src="<?php echo asset('galeria/'.$bannerPrincipal->imagem); ?>" alt="<?=$bannerPrincipal->alt_seo?>" title="<?=$bannerPrincipal->title_seo?>">
     </div>
 </section>
 <section class="encontre">

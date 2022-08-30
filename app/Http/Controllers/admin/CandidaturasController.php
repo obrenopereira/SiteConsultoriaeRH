@@ -59,7 +59,7 @@ class CandidaturasController extends Controller
 
     public function download($id)
     {
-        $file= public_path(). "/storage/curriculos/curriculo-".$id.".pdf";
+        $file= public_path(). "/curriculos/curriculo-".$id.".pdf";
         $candidatura = $this->candidaturas->getCandidaturaById($id)[0];
 
         $headers = ['Content-Type' => 'application/pdf',];

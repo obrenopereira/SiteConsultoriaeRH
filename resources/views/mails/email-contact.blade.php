@@ -7,15 +7,15 @@
     <meta name="x-apple-disable-message-reformatting" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">  <!-- Disable auto-scale in iOS 10 Mail entirely -->
     <title style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"></title> <!-- The title tag shows in email notifications, like Android 4.4. -->
 
-    
+
 
     <!-- CSS Reset : BEGIN -->
-    
+
 
     <!-- CSS Reset : END -->
 
     <!-- Progressive Enhancements : BEGIN -->
-    
+
 
 
 </head>
@@ -33,7 +33,7 @@
           	<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;mso-table-lspace: 0pt !important;mso-table-rspace: 0pt !important;border-spacing: 0 !important;border-collapse: collapse !important;table-layout: fixed !important;margin: 0 auto !important;">
           		<tr style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
           			<td class="logo" style="text-align: center;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;mso-table-lspace: 0pt !important;mso-table-rspace: 0pt !important;">
-			            <h1 style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-family: 'Work Sans', sans-serif;color: #000000;margin-top: 0;font-weight: 400;margin: 0;"><a href="{{env('APP_URL')}}" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-decoration: none;color: #000000;font-size: 20px;font-weight: 700;text-transform: uppercase;font-family: 'Poppins', sans-serif;"><img style="max-width: 58%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;-ms-interpolation-mode: bicubic;" src="{{env('APP_URL')}}/storage/configuracoes/TSConsultoria%20-%20Logotipo%202.png"></a></h1>
+			            <h1 style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-family: 'Work Sans', sans-serif;color: #000000;margin-top: 0;font-weight: 400;margin: 0;"><a href="{{env('APP_URL')}}" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-decoration: none;color: #000000;font-size: 20px;font-weight: 700;text-transform: uppercase;font-family: 'Poppins', sans-serif;"><img style="max-width: 58%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;-ms-interpolation-mode: bicubic;" src="{{env('APP_URL')}}/configuracoes/TSConsultoria%20-%20Logotipo%202.png"></a></h1>
 			            <ul class="navigation" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;">
 			            	<li style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;list-style: none;display: inline-block;margin-left: 5px;font-size: 13px;font-weight: 500;"><a href="{{env('APP_URL')}}/" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-decoration: none;color: rgba(0,0,0,.4);">Home</a></li>
 			            	<li style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;list-style: none;display: inline-block;margin-left: 5px;font-size: 13px;font-weight: 500;"><a href="{{env('APP_URL')}}/servicos" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-decoration: none;color: rgba(0,0,0,.4);">Serviços</a></li>
@@ -131,7 +131,7 @@
                     </tr>
                   </table>
                 </td>
-                
+
               </tr>
             </table>
         	</td>

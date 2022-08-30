@@ -32,11 +32,11 @@
                     <tr>
                         <td style='width: 0.5em; padding: 2em 1em;'><?=$empresa->id?></td>
                         <td class='td-image'>
-                            <span><img src="<?php echo asset('storage/empresas/'.$empresa->logotipo); ?>" alt=""></span>
+                            <span><img src="<?php echo asset('empresas/'.$empresa->logotipo); ?>" alt=""></span>
                         </td>
                         <td class='td-image'>
                               <span>
-                                <img src="<?php echo asset('storage/empresas/'.$empresa->thumbnail); ?>" alt="">
+                                <img src="<?php echo asset('empresas/'.$empresa->thumbnail); ?>" alt="">
                               </span>
                         </td>
                         <td><?=$empresa->name?></td>
@@ -65,5 +65,5 @@
         border-bottom: 1px solid #173979;
         margin-bottom: 0.5em
     }
- 
+
 </style>

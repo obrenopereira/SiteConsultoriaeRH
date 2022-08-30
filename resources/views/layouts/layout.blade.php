@@ -32,7 +32,7 @@
         <header class="@yield('headerInterno')">
            <nav>
                 <a href="/" class='logotipo' title="TS - Consultoria Logotipo" alt="TS - Consultoria Ínicio">
-                    <img src="<?php echo asset('storage/configuracoes/'.$configuracoes->logotipo_1); ?>">
+                    <img src="<?php echo asset('configuracoes/'.$configuracoes->logotipo_1); ?>">
                 </a>
 
                 <ul class="navbar">
@@ -60,7 +60,7 @@
         <footer>
             <div class='container'>
                 <div class='footer-header'>
-                    <a href=""><img src="<?php echo asset('storage/configuracoes/'.$configuracoes->logotipo_1); ?>"></a>
+                    <a href=""><img src="<?php echo asset('configuracoes/'.$configuracoes->logotipo_1); ?>"></a>
                     <div class='footer-infos'>
                         <h4>Contato</h4>
                         <p>{{ $configuracoes->email_contato }}</p>
