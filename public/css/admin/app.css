@@ -1,0 +1,866 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+.skills-content-active .skills-form button, #body-admin .visualizar-modal .content .downloadPDF, #body-admin main .container .box .box-body #table tbody tr .td-acoes button, #body-admin main .container .box .box-body #table tbody tr .td-acoes a, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes button, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes a, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes button, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes a, #body-admin main .container .box .box-header .buttons button, #body-admin main .container .box .box-header .buttons a, #body-admin main .container .form-group .preview button, #body-admin main .container .form-group .imagem-content button {
+  font-family: "Mukta";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 142.5%;
+  color: #fff;
+  padding: 0.5em 1.5em;
+  background-color: #FFC225;
+  border-radius: 0.25em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .skills-content-active .skills-form button, #body-admin .visualizar-modal .content .downloadPDF, #body-admin main .container .box .box-body #table tbody tr .td-acoes button, #body-admin main .container .box .box-body #table tbody tr .td-acoes a, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes button, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes a, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes button, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes a, #body-admin main .container .box .box-header .buttons button, #body-admin main .container .box .box-header .buttons a, #body-admin main .container .form-group .preview button, #body-admin main .container .form-group .imagem-content button {
+    font-size: 1.3em;
+  }
+}
+@media (max-width: 425px) {
+  .skills-content-active .skills-form button, #body-admin .visualizar-modal .content .downloadPDF, #body-admin main .container .box .box-body #table tbody tr .td-acoes button, #body-admin main .container .box .box-body #table tbody tr .td-acoes a, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes button, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes a, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes button, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes a, #body-admin main .container .box .box-header .buttons button, #body-admin main .container .box .box-header .buttons a, #body-admin main .container .form-group .preview button, #body-admin main .container .form-group .imagem-content button {
+    font-size: 1.2em;
+  }
+}
+.skills-content-active .skills-form button:hover, #body-admin .visualizar-modal .content .downloadPDF:hover, #body-admin main .container .box .box-body #table tbody tr .td-acoes button:hover, #body-admin main .container .box .box-body #table tbody tr .td-acoes a:hover, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes button:hover, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes a:hover, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes button:hover, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes a:hover, #body-admin main .container .box .box-header .buttons button:hover, #body-admin main .container .box .box-header .buttons a:hover, #body-admin main .container .form-group .preview button:hover, #body-admin main .container .form-group .imagem-content button:hover {
+  background-color: #f7ba1e;
+}
+.skills-content-active .skills-form button i, #body-admin .visualizar-modal .content .downloadPDF i, #body-admin main .container .box .box-body #table tbody tr .td-acoes button i, #body-admin main .container .box .box-body #table tbody tr .td-acoes a i, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes button i, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes a i, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes button i, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes a i, #body-admin main .container .box .box-header .buttons button i, #body-admin main .container .box .box-header .buttons a i, #body-admin main .container .form-group .preview button i, #body-admin main .container .form-group .imagem-content button i {
+  margin-right: 0.5em;
+}
+
+.body-auth {
+  background: linear-gradient(149deg, rgb(14, 28, 38) 0%, rgb(0, 53, 84) 44%, rgb(0, 62, 81) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.body-auth #app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.body-auth #app .navbar {
+  display: none;
+}
+.body-auth #app main {
+  width: 24%;
+  background-color: #fff;
+  border-radius: 7px;
+  border: 2px solid #e0f4ff;
+}
+.body-auth #app main .container {
+  padding: 3em;
+  padding-bottom: 2em;
+}
+.body-auth #app main .container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.body-auth #app main .container form .form-group {
+  width: 100%;
+  margin-bottom: 1em;
+  font-family: "Mukta";
+}
+.body-auth #app main .container form .form-group .col-md-12 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+.body-auth #app main .container form .form-group .col-md-12 .invalid-feedback {
+  width: 100%;
+  margin-top: 14px;
+}
+.body-auth #app main .container form .form-group label {
+  font-size: 1em;
+  color: #484848;
+}
+.body-auth #app main .container form .form-group input {
+  font-size: 1em;
+  color: #484848;
+  margin-top: 0.5em;
+  width: 90%;
+  height: 2em;
+  border: 1px solid #898989;
+  border-radius: 3px;
+  padding: 0.5em 1em;
+}
+.body-auth #app main .container form .form-group input:focus {
+  outline: none;
+}
+.body-auth #app main .container .card-header-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3.5em;
+}
+.body-auth #app main .container .card-header-login img {
+  max-width: 15em;
+}
+.body-auth #app main .container .form-check {
+  display: flex;
+  width: 100%;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+}
+.body-auth #app main .container .form-check input {
+  width: 1.5em !important;
+  margin-top: 0em !important;
+  margin-left: 1em;
+  cursor: pointer;
+}
+.body-auth #app main .container .login-button {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.body-auth #app main .container .login-button button {
+  background-color: #FFC225;
+  border: 0px;
+  border-radius: 2px;
+  color: #fff;
+  padding: 0.8em 0em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+.body-auth #app main .container .login-button a {
+  text-decoration: none;
+  margin-bottom: 2em;
+  color: #003859;
+}
+
+.select2-results__options {
+  font-size: 0.9em;
+  font-family: "Ubuntu";
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: #FFC225;
+}
+
+.select2-results__option--selectable {
+  color: #5c6871;
+}
+
+#body-admin {
+  background: linear-gradient(149deg, rgb(14, 28, 38) 0%, rgb(0, 53, 84) 44%, rgb(0, 62, 81) 100%);
+}
+#body-admin main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  height: 100vh;
+}
+#body-admin main header {
+  width: 87.7%;
+  height: 5em;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#body-admin main header div {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  font-family: "Ubuntu";
+  color: #d7dbff;
+}
+#body-admin main header div span {
+  width: 3em;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #FFC225;
+  font-family: "Ubuntu";
+  font-weight: 600;
+  color: #d7dbff;
+  margin-right: 2em;
+  margin-left: 0.7em;
+}
+#body-admin main nav {
+  width: 12.3%;
+  position: absolute;
+  left: 0;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#body-admin main nav .logotipo {
+  display: flex;
+  align-items: center;
+  padding: 1em 0em;
+  border-bottom: 2px solid #07283c;
+  padding-left: 2em;
+}
+#body-admin main nav .logotipo img {
+  width: 10.5em;
+}
+#body-admin main nav ul {
+  padding: 2em 1.7em;
+}
+#body-admin main nav ul li {
+  display: flex;
+  align-items: center;
+  height: 3em;
+}
+#body-admin main nav ul li i {
+  color: #d7dbff;
+}
+#body-admin main nav ul li a {
+  width: 100%;
+  color: #d7dbff;
+  text-decoration: none;
+  font-family: "Mukta";
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#body-admin main nav ul li:hover {
+  color: #ebedff;
+}
+#body-admin main nav ul li:hover i {
+  color: #ebedff;
+}
+#body-admin main nav ul li:hover a {
+  color: #ebedff;
+}
+#body-admin main nav ul .logout-li {
+  position: absolute;
+  bottom: 0em;
+  left: 0;
+  width: 85.6%;
+  padding-left: 2em;
+  background-color: #012b44;
+  border-right: 1px solid #1b2f67;
+}
+#body-admin main .container {
+  width: 87.7%;
+  display: flex;
+  background-color: #FFF;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#body-admin main .container .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+#body-admin main .container .row-left {
+  width: 58%;
+}
+#body-admin main .container legend {
+  font-family: "Ubuntu";
+  font-size: 0.9em;
+  margin-bottom: 2em;
+  color: rgba(81, 81, 81, 0.71);
+}
+#body-admin main .container .form-group-3 {
+  display: flex;
+  flex-direction: column;
+  font-family: "Mukta";
+  width: 18.5%;
+}
+#body-admin main .container .form-group-3 label {
+  margin-bottom: 9px;
+  color: #485258;
+}
+#body-admin main .container .form-group-3 input, #body-admin main .container .form-group-3 select, #body-admin main .container .form-group-3 .select2-selection--multiple, #body-admin main .container .form-group-3 .select2-selection {
+  background-color: #fff;
+  font-family: "Ubuntu";
+  width: 100%;
+  padding: 0.9em 1em;
+  border: 1px solid #cdd7dd;
+  border-radius: 3px;
+}
+#body-admin main .container .form-group-3 .inputColor {
+  height: 3.5em;
+}
+#body-admin main .container .form-group-2 {
+  display: flex;
+  flex-direction: column;
+  font-family: "Mukta";
+  width: 100%;
+}
+#body-admin main .container .form-group-2 label {
+  margin-bottom: 9px;
+  color: #485258;
+}
+#body-admin main .container .form-group-2 textarea {
+  width: 100%;
+  background-color: #fff;
+  font-family: "Ubuntu";
+  width: 100%;
+  padding: 0.9em 1em;
+  border: 1px solid #cdd7dd;
+  border-radius: 3px;
+}
+#body-admin main .container .form-group-2 #descricao-text .richText-editor {
+  height: 8.5em;
+}
+#body-admin main .container .form-group {
+  display: flex;
+  flex-direction: column;
+  width: 24%;
+}
+#body-admin main .container .form-group label {
+  font-family: "Mukta";
+  margin-bottom: 9px;
+  color: #485258;
+}
+#body-admin main .container .form-group input, #body-admin main .container .form-group select, #body-admin main .container .form-group .select2-selection--multiple, #body-admin main .container .form-group .select2-selection, #body-admin main .container .form-group textarea {
+  background-color: #fff;
+  font-family: "Ubuntu";
+  width: 100%;
+  padding: 0.9em 1em;
+  border: 1px solid #cdd7dd;
+  border-radius: 3px;
+  height: 3em;
+}
+#body-admin main .container .form-group .select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #000;
+}
+#body-admin main .container .form-group #select2-area-container {
+  font-size: 0.89em;
+  padding-top: 6px;
+}
+#body-admin main .container .form-group .imagem-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 23em;
+  border: 1px solid #cdd7dd;
+  border-radius: 3px;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+  padding: 2em 2em;
+}
+#body-admin main .container .form-group .imagem-content .gradient {
+  position: absolute;
+  cursor: pointer;
+}
+#body-admin main .container .form-group .imagem-content .gradient i {
+  color: #fff;
+  font-size: 3em;
+}
+#body-admin main .container .form-group .imagem-content button {
+  border: 0px;
+  font-size: 1em;
+}
+#body-admin main .container .form-group .imagem-content img {
+  height: 100%;
+  display: none;
+}
+#body-admin main .container .form-group .preview {
+  background-color: #fff;
+  border: 1px solid #cdd7dd;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 4px;
+  height: 6em;
+  cursor: pointer;
+  position: relative;
+}
+#body-admin main .container .form-group .preview img {
+  width: 100%;
+  display: none;
+}
+#body-admin main .container .form-group .preview .gradient {
+  position: absolute;
+  cursor: pointer;
+}
+#body-admin main .container .form-group .preview .gradient i {
+  color: #fff;
+  font-size: 3em;
+}
+#body-admin main .container .form-group .preview button {
+  border: 0px;
+  font-size: 0.9em;
+}
+#body-admin main .container .form-group .preview-active img {
+  display: block;
+}
+#body-admin main .container .form-group .preview-active button {
+  display: none;
+}
+#body-admin main .container .form-group .preview-active:hover .gradient {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#body-admin main .container .select2-selection--multiple, #body-admin main .container .select2-selection {
+  min-height: 2.6em;
+  padding: 0em 1em !important;
+  height: 1em !important;
+}
+#body-admin main .container .select2-selection--multiple .select2-selection__rendered, #body-admin main .container .select2-selection .select2-selection__rendered {
+  display: flex;
+  padding: 0;
+  padding-top: 8px;
+}
+#body-admin main .container .select2-search--inline {
+  display: none;
+}
+#body-admin main .container .select2-selection__choice {
+  margin-top: 0;
+  margin-bottom: 0px;
+  background-color: #FFC225;
+  border: 0px;
+  color: #fff;
+  padding: 0.3em 1em;
+  padding-left: 1.6em;
+  font-size: 0.9em;
+}
+#body-admin main .container .select2-selection__choice button {
+  left: 7px;
+  border-right: 0px;
+}
+#body-admin main .container .select2-selection__choice button:hover {
+  background-color: transparent;
+  color: #fff;
+}
+#body-admin main .container .select2-selection__choice button span {
+  color: #fff;
+  line-height: 25px;
+}
+#body-admin main .container .message-feedback, #body-admin main .container .message-feedback-session {
+  display: flex;
+  padding: 1em 1em;
+  font-family: "Ubuntu";
+  width: 93.5%;
+  padding-left: 2em;
+  margin-bottom: 9px;
+  font-size: 0.9em;
+}
+#body-admin main .container .alert-danger {
+  background-color: rgba(235, 61, 61, 0.3019607843);
+  color: #eb3d3d;
+}
+#body-admin main .container .alert-success {
+  background-color: rgba(61, 235, 85, 0.3019607843);
+  color: #2fc92a;
+}
+#body-admin main .container .alert-warning {
+  background-color: rgba(235, 222, 61, 0.3019607843);
+  color: #96932a;
+}
+#body-admin main .container .box {
+  height: 91%;
+  background-color: rgba(239, 245, 250, 0.5294117647);
+  width: 96%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 7px;
+  border: 1px solid rgba(233, 245, 255, 0.5411764706);
+}
+#body-admin main .container .box .box-header {
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.8em;
+}
+#body-admin main .container .box .box-header .title {
+  font-family: "Ubuntu";
+  font-size: 1.2em;
+  color: #003E51;
+}
+#body-admin main .container .box .box-header .title strong {
+  color: #a0b9d3;
+}
+#body-admin main .container .box .box-header .buttons {
+  display: flex;
+  align-items: center;
+}
+#body-admin main .container .box .box-header .buttons .skills-button {
+  border: 0px;
+  margin-left: 0.5em;
+  background-color: #003E51;
+}
+#body-admin main .container .box .box-header .buttons .skills-button:hover {
+  background-color: #034c77;
+}
+#body-admin main .container .box .box-header .buttons .skills-button:focus {
+  background-color: #003E51;
+}
+#body-admin main .container .box .box-header .buttons .skills-button img {
+  margin-right: 0.3em;
+}
+#body-admin main .container .box .box-header .buttons .remove-button {
+  background-color: #EB3D3D;
+  margin-right: 0.5em;
+}
+#body-admin main .container .box .box-header .buttons .remove-button:hover {
+  background-color: #F05454;
+}
+#body-admin main .container .box .box-header .buttons .enviar {
+  margin-left: 0.5em;
+  background-color: #32D957;
+}
+#body-admin main .container .box .box-header .buttons .enviar:hover {
+  background-color: #50E170;
+}
+#body-admin main .container .box .box-header .buttons .enviar:active {
+  background-color: #28BB49;
+}
+#body-admin main .container .box .box-body {
+  padding: 1em 2em;
+}
+#body-admin main .container .box .box-body #table_length, #body-admin main .container .box .box-body #table-empresa_length, #body-admin main .container .box .box-body #table-galeria_length {
+  font-family: "Ubuntu";
+}
+#body-admin main .container .box .box-body #table_length select, #body-admin main .container .box .box-body #table-empresa_length select, #body-admin main .container .box .box-body #table-galeria_length select {
+  background-color: #fff;
+}
+#body-admin main .container .box .box-body #table_filter, #body-admin main .container .box .box-body #table-empresa_filter, #body-admin main .container .box .box-body #table-galeria_filter {
+  margin-bottom: 2em;
+}
+#body-admin main .container .box .box-body #table_filter, #body-admin main .container .box .box-body #table-empresa_filter, #body-admin main .container .box .box-body #table-galeria_filter {
+  font-family: "Ubuntu";
+}
+#body-admin main .container .box .box-body #table_filter input, #body-admin main .container .box .box-body #table-empresa_filter input, #body-admin main .container .box .box-body #table-galeria_filter input {
+  background-color: #fff;
+  margin-left: 0.5em;
+}
+#body-admin main .container .box .box-body .dataTables_info {
+  font-family: "Ubuntu";
+  color: #003E51;
+}
+#body-admin main .container .box .box-body #table_paginate, #body-admin main .container .box .box-body #table-empresa_paginate, #body-admin main .container .box .box-body #table-galeria_paginate {
+  font-family: "Ubuntu";
+  color: #003E51;
+}
+#body-admin main .container .box .box-body #table_paginate .paginate_button, #body-admin main .container .box .box-body #table-empresa_paginate .paginate_button, #body-admin main .container .box .box-body #table-galeria_paginate .paginate_button {
+  color: #003E51 !important;
+}
+#body-admin main .container .box .box-body #table_paginate .paginate_button:hover, #body-admin main .container .box .box-body #table-empresa_paginate .paginate_button:hover, #body-admin main .container .box .box-body #table-galeria_paginate .paginate_button:hover {
+  background: #f7ba1e;
+  border: 0px;
+}
+#body-admin main .container .box .box-body #table_paginate .current, #body-admin main .container .box .box-body #table-empresa_paginate .current, #body-admin main .container .box .box-body #table-galeria_paginate .current {
+  background: #FFC225;
+  border: 0px;
+  color: #fff !important;
+}
+#body-admin main .container .box .box-body #table, #body-admin main .container .box .box-body #table-empresa, #body-admin main .container .box .box-body #table-galeria {
+  background-color: #fff;
+  font-family: "Ubuntu";
+  margin-bottom: 1em;
+  border-radius: 6px;
+  border-bottom: 0px;
+}
+#body-admin main .container .box .box-body #table thead tr, #body-admin main .container .box .box-body #table-empresa thead tr, #body-admin main .container .box .box-body #table-galeria thead tr {
+  padding: 4em;
+}
+#body-admin main .container .box .box-body #table thead tr th, #body-admin main .container .box .box-body #table-empresa thead tr th, #body-admin main .container .box .box-body #table-galeria thead tr th {
+  padding: 2em;
+  font-size: 0.9em;
+  color: #003E51;
+  border-bottom: 1px solid #003554;
+}
+#body-admin main .container .box .box-body #table tbody tr td, #body-admin main .container .box .box-body #table-empresa tbody tr td, #body-admin main .container .box .box-body #table-galeria tbody tr td {
+  padding: 1em 2em;
+  color: #003E51;
+  box-shadow: none;
+  border-bottom: none;
+  font-size: 0.9em;
+  vertical-align: middle;
+}
+#body-admin main .container .box .box-body #table tbody tr td .link-td, #body-admin main .container .box .box-body #table-empresa tbody tr td .link-td, #body-admin main .container .box .box-body #table-galeria tbody tr td .link-td {
+  display: flex;
+  align-items: center;
+  color: #003E51;
+}
+#body-admin main .container .box .box-body #table tbody tr td .link-td i, #body-admin main .container .box .box-body #table-empresa tbody tr td .link-td i, #body-admin main .container .box .box-body #table-galeria tbody tr td .link-td i {
+  margin-right: 0.5em;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-preview span, #body-admin main .container .box .box-body #table-empresa tbody tr .td-preview span, #body-admin main .container .box .box-body #table-galeria tbody tr .td-preview span {
+  display: flex;
+  height: 6em;
+  width: 9em;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 4px 7px;
+  background-color: rgba(1, 55, 87, 0.08);
+  border-radius: 5px;
+  border: 1px solid #013757;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-preview span img, #body-admin main .container .box .box-body #table-empresa tbody tr .td-preview span img, #body-admin main .container .box .box-body #table-galeria tbody tr .td-preview span img {
+  height: 100%;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-image span, #body-admin main .container .box .box-body #table-empresa tbody tr .td-image span, #body-admin main .container .box .box-body #table-galeria tbody tr .td-image span {
+  width: 9em;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #003E51;
+  padding: 1em 1em;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-image span img, #body-admin main .container .box .box-body #table-empresa tbody tr .td-image span img, #body-admin main .container .box .box-body #table-galeria tbody tr .td-image span img {
+  height: 65%;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-image1 div, #body-admin main .container .box .box-body #table-empresa tbody tr .td-image1 div, #body-admin main .container .box .box-body #table-galeria tbody tr .td-image1 div {
+  width: 9em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #003E51;
+  height: 5em;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-image1 div span, #body-admin main .container .box .box-body #table-empresa tbody tr .td-image1 div span, #body-admin main .container .box .box-body #table-galeria tbody tr .td-image1 div span {
+  padding: 1em;
+  margin-top: -11px;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-image1 div span img, #body-admin main .container .box .box-body #table-empresa tbody tr .td-image1 div span img, #body-admin main .container .box .box-body #table-galeria tbody tr .td-image1 div span img {
+  width: 100%;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-acoes form, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes form, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 15.5em;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-acoes button, #body-admin main .container .box .box-body #table tbody tr .td-acoes a, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes button, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes a, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes button, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes a {
+  border: 0px;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-acoes .btn-editar, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes .btn-editar, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes .btn-editar {
+  background-color: #FFC225;
+  margin-right: 0.5em;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-acoes .btn-editar:hover, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes .btn-editar:hover, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes .btn-editar:hover {
+  background-color: #f7ba1e;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-acoes .btn-editar:focus, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes .btn-editar:focus, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes .btn-editar:focus {
+  background-color: #987C17;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-acoes .btn-remover, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes .btn-remover, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes .btn-remover {
+  background-color: #EB3D3D;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-acoes .btn-visualizar, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes .btn-visualizar, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes .btn-visualizar {
+  background-color: #003E51;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-acoes .btn-visualizar:hover, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes .btn-visualizar:hover, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes .btn-visualizar:hover {
+  background-color: #003E51;
+}
+#body-admin main .container .box .box-body #table tbody tr .td-acoes .btn-visualizar:active, #body-admin main .container .box .box-body #table-empresa tbody tr .td-acoes .btn-visualizar:active, #body-admin main .container .box .box-body #table-galeria tbody tr .td-acoes .btn-visualizar:active {
+  background-color: #003E51;
+}
+#body-admin main footer {
+  background-color: #012b44;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Mukta";
+  width: 87.7%;
+  height: 3.82em;
+  font-size: 0.9em;
+  color: #d7dbff;
+}
+#body-admin .border-danger {
+  border: 1px solid #f99696 !important;
+}
+#body-admin .swal-modal {
+  font-family: "Ubuntu";
+}
+#body-admin .swal-modal .btnContinue {
+  background-color: #FFC225;
+}
+#body-admin .swal-modal .btnContinue:hover {
+  background-color: #FFF4D1;
+}
+#body-admin .formlogin input {
+  font-size: 1em;
+  color: #484848;
+  margin-top: 0.5em;
+  width: 100%;
+  height: 2em;
+  border: 1px solid #898989;
+  border-radius: 3px;
+  padding: 0.5em 1em;
+}
+#body-admin .formlogin input:focus {
+  outline: none;
+}
+#body-admin .gradient {
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.26);
+  height: 100%;
+  display: none;
+}
+#body-admin .visualizar-modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 200;
+  transition: 1.5s ease-out;
+}
+#body-admin .visualizar-modal .content {
+  width: 32%;
+  height: 70%;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 3em 3.5em;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+#body-admin .visualizar-modal .content .close-modal-visualizar {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 0.5em 0.6em;
+  border: 1px solid #FFC225;
+  cursor: pointer;
+  border-radius: 3px;
+  color: #FFC225;
+  transition: 0.3s ease-out;
+}
+#body-admin .visualizar-modal .content .close-modal-visualizar:hover {
+  background-color: #FFC225;
+  color: #fff;
+}
+#body-admin .visualizar-modal .content h2 {
+  font-family: "Ubuntu";
+  color: #003E51;
+  font-family: 1.2em;
+  margin-bottom: 2em;
+}
+#body-admin .visualizar-modal .content .downloadPDF {
+  border: 0px;
+  margin-top: 1em;
+}
+#body-admin .visualizar-modal .content .row {
+  display: flex;
+  justify-content: space-between;
+}
+#body-admin .visualizar-modal .content .row .group-form {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+  font-family: "Mukta";
+  margin-bottom: 1em;
+}
+#body-admin .visualizar-modal .content .row label {
+  color: #484848;
+  margin-bottom: 0.3em;
+}
+#body-admin .visualizar-modal .content .row input {
+  background-color: #fff;
+  font-family: "Ubuntu";
+  width: 100%;
+  padding: 0.9em 1em;
+  border: 1px solid #cdd7dd;
+  border-radius: 3px;
+}
+#body-admin .visualizar-modal .content .row .group-form-2 {
+  display: flex;
+  flex-direction: column;
+  font-family: "Mukta";
+  width: 100%;
+}
+#body-admin .visualizar-modal .content .row textarea {
+  font-size: 1em;
+  color: #484848;
+  margin-top: 0.5em;
+  width: 100%;
+  border: 1px solid #cdd7dd;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 0.5em 1em;
+  height: 17em;
+  overflow-y: auto;
+}
+#body-admin .visualizar-modal .content .row textarea:focus {
+  outline: none;
+}
+#body-admin .active-modal {
+  display: flex;
+  opacity: 1;
+  transition: 1.5s ease-out;
+}
+
+.skills-content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.11);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  opacity: 1;
+}
+
+.skills-content-active {
+  display: flex;
+  opacity: 1;
+}
+.skills-content-active .skills-form {
+  width: 25%;
+  height: 15em;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 3em;
+  position: relative;
+}
+.skills-content-active .skills-form .form-group {
+  width: 100% !important;
+}
+.skills-content-active .skills-form button {
+  margin-top: 1.5em;
+  width: 100%;
+  border: 0px;
+}
+.skills-content-active .skills-form .closeSkills {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: #003E51;
+  cursor: pointer;
+  top: 10px;
+  right: 16px;
+  font-size: 1.4em;
+}
+
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,3396 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap')
+
+// Variables
+
+// Colors
+
+////// Primary 
+
+$blue-dark: #003E51
+$blue: #003E51
+$blue-light: #EAECEE
+$blue-soft-light: #EAECEE
+
+////// Secondary
+
+// $yellow: #FF5D29
+// $yellow-light: #FF9F81
+
+
+////// Auxiliary
+
+$red: #EB3D3D
+$red-light: #F05454
+$red-dark: #D03333
+$green: #32D957
+$green-light: #50E170
+$green-dark: #28BB49
+$yellow: #FFC225
+$yellow-light: #FFF4D1
+$yellow-dark: #987C17
+
+////// White 
+
+$white: #FAF8F5
+$white-light: #FBFAF7
+$white-dark: #D5D3D0
+
+
+////// Black
+
+$black: #1A1A1A
+$black-light: #303030
+$black-dark: #101010
+
+
+/////// Gray
+
+$gray-1: #121212
+$gray-2: #161616
+$gray-3: #1B1B1B
+$gray-4: #202020
+$gray-5: #434343
+$gray-6: #676767
+$gray-7: #8A8A8A
+
+
+// Fonts
+$font-ubuntu: 'Ubuntu'
+$font-mukta: 'Mukta'
+
+// Espaçamentos
+
+$padding-lateral: 6.339em
+@media(max-width: 1024px)
+    $padding-lateral: 3em
+
+%h1-title 
+    font-family: $font-ubuntu
+    font-size: 4.000em
+    font-weight: 600
+    line-height: 110%
+    @media(max-width: 1024px)
+        font-size: 3em
+    @media(max-width: 425px)
+        font-size: 2em
+    @media(max-width: 320px)
+        font-size: 1.7em
+
+
+%h2-title
+    font-family: $font-ubuntu
+    font-size: 3.000em
+    font-weight: 400
+    line-height: 110%
+
+%h3-title
+    font-family: $font-ubuntu
+    font-size: 2.250em
+    font-weight: 400
+    line-height: 110%
+
+%body-1
+    font-family: $font-mukta
+    font-size: 1.125em
+    font-weight: 400
+    line-height: 130%
+
+%body-2
+    font-family: $font-mukta
+    font-size: 3.000em
+    font-weight: 700
+    line-height: 130%
+
+%button-orange
+    font-family: $font-mukta
+    font-style: normal
+    font-weight: 400
+    font-size: 1.563em
+    line-height: 142.5%
+    color: $blue-dark
+    padding:0.5em 1.5em
+    background-color: $yellow
+    border-radius: 0.250em
+    display: flex
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    text-decoration: none
+    @media(max-width: 768px)
+        font-size: 1.3em
+    @media(max-width: 425px)
+        font-size: 1.2em
+    &:hover
+        background-color: #f7ba1e
+    &:focus
+        background-color: $yellow-dark
+
+        
+%subtitle
+    display: flex
+    flex-direction: column
+    h2
+        @extend %h2-title
+        color: $blue-dark
+        @media(max-width: 320px)
+            font-size: 2em
+            line-height: 45px
+
+%tag
+    background-color: $yellow-light
+    padding: 2px 10px
+    color: $black-dark
+    font-size: 14px
+    font-family: $font-mukta
+    font-weight: 300
+    border-radius: 4px
+    margin-right: 8px
+    &:last-child
+        margin-right: 0px
+
+    .border
+        height: 2px
+        width: 7.063em
+        background-color: $yellow
+        margin-top: 19px
+
+%title
+    display: flex
+    flex-direction: column
+    h3
+        color: $yellow-dark
+        font-family: $font-mukta
+        font-size: 25px
+    
+    h2
+        font-family: $font-ubuntu
+        color: $blue-light
+        font-size: 48px
+        margin-top: 7px
+        margin-bottom: 15px
+        @media(max-width: 425px)
+            font-size: 39px
+    .border
+        width: 113px
+        height: 2px
+        display: flex
+        background-color: $yellow
+        margin-top: 7px
+        
+@keyframes kick
+    0%
+        transform: translateY(0px)
+    100%
+        transform: translateY(100%)
+        
+/* Header */
+main
+    position: relative
+
+.menu-mobile
+    display: none
+
+header 
+    background: transparent
+    position: absolute
+    left: 0
+    top: 0
+    z-index: 100
+    width: 100%
+    @media(max-width: 768px)
+        .menu-mobile
+            display: flex
+            align-items: center
+            z-index: 99
+            cursor: pointer
+            justify-content: center
+            .burguer-menu
+                display: flex
+                align-items: center
+                justify-content: center
+                background-color: transparent
+                border: none
+                outline: none
+                cursor: pointer
+            .close-menu
+                display: none
+                align-items: center
+                justify-content: center
+                background-color: transparent
+                border: none
+                outline: none
+                cursor: pointer
+
+    nav
+        padding: 2.678em 3em
+        display: flex
+        align-items: center
+        justify-content: space-between
+        @media(max-width: 320px)
+            padding: 2.678em 2em
+        .logotipo
+            img
+                width: 12em
+                @media(max-width: 320px)
+                    width: 9em
+
+
+        .navbar
+            display: flex
+            align-items: center
+            justify-content: space-between
+            height: 100%
+            @media(max-width: 768px)
+                display: flex
+                position: fixed
+                right: -100em
+                top: 0
+                width: 100%
+                height: 100%
+                flex-direction: column
+                background-color: $blue-dark
+                justify-content: center
+                transition: .3s ease-out
+                
+
+            li
+                height: 100%
+                @media(max-width: 768px)
+                    width: 100%
+                    height: 6em
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    margin-bottom: 1em
+                a
+                    height: 100%
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    @extend %body-1
+                    color: #fff
+                    text-decoration: none
+                    text-transform: uppercase
+                    transition: .3s
+                    margin-right: 3.250em
+                    padding-bottom: 0.4em
+                    @media(max-width: 768px)
+                        width: 86%
+                        margin-right: 0em
+                    &:hover
+                        border-bottom: 2px solid $yellow
+                .active
+                    border-bottom: 2px solid $yellow
+                    @media(max-width: 768px)
+                        background-color:  $yellow
+                &:last-child
+                    @media(max-width: 768px)
+                        margin-bottom: 0em
+                    a
+                        margin-right: 0em
+        .navbar-active
+            right: 0em
+.interno
+    background-color: $blue-dark
+    position: relative
+
+/* Homepage */
+
+.bannerHome
+    display: flex
+    align-items: center
+    justify-content: center
+    overflow: hidden
+    height: 44em
+    position: relative
+    @media(max-width: 1024px)
+        height: 42em
+    @media(max-width: 320px)
+        height: 35em
+    img
+        width: 100%
+    .bannerIMG
+        @media(max-width: 768px)
+            width: auto
+            height: 100%
+    .gradient1
+        position: absolute
+
+        left: 0
+        top: 0
+        z-index: 3
+        background: linear-gradient(235.27deg, #0582CA -20.6%, rgba(5, 130, 202, 0.408513) 20.36%, rgba(5, 130, 202, 0.232479) 40.49%, rgba(5, 130, 202, 0) 78.66%)
+        width: 100%
+        height: 100%
+    .gradient2
+        position: absolute
+        left: 16em
+        top: 0
+        z-index: 2
+        background: linear-gradient(87.05deg, #003554 7.57%, rgba(0, 53, 84, 0.924175) 18.03%, rgba(0, 53, 84, 0.77806) 31.62%, rgba(0, 53, 84, 0.542937) 50.29%, rgba(0, 53, 84, 0.372621) 65.91%, rgba(0, 53, 84, 0.263191) 70.05%, rgba(0, 53, 84, 0) 82.96%)
+        width: 100%
+        height: 100%
+        @media(max-width: 425px)
+            left: 5em
+            transform: rotate(180deg)
+
+    .gradient3
+        position: absolute
+        left: 0
+        top: 0
+        z-index: 1
+        background: linear-gradient(85.93deg, #003554 10.99%, rgba(0, 53, 84, 0.924175) 36.02%, rgba(0, 53, 84, 0.77806) 51.26%, rgba(0, 53, 84, 0.542937) 70.95%, rgba(0, 53, 84, 0.372621) 78.93%, rgba(0, 53, 84, 0.263191) 83.76%, rgba(0, 53, 84, 0) 98.8%)
+        width: 100%
+        height: 100%
+    .bannerHomeText
+        position: absolute
+        z-index: 5
+        display: flex
+        flex-direction: column
+        padding: 0em $padding-lateral
+        width: 90%
+        align-items: flex-start
+        margin-top: 2em
+        @media(max-width: 1024px)
+            width: auto
+        @media(max-width: 1024px)
+            width: auto
+            padding: 0em 3em
+        @media(max-width: 320px)
+            padding: 0em 2em
+        h1
+            @extend %h1-title
+            font-weight: 500
+            color: $blue-light
+            line-height: 70.4px
+            width: 42%
+            margin-bottom: 33px
+            @media(max-width: 1024px)
+                width: 60%
+                line-height: 58.4px
+            @media(max-width: 425px)
+                width: 100%
+                line-height: 42px
+                margin-bottom: 2em
+            @media(max-width: 320px)
+                margin-bottom: 1em
+
+        h2
+            font-family: $font-mukta
+            font-size: 1.563em
+            color: $blue-light
+            line-height: 35.62px
+            width: 34%
+            margin-bottom: 27px
+            @media(max-width: 1024px)
+                width: 65%
+            @media(max-width: 425px)
+                width: 100%
+                font-size: 1.2em
+            @media(max-width: 320px)
+                font-size: 1em
+                line-height: 26.62px
+                
+
+
+
+        .faleConosco
+            @extend %button-orange
+    .scrollSeta
+        @media(max-width: 425px)
+            display: none
+
+.scrollSeta
+    width: auto
+    position: absolute
+    right: 8em
+    bottom: 11.125em
+    z-index: 5
+    cursor: pointer
+    animation: kick 1s cubic-bezier(.53, -0.03, .67, 1.06)
+    animation-direction: alternate
+    animation-iteration-count: infinite
+    @media(max-width: 425px)
+        bottom: 3.125em
+.homebar
+    background-color: $blue-soft-light
+    padding: 1.000em 4.339em
+    align-items: center
+    display: flex
+    justify-content: space-between
+    @media(max-width: 1024px)
+        padding: 1em 3em
+    @media(max-width: 768px)
+        display: none
+
+    .homebar-box
+        display: flex
+        align-items: center
+        position: relative
+        margin-right: 6em
+        @media(max-width: 1440px)
+            margin-right: 4em
+        @media(max-width: 1024px)
+            margin-right: 1.5em
+
+
+        h3
+            color: $blue-dark
+            font-size: 3.125em
+            font-family: $font-ubuntu
+            font-weight: 500
+            margin-right: 10px
+            @media(max-width: 1024px)
+                font-size: 2em
+
+
+        p
+            color: $blue-dark
+            font-family: $font-ubuntu
+            font-size: 1.563em
+            font-weight: 400
+            width: 8em
+            @media(max-width: 1440px)
+                width: auto
+            @media(max-width: 1024px)
+                font-size: 1.2em
+        span
+            background-color: $yellow
+            width: 0.125em
+            height: 2.313em
+            display: flex
+        &:last-child
+            margin-right: 0em
+
+#homebar-mobile
+    display: none
+
+@media(max-width: 768px)
+    #homebar-mobile
+        display: flex
+        align-items: flex-start
+        width: 100%
+        display: flex
+        align-items: center
+        margin: auto
+        overflow: hidden
+        position: relative
+        .homebar-mobile-content
+            background-color: $blue-soft-light
+            height: 84px
+            padding: 18px 28px
+            .homebar-mobile-box
+                display: flex
+                height: 100%
+                position: relative
+                align-items: center
+                width: 19em !important
+                margin-right: 4em
+                @media(max-width: 425px)
+                    width: 13em !important
+                    margin-right: 3em
+                    padding-right: 3em
+                span
+                    display: flex
+                    flex-direction: column
+                    margin-left: 14px
+                    h5
+                        font-size: 2em
+                        font-weight: 700
+                        line-height: 44px
+                        font-family: $font-ubuntu
+                        color: $blue-dark
+                    p
+                        font-family: $font-ubuntu
+                        font-weight: 300
+                        font-size: 18px
+                        line-height: 20px
+                        color: $blue-dark
+
+                    label
+                        width: 1px
+                        height: 70%
+                        background-color: $yellow
+                        right: 0
+                        display: flex
+                        position: absolute
+
+        
+
+#servicosHome
+    .servicos-container
+        padding: 9.000em $padding-lateral
+        display: flex
+        justify-content: space-between
+        @media(max-width: 1024px)
+            padding: 6em 3em
+        @media(max-width: 769px)
+            flex-direction: column
+        @media(max-width: 425px)
+            padding: 4em 3em
+        @media(max-width: 320px)
+            padding: 3em 2em
+            
+
+        .servicosExibicao
+            width: 42%
+            @media(max-width: 1024px)
+                width: 47%
+            @media(max-width: 769px)
+                width: 100%
+            h2
+                font-family: $font-mukta
+                color: $blue-dark
+                font-size: 1.563em
+                margin-bottom: 20px
+
+
+            h3
+                @extend %h2-title
+                color: $blue-dark
+                line-height: 60.72px
+                margin-bottom: 22px
+                width: 75%
+                @media(max-width: 1024px)
+                    width: 87%
+                    font-size: 2em
+                    line-height: 48.72px
+                @media(max-width: 375px)
+                    width: 100%
+                    font-size: 1.5em
+                    line-height: 41.72px
+
+
+            .servicosTags
+                display: flex
+                flex-wrap: wrap
+                align-content: flex-start
+                width: 79%
+                @media(max-width: 1024px)
+                    width: 100%
+                    margin-top: 2em
+                p
+                    font-family: $font-mukta
+                    font-size: 1em
+                    color: $blue-dark
+                    padding: 5px 10px
+                    background-color: $yellow-light
+                    border-radius: 4px
+                    margin-right: 12px
+                    margin-bottom: 16px
+                    font-weight: 300
+                    @media(max-width: 320px)
+                        font-size: 0.9em
+                    &:last-child
+                        margin-right: 0px
+        .servicosList
+            width: 43%
+            @media(max-width: 1024px)
+                width: 51%
+            @media(max-width: 769px)
+                width: 100%
+                margin-top: 3em
+            .servicoBox
+                overflow: hidden
+                height: 2.6em
+                margin-bottom: 2em
+                transition: .5s ease-out
+                @media(max-width: 1440px)
+                    height: 2.8em
+                    .servicoDesc
+                        padding-top: 0.5em
+                h4
+                    font-family: $font-mukta
+                    font-size: 1.563em
+                    color: #BDBDBD
+                    border-bottom: 2px solid #E0E0E0
+                    padding-bottom: 14px
+                    cursor: pointer
+                    @media(max-width: 1024px)
+                        font-size: 1.4em
+                
+            .servicoBoxActive
+                height: auto
+                margin-bottom: 3em
+                h4
+                    color: $blue-dark
+                    padding-bottom: 22px
+                    border-bottom: 2px solid $yellow
+                    margin-bottom: 22px
+
+                .servicoDesc
+                    p
+                        font-family: $font-mukta
+                        font-weight: 300
+                        line-height: 25.52px
+                        font-size: 1em
+                        color: $blue-dark
+                        margin-bottom: 1.5em
+
+                    a
+                        text-decoration: none
+                        color: $yellow-dark
+                        font-family: $font-mukta
+                        font-weight: 500
+                        font-size: 16px
+                        padding: 5px 0px
+
+.backgroundHomeContainer
+    display: flex
+    justify-content: space-between
+    height: 43.375em
+    @media(max-width: 769px)
+        height: auto
+        flex-direction: column
+    .backgroundHomeImg
+        width: 50%
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        overflow: hidden
+        @media(max-width: 769px)
+            width: 100%
+            height: 22em
+        img
+            width: 100%
+            @media(max-width: 1024px)
+                width: auto
+                height: 100%
+            @media(max-width: 769px)
+                height: auto
+                width: 100%
+            @media(max-width: 320px)
+                height: 100%
+                width: auto
+
+    .BackgroundHomeText
+        width: 50%
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        height: auto
+        padding-left: 7.688em
+        padding-top: 4.563em
+        padding-right: 6.125em
+        padding-bottom: 5.25em
+        background-color: $blue-soft-light
+        @media(max-width: 1024px)
+            padding-left: 5.688em
+            padding-top: 4.563em
+            padding-right: 4.125em
+            padding-bottom: 3.25em
+        @media(max-width: 769px)
+            width: auto
+
+        @media(max-width: 425px)
+            width: auto
+            padding-left: 3em
+            padding-bottom: 4.563em
+        @media(max-width: 320px)
+            padding-left: 2em
+            padding-right: 2em
+        h2
+            color: $blue-dark
+            @extend %h2-title
+            width: 10em
+            @media(max-width: 1024px)
+                width: 100%
+                font-size: 2.4em
+            @media(max-width: 425px)
+                font-size: 2.2em
+            @media(max-width: 320px)
+                font-size: 1.3em
+                line-height: 27px
+
+        p
+            color: $blue-dark
+            font-family: $font-mukta
+            font-size: 1em
+            font-weight: 300
+            line-height: 32px
+            margin-top: 36px
+            margin-bottom: 11px
+            width: 22em
+            @media(max-width: 769px)
+                width: auto
+
+        a
+            @extend %button-orange
+            text-transform: uppercase
+            font-size: 1em
+            padding: 0.8em 1em
+            margin-top: 2em
+            position: relative
+            img
+                max-width: 0.5em
+                margin-left: 0.5em
+                margin-top: -2px
+    
+
+$animationSpeed: 40s
+@keyframes scroll 
+    0%
+        transform: translateX(0)
+    100% 
+        transform: translateX(calc(-250px * 7))
+
+.subtitleCases
+    padding: 4em 5.75em
+    display: flex
+    justify-content: center
+    padding-bottom: 0em
+    @extend %subtitle
+
+    @media(max-width: 425px)
+        padding: 4em 2.75em
+    @media(max-width: 320px)
+        padding: 4em 1.75em
+// Styling
+.sliderCases
+    background: white
+    height: 10em
+    display: flex
+    align-items: center
+    margin: auto
+    overflow: hidden
+    position: relative
+    width: 100%
+
+
+    .empresasBoxA
+        height: 94px
+        display: flex
+        align-items: center
+        justify-content: center
+        overflow: hidden
+        width: 9em
+        padding: 0em 2em
+        img
+            width: 100%
+
+.slider
+    &::before,
+    &::after 
+        content: ""
+        height: 100px
+        position: absolute
+        width: 200px
+        z-index: 2
+
+
+    &::after 
+        right: 0
+        top: 0
+        transform: rotateZ(180deg)
+
+    &::before 
+        left: 0
+        top: 0
+
+
+    .slide-track 
+        animation: scroll $animationSpeed linear infinite
+        display: flex
+        // width: calc(250px * 14)
+
+
+#ts-consultoria
+    .container
+        padding: 0em 5.750em
+        @media(max-width: 1024px)
+            padding: 0em 4.75em
+        @media(max-width: 425px)
+            padding: 0em 3em
+        @media(max-width: 320px)
+            padding: 0em 2em
+
+    .subtitle
+        margin-top: 6.938em
+        @extend %subtitle
+        @media(max-width: 1024px)
+            margin-top: 3.938em
+        @media(max-width: 425px)
+            margin-top: 0.938em
+        
+        .border
+            height: 2px
+            width: 9%
+            display: flex
+            background-color: $yellow
+            margin-top: 1em
+    .ts-content 
+        display: flex
+        justify-content: space-between
+        margin-top: 2.313em
+        @media(max-width: 1024px)
+            flex-wrap: wrap
+        .ts-box
+            border: 1px solid $blue-dark
+            border-radius: 4px
+            padding: 27px 24px
+            width: 20%
+            @media(max-width: 1024px)
+                width: 43%
+                margin-bottom: 1.5em
+            @media(max-width: 768px)
+                width: 40%
+            @media(max-width: 425px)
+                width: 100%
+
+            .ts-box-title
+                display: flex
+                margin-bottom: 20px
+                span
+                    width: 3.480em
+                    height: 3.291em
+                    background-color: $yellow
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    margin-right: 19px
+                    border-radius:  4.78734px
+
+                h3
+                    font-family: $font-mukta
+                    color: $blue-dark
+                    font-size: 1.563em
+                    line-height: 29px
+                    width: 6em
+
+            p
+                font-size: 0.875em
+                font-weight: 300
+                font-family: $font-mukta
+                color: $blue-dark
+                line-height: 23px
+
+#depoimentos
+    margin-top: 12.000em
+    @media(max-width: 768px)
+        margin-top: 3em
+    @media(max-width: 320px)
+        padding-left: 2em
+    .depoimentos-container
+        display: flex
+        justify-content: space-between
+        @media(max-width: 768px)
+            flex-direction: column
+    .container 
+        padding-left: 12.375em
+        @media(max-width: 1024px)
+            padding-left: 5.375em
+        @media(max-width: 425px)
+            padding-left: 3em
+  
+        .depoimentos-list
+            display: flex
+            flex-direction: column
+            h2
+                font-family: $font-mukta
+                font-size: 1.563em
+                color: $yellow-dark
+
+            h3
+                @extend %h1-title
+                font-weight: 300
+                font-size: 2.250em
+                margin-top: 9px
+                width: 12.3em
+                margin-bottom: 1em
+                line-height: 41px
+                @media(max-width: 1024px)
+                    font-size: 2em
+                @media(max-width: 425px)
+                    width: auto
+                @media(max-width: 320px)
+                    font-size: 1.4em
+                    line-height: 37px
+        .depoimentos-list-content
+            display: flex
+            flex-direction: column
+            width: 40%
+            margin-top: 2.5em
+            @media(max-width: 1440px)
+                width: 55%
+            @media(max-width: 1024px)
+                width: 42%
+            @media(max-width: 768px)
+                width: 100%
+            .boxActive
+                border: 1px solid $yellow
+            .depoimentos-boxContainer
+                display: flex
+                justify-content: space-between
+                padding: 0.938em 2em
+                width: 53%
+                align-items: center
+                border-radius: 8px
+                margin-bottom: 0.5em
+                cursor: pointer
+                @media(max-width: 1440px)
+                    width: 53%
+                @media(max-width: 1024px)
+                    width: 58%
+                @media(max-width: 768px)
+                    width: 50%
+                @media(max-width: 425px)
+                    width: 70%
+                    position: relative
+                @media(max-width: 375px)
+                    width: 72%
+                @media(max-width: 320px)
+                    width: auto
+                
+                    
+                .picture-box
+                    width: 3.375em
+                    height: 3.375em
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    overflow: hidden
+                    border-radius: 50%
+                    @media(max-width: 425px)
+                        width: 5em
+                    
+                    img
+                        width: 100%
+                div
+                    display: flex
+                    flex-direction: column
+                    width: 74%
+                    margin-left: 1em
+                    @media(max-width: 425px)
+                        width: 99%
+                    h4
+                        font-family: $font-mukta
+                        font-size: 1.563em
+                        color: $blue-dark
+                        margin-bottom: 5px
+                        @media(max-width: 425px)
+                            font-size: 1em
+                    p
+                        color: #003554B2
+                        font-family: $font-mukta
+                        font-weight: 300
+                        font-size: 0.875em
+
+                    
+        .depoimentosBoxContent
+            background-color: $blue-soft-light
+            position: relative
+            width: 50%
+            padding-left: 8em
+            padding-top: 159px
+            padding-right: 8em
+            padding-bottom: 2em
+            height: 21em
+            @media(max-width: 1440px)
+                height: 24em
+                padding-top: 115px
+            @media(max-width: 1024px)
+                padding: 5em
+                width: 36%
+            @media(max-width: 768px)
+                width: auto
+                margin-top: 4em
+            @media(max-width: 425px)
+                padding: 3em
+                height: auto
+                margin-bottom: 1em
+                display: none
+            @media(max-width: 425px)
+                margin-top: 2em
+    
+            .aspas
+                position: absolute
+                left: -0.6em
+                top: -0.6em
+                @media(max-width: 425px)
+                    max-width: 2.5em
+
+            h4
+                font-family: $font-mukta
+                font-size: 1.563em
+                color: $blue-dark
+
+            .star-container
+                display: flex
+                align-items: center
+                margin-bottom: 1.813em
+                margin-top: 7px
+                @media(max-width: 375px)
+                    margin-bottom: 0em
+                img
+                    margin-right: 0.5em
+
+
+            p
+                font-family: $font-mukta
+                color: $blue-dark
+                font-size: 1em
+                line-height: 1.563em
+                margin-bottom: 0.750em
+                opacity: 0.7
+                width: 100%
+                @media(max-width: 1024px)
+                    width: 100%
+                @media(max-width: 425px)
+                    font-size: 0.9em
+
+            .border
+                width: 12.313em !important
+                height: 2px !important
+                background-color: $yellow
+                margin-bottom: 14px
+                margin-top: 1.5em
+                display: flex
+
+            .depoimentoAutor
+                font-family: $font-mukta
+                color: $blue-dark
+                font-size: 1em
+
+#consultaGratis
+    margin-top: 6.938em
+    background-color: $blue-soft-light
+    .container
+        display: flex
+        justify-content: space-between
+        padding: 2.500em 6.250em
+        align-items: center
+        @media(max-width: 1024px)
+            padding: 2.5em 3em
+        @media(max-width: 425px)
+            flex-direction: column
+        @media(max-width: 375px)
+            padding: 2.5em 2em
+
+        h3
+            font-family: $font-mukta
+            font-size: 25px
+            color: $yellow-dark
+            margin-bottom: 5px
+            @media(max-width: 425px)
+                font-size: 1em
+        h2
+            @extend %h1-title
+            font-size: 36px
+            font-weight: 300
+            width: 13em
+            line-height: 49px
+            color: $blue-dark
+            @media(max-width: 768px)
+                width: auto
+            @media(max-width: 425px)
+                font-size: 1.3em
+                line-height: 27px
+
+        a
+            @extend %button-orange
+            @media(max-width: 425px)
+                margin-top: 1em
+            img
+                margin-left: 28px
+                @media(max-width: 425px)
+                    max-width: 0.5em
+
+
+footer
+    background-color: $blue-dark
+    .container
+        padding-top: 56px
+        padding-left: 100px
+        padding-right: 100px
+        padding-bottom: 28px
+        display: flex
+        flex-direction: column
+        @media(max-width: 1024px)
+            padding-left: 3em
+            padding-right: 3em
+        @media(max-width: 375px)
+            padding-left: 2em
+            padding-right: 2em
+        @media(max-width: 375px)
+            padding-left: 1em
+            padding-right: 1em
+        .footer-header
+            display: flex
+            align-items: flex-start
+            justify-content: space-between
+            @media(max-width: 768px)
+                justify-content: flex-start
+                align-items: center
+                flex-direction: column
+            @media(max-width: 425px)
+                justify-content: center
+            a
+                margin-top: 1.5em
+                @media(max-width: 425px)
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                img
+                    width: 23em
+                    @media(max-width: 425px)
+                        width: auto
+                        max-width: 81%
+            .footer-infos
+                display: flex
+                flex-direction: column
+                color: #fff
+                font-family: $font-mukta
+                font-size: 1em
+                margin-bottom: 41px
+                align-items: flex-end
+                @media(max-width: 768px)
+                    width: 100%
+                    margin-top: 2em
+                    margin-bottom: 3em
+                @media(max-width: 425px)
+                    align-items: center
+                h4
+                    font-size: 1.5em
+                    margin-bottom: 1em
+
+                p
+                    margin-bottom: 1em
+
+        .footer-menu
+            display: flex
+            justify-content: space-between
+            border-bottom: 1px solid #F2F2F280
+            align-content: center
+            padding-bottom: 34px
+            margin-bottom: 23px
+            @media(max-width: 790px)
+                flex-wrap: wrap
+            @media(max-width: 425px)
+                flex-direction: column
+            nav
+                display: flex
+                align-items: center
+                color: #fff
+                font-size: 18px
+                font-family: $font-mukta
+                @media(max-width: 768px)
+                    width: 65%
+                    flex-wrap: wrap
+                @media(max-width: 425px)
+                    width: 100%
+                    justify-content: space-between
+                li
+                    margin-right: 52px
+                    list-style-type: none
+                    @media(max-width: 425px)
+                        margin-right: 0em
+                        margin-bottom: 2em
+                    a
+                        color: #fff
+                        text-decoration: none
+                        @media(max-width: 425px)
+                            font-size: 14px
+                &:last-child
+                    margin-right: 0px
+                
+            ul
+                display: flex
+                @media(max-width: 790px)
+                    margin-top: 1em
+                li
+                    margin-right: 14px
+                    .whatsapp-link
+                        background-color: white
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        padding: 5px 6px
+                        border-radius: 4px
+                        img
+                            max-width: 1.2em
+                &:last-child
+                    margin-right: 0px
+        .footer-finish
+            display: flex
+            justify-content: space-between
+            align-items: center
+            p
+                opacity: 0.5
+                color: #fff
+                font-family: $font-mukta
+                font-size: 14px
+
+            h5
+                color: rgb(255 255 255 / 50%)
+                font-family: $font-mukta
+                font-size: 14px
+                strong
+                    color: $yellow
+                    opacity: 1
+                
+
+.border-danger
+    border: 1px solid #eb3d3d !important
+    color: #eb3d3d !important
+/* Cases */
+#cases
+    .container
+        display: flex
+        justify-content: space-between
+        @media(max-width: 768px)
+            flex-direction: column
+        @media(max-width: 425px)
+            flex-direction: column-reverse
+        .casesDesc
+            background-color: $blue-light
+            display: flex
+            justify-content: center
+            flex-direction: column
+            width: 30%
+            padding: 8em 100px
+            @media(max-width: 1024px)
+                width: 46%
+                padding: 4em 3em
+            @media(max-width: 768px)
+                width: auto
+            @media(max-width: 320px)
+                padding: 3em 2em
+
+            h1
+                font-family: $font-ubuntu
+                color: $blue-dark
+                font-size: 34px
+                line-height: 47px
+                margin-bottom: 20px
+                width: 60%
+                @media(max-width: 1024px)
+                    width: 95%
+                @media(max-width: 425px)
+                    font-size: 30px
+                    width: auto
+                @media(max-width: 375px)
+                    font-size: 27px
+                @media(max-width: 320px)
+                    font-size: 25px
+
+            p
+                font-family: $font-mukta
+                color: $blue-dark
+                font-size: 1em
+                line-height: 25px
+                font-weight: 300
+                width: 90%
+                @media(max-width: 425px)
+                    width: auto
+                @media(max-width: 320px)
+                    font-size: 0.9em
+        .casesBackground
+            display: flex
+            align-items: center
+            justify-content: center
+            overflow: hidden
+            width: 60%
+            position: relative
+            @media(max-width: 768px)
+                width: auto
+            @media(max-width: 425px)
+                height: 12em
+            img
+                width: 100%
+                @media(max-width: 1024px)
+                    width: auto
+                    height: 100%
+                @media(max-width: 425px)
+                    width: 100%
+                    height: auto
+    .scrollSeta
+        width: auto !important
+        z-index: 99999
+        right: 6em
+        @media(max-width: 1024px)
+            height: auto !important
+        @media(max-width: 425px)
+            right: 3em
+            max-width: 1.5em
+
+
+.CasesExibicao
+    background-color: $blue-dark
+    
+    .cases-container
+        margin-top: 86px
+        position: relative
+        @media(max-width: 425px)
+            margin-top: 3em
+        .casesArrow
+            position: absolute
+            top: -10em
+            border: 4px solid $yellow
+            padding: 1em 1.3em
+            border-radius: 50%
+            cursor: pointer
+            transition: .3s ease-out
+            @media(max-width: 425px)
+                top: unset
+                bottom: -5em
+                padding: 0.5em 0.6em
+                .arrow_orange
+                    max-width: 0.6em
+            &:hover
+                background-color: $yellow
+                .arrow_branca
+                    display: block
+                .arrow_orange
+                    display: none
+            .arrow_branca
+                display: none
+                @media(max-width: 425px)
+                    max-width: 0.6em
+        .arrowLeftG
+            right: 11em
+            @media(max-width: 768px)
+                right: 5em
+            @media(max-width: 425px)
+                right: 3em
+            .arrow_branca
+                transform: rotate(180deg)
+        .arrowRighttG
+            right: 6em
+            transform: rotate(180deg)
+            @media(max-width: 768px)
+                right: 0em
+            .arrow_branca
+                transform: rotate(-180deg)
+    .content-cases
+        padding: 137px 96px
+        @media(max-width: 425px)
+            padding: 5em 3em
+            padding-bottom: 10em
+        @media(max-width: 320px)
+            padding: 5em 2em
+            padding-bottom: 10em
+        .vejaMaisCases
+            @extend %button-orange
+            width: 9em
+            margin-top: 71px
+            img
+                margin-left: 26px
+        .cases-content-title
+            @extend %title
+
+        .caseBox
+            background-color: $blue-soft-light
+            padding: 44px 80px
+            display: flex
+            flex-direction: column
+            height: 14.625em
+            // width: 500px !important
+            margin-right: 6em
+            border-radius: 4px
+            position: relative
+            @media(max-width: 1440px)
+                height: 12.625em
+                margin-right: 2em
+                justify-content: center
+            @media(max-width: 1024px)
+                height: 16.625em
+                padding: 44px 3em
+            @media(max-width: 768px)
+                margin-right: 0em
+            @media(max-width: 425px)
+                height: auto
+                padding: 44px 2em
+            .caseImg
+                border-bottom: 1px solid $blue-dark
+                padding-bottom: 24px
+                margin-bottom: 22px
+                h3
+                    font-size: 36px
+                    font-family: $font-ubuntu
+                    font-weight: 300
+                img
+                    max-width: 11em
+
+            p
+                font-family: $font-mukta
+                color: $blue-dark
+                font-size: 1em
+                font-weight: 300
+                line-height: 27px
+            .case-text
+                max-height: 67%
+            .info-cases
+                display: flex
+                justify-content: space-between
+                align-items: center
+                position: absolute
+                bottom: 2.5em
+                width: 81%
+                p
+                    font-family: $font-mukta
+                    font-size: 1em
+                    font-weight: 500
+                    line-height: 25px
+                    color: $blue-dark
+                    display: flex
+                    align-items: center
+                    img
+                        margin-left: 0.5em
+
+                div
+                    span
+                        @extend %tag
+
+#CasesExibicaoCases
+    .cases-container
+        @media(max-width: 768px)
+            margin-top: 9em
+        @media(max-width: 425px)
+            margin-top: 6em
+        .casesArrow
+            @media(max-width: 1440px)
+                top: -7em
+            @media(max-width: 425px)
+                height: 1em
+                top: -4em
+        .arrowLeftG
+            @media(max-width: 1440px)
+                right: 8em  
+            @media(max-width: 425px)
+                right: 5em
+            @media(max-width: 375px)
+                right: 4em
+    
+        .arrowRighttG
+            @media(max-width: 1440px)
+                right: 2em
+            @media(max-width: 375px)
+                right: 0em
+    .content-cases
+        @media(max-width: 375px)
+            padding: 5em 3em
+            padding-bottom: 6em
+        @media(max-width: 320px)
+            padding: 5em 2em
+            padding-bottom: 6em
+        .vejaMaisCases
+            @media(max-width: 375px)
+                width: auto
+        .cases-content-title
+            h2
+                @media(max-width: 375px)
+                    font-size: 28px
+
+        .caseBox
+            @media(max-width: 1440px)
+                height: 17.625em
+                margin-right: 2em
+                padding: 44px 64px
+                justify-content: flex-start
+            @media(max-width: 1024px)
+                height: 23.625em
+                padding: 44px 46px
+            @media(max-width: 375px)
+                height: 27em
+                margin-right: 0em
+                padding: 44px 2em
+
+            .case-text
+                @media(max-width: 1440px)
+                    max-height: 67%  
+            .info-cases
+                @media(max-width: 1440px)
+                    flex-direction: column
+                    align-items: flex-start  
+                    width: auto
+                @media(max-width: 1024px)
+                    width: 71%
+                    div
+                        display: flex
+                        flex-direction: column
+                        align-items: flex-start
+                        span
+                            margin-bottom: 0.5em
+                p
+                    @media(max-width: 1440px)
+                        margin-bottom: 1em
+        
+.case_interno
+    height: 445px
+    @media(max-width: 425px)
+        height: 38em
+    .container
+        height: 100%
+        @media(max-width: 768px)
+            flex-direction: column-reverse !important
+        @media(max-width: 425px)
+            justify-content: flex-end !important
+        .casesDesc
+            h1
+                @media(max-width: 320px)
+                    line-height: 33px !important
+        .casesBackground
+            flex-direction: column
+            padding: 0px 74px
+            align-items: flex-start !important
+            position: relative
+            @media(max-width: 768px)
+                height: 13em !important
+                justify-content: flex-start !important
+                padding-top: 1em
+            @media(max-width: 425px)
+                padding-top: 0em
+                justify-content: center !important
+                margin-bottom: 2em
+            @media(max-width: 320px)
+                padding: 0em 25px
+
+            img
+                width: auto !important
+                align-self: center
+                @media(max-width: 1024px)
+                    width: 100% !important
+                    height: auto !important
+                @media(max-width: 768px)
+                    width: 81% !important
+                @media(max-width: 425px)
+                    width: 100%
+            .case-tags
+                display: flex
+                align-items: center
+                position: absolute
+                bottom: 2em
+                justify-content: space-between
+                width: 85%
+                @media(max-width: 768px)
+                    bottom: 1em
+                span
+                    @extend %tag
+                    font-size: 25px
+                    padding: 8px 22px
+                    @media(max-width: 1024px)
+                        font-size: 17px
+                    @media(max-width: 768px)
+                        font-size: 12px
+                .scrollSeta
+                    top: unset
+                    bottom: 4em
+                    right: 0em
+                    @media(max-width: 768px)
+                        right: 0em !important
+                    @media(max-width: 425px)
+                        right: 4em !important
+                        bottom:  2em !important
+                    @media(max-width: 320px)
+                        display: none !important
+            
+.case-intro
+    .container
+        padding: 5em 103px
+        padding-top: 176px
+        @media(max-width: 1024px)
+            padding-top: 4em
+        @media(max-width: 425px)
+            padding: 5em 51px
+        @media(max-width: 320px)
+            padding: 3em 2em
+            margin-bottom: 2em
+        .title
+            @extend %title
+            h2
+                color: $blue-dark
+                @media(max-width: 1440px)
+                    width: 35% 
+                @media(max-width: 768px)
+                    width: auto
+                @media(max-width: 425px)
+                    font-size: 32px
+                @media(max-width: 320px)
+                    font-size: 30px
+            p
+                margin-top: 46px
+                color: $blue-dark
+                font-family: $font-mukta
+                font-size: 1em
+                font-weight: 300
+                line-height: 25px
+                width: 33em
+                @media(max-width: 425px)
+                    width: auto
+                
+
+#bg-case
+    height: 31em
+    display: flex
+    align-items: center
+    justify-content: center
+    overflow: hidden
+    @media(max-width: 1024px)
+        height: 20em
+    img
+        width: 100%
+        @media(max-width: 1024px)
+            width: auto
+            height: 100%
+
+.fases
+    .container
+        padding: 5em 103px
+        padding-top: 176px
+        padding-right: 0em
+        display: flex
+        justify-content: space-between
+        @media(max-width: 1024px)
+            padding: 5em 103px
+        @media(max-width: 425px)
+            padding: 5em 51px
+        @media(max-width: 320px)
+            padding: 3em 2em
+        .title
+            @extend %title
+            @media(max-width: 1024px)
+                display: flex
+                flex-direction: column
+                align-items: flex-end
+                width: 100%
+            @media(max-width: 425px)
+                align-items: flex-start
+            h2
+                color: $blue-dark 
+                width: 9em
+                @media(max-width: 1024px)
+                    text-align: end
+                @media(max-width: 425px)
+                    text-align: start
+                @media(max-width: 375px)
+                    width: auto
+                    font-size: 31px
+                @media(max-width: 320px)
+                    font-size: 28px
+            p
+                margin-top: 46px
+                color: $blue-dark
+                font-family: $font-mukta
+                font-size: 1em
+                font-weight: 300
+                line-height: 25px
+                width: 33em
+                @media(max-width: 1024px)
+                    text-align: end
+                @media(max-width: 425px)
+                    width: auto
+                    text-align: start
+        .fase-container
+            @media(max-width: 1024px)
+                display: none
+
+.skills
+    .slick-track
+        padding: 1em 0em
+    .container
+        padding: 5em 103px
+        @media(max-width: 1024px)
+            padding: 2em 103px
+        @media(max-width: 425px)
+            padding: 2em 51px
+        @media(max-width: 320px)
+            padding: 2em 2em
+        .title
+            @extend %title
+            margin-bottom: 97px
+            @media(max-width: 1024px)
+                margin-bottom: 1em
+
+            h2
+                color: $blue-dark 
+                @media(max-width: 320px)
+                    font-size: 33px
+        .skills-box
+            display: flex
+            align-items: center
+            height: 143px
+            .circle
+                background-color: $yellow-light
+                width: 24px
+                height: 18px
+                display: flex
+                border-radius: 50%
+                margin-left: 44px
+                margin-right: 44px
+                @media(max-width: 1024px)
+                    margin-left: 1em
+                    margin-right: 1em
+                @media(max-width: 425px)
+                    display: none
+            .skill-box-inside
+                border-radius: 4px
+                border: 1px solid $yellow-light
+                padding: 33px 44px
+                display: flex
+                @media(max-width: 1440px)
+                    padding: 20px 32px
+                @media(max-width: 1024px)
+                    padding: 16px 15px
+                .skills-img
+                    background-color: $yellow-light
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    border-radius: 6px
+                    margin-right: 30px
+                    width: 78px
+                    height: 73px
+                    @media(max-width: 1440px)
+                        width: 65px
+                        height: 58px
+                    @media(max-width: 1024px)
+                        width: 3.5em
+                        height: 3em
+                        margin-right: 18px
+                    img
+                        width: 2.5em
+                        @media(max-width: 1440px)
+                            width: 2em
+                        @media(max-width: 1024px)
+                            width: 1.4em
+                h4
+                    @extend %h1-title
+                    font-size: 36px
+                    font-weight: 300
+                    color: $blue-dark
+                    width: 66%
+                    @media(max-width: 1440px)
+                        font-size: 24px
+                    @media(max-width: 1024px)
+                        font-size: 17px
+
+
+.contato
+    padding-bottom: 8.063em
+    .container
+        margin-top: 9.875em
+        padding: 0em 10.563em
+        display: flex
+        justify-content: space-between
+        align-items: center
+        @media(max-width: 1024px)
+            margin-top: 3.875em
+            padding: 0em 6.563em
+        @media(max-width: 768px)
+            padding: 0em 3.563em
+            flex-direction: column
+        @media(max-width: 425px)
+            padding: 0em 2em
+            
+        .title
+            @extend %title
+            align-items: flex-start
+            a
+                @extend %button-orange
+                color: $yellow
+                background-color: $blue-dark
+                font-size: 1em
+                margin-bottom: 4em
+                font-weight: 700
+                padding: 1em 1.5em
+                img
+                    margin-right: 0.5em
+                &:hover
+                    background-color: $blue
+                &:focus
+                    background-color: $blue-dark
+            h2
+                color: $blue-dark
+                width: 58%
+                line-height: 59px
+                margin-top: 15px
+                margin-bottom: 0.5em
+                @media(max-width: 1440px)
+                    width: 72%
+                @media(max-width: 1024px)
+                    width: 83%
+                    font-size: 2em
+                    line-height: 39px
+
+            .tags
+                display: flex
+                flex-wrap: wrap
+                width: 84%
+                span
+                    @extend %tag    
+                    font-size: 1em
+                    margin-bottom: 1em
+            i
+                font-family: 'Ubuntu'
+                font-style: italic
+                margin-top: 1em
+                color: #003554
+
+        form
+            background-color: $blue-dark
+            padding: 48px 64px
+            border-top: 21px solid $yellow
+            border-radius: 8px
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            @media(max-width: 1024px)
+                width: 88%
+            @media(max-width: 768px)
+                width: 77%
+                margin-top: 2em
+            @media(max-width: 425px)
+                padding: 48px 3em
+            @media(max-width: 320px)
+                width: 79%
+                padding: 48px 2em
+
+            h2
+                font-family: $font-ubuntu
+                color: #fff
+                font-size: 36px
+                margin-bottom: 1.5em
+                @media(max-width: 425px)
+                    font-size: 23px
+            input, textarea
+                background-color: #ECF9FD
+                height: 60px
+                padding: 0em 25px
+                margin-bottom: 24px                    
+                font-family: $font-mukta
+                color: #89A2AA
+                border: 0px
+                border-radius: 2px
+                width: 100%
+                font-weight: 500
+
+            textarea
+                height: 149px
+                padding-top: 1em
+            button
+                @extend %button-orange
+                border: 0px
+                font-size: 1em
+                display: flex
+                align-items: center
+                img
+                    margin-left: 0.5em
+                    max-width: 9px
+                    margin-top: -3px
+
+
+
+#contentExibicao
+    display: flex
+    justify-content: space-between
+    height: 36.438em
+    @media(max-width: 375px)
+        height: auto
+    .bg
+        width: 42.3%
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 100%
+        overflow: hidden
+        @media(max-width: 1440px)
+            width: 44.6%
+        @media(max-width: 1024px)
+            width: 50%
+        @media(max-width: 768px)
+            display: none
+        img
+            width: 100%
+            @media(max-width: 1024px)
+                height: 100%
+                width: auto
+    .text-content
+        height: 100%
+        display: flex
+        flex-direction: column
+        width: 60%
+        align-items: center
+        justify-content: center
+        @media(max-width: 1024px)
+            width: 51.99%
+        @media(max-width: 768px)
+            width: auto
+            padding: 0em 6em
+        @media(max-width: 425px)
+            padding: 0em 3em
+        @media(max-width: 375px)
+            padding: 3em
+        @media(max-width: 320px)
+            padding: 3em 2em
+
+        h2
+            font-size: 48px
+            font-family: $font-ubuntu
+            line-height: 60px
+            color: $blue-dark
+            margin-bottom: 27px
+            width: 46%
+            @media(max-width: 1440px)
+                width: 59%
+                font-size: 47px
+                line-height: 54px
+            @media(max-width: 1024px)
+                font-size: 36px
+                width: 87%
+            @media(max-width: 768px)
+                width: auto
+            @media(max-width: 425px)
+                font-size: 26px
+                line-height: 36px
+            @media(max-width: 320px)
+                font-size: 21px
+
+        p
+            font-family: $font-mukta
+            color: $blue-dark
+            font-weight: 300
+            line-height: 25px
+            width: 46%
+            @media(max-width: 1440px)
+                width: 58%
+            @media(max-width: 1024px)
+                width: 85%
+            @media(max-width: 768px)
+                width: auto
+            @media(max-width: 425px)
+                font-size: 0.9em
+                
+
+#diferenciais
+    .container
+        padding: 4em 96px
+        @media(max-width: 425px)
+            padding: 1em 3em
+        @media(max-width: 320px)
+            padding: 1em 2em
+        h2
+            font-size: 48px
+            color: $blue-dark
+            font-family: $font-ubuntu
+            margin-bottom: 82px
+            @media(max-width: 1024px)
+                font-size: 38px
+                margin-bottom: 52px
+            @media(max-width: 425px)
+                line-height: 54px
+            span
+                height: 2px
+                width: 113px
+                background-color: $yellow
+                margin-top: 10px
+                display: flex
+        .diferencias-content
+            display: flex
+            justify-content: space-between
+            @media(max-width: 1024px)
+                flex-direction: column
+            .diferenciais-box
+                width: 26%
+                height: 21.063em
+                background-color: $blue-light
+                border-radius: 4px
+                padding: 49px 45px
+                @media(max-width: 1440px)
+                    height: 18.063em
+                    width: 24%
+                @media(max-width: 1024px)
+                    width: auto
+                    margin-bottom: 2em
+                    height: 11.063em
+                @media(max-width: 768px)
+                    height: auto
+                @media(max-width: 375px)
+                    padding: 2em
+
+                .diferenciais-header
+                    display: flex
+                    align-content: flex-start
+                    margin-bottom: 22px
+                    img
+                        margin-right: 25px
+                        @media(max-width: 425px)
+                            max-width: 4em
+                        @media(max-width: 375px)
+                            max-width: 3em
+                    h3
+                        color: $blue-dark
+                        font-size: 36px
+                        font-weight: 300
+                        line-height: 43px
+                        font-family: $font-ubuntu
+                        width: 50%
+                        @media(max-width: 1440px)
+                            font-size: 28px
+                        @media(max-width: 425px)
+                            font-size: 25px
+                        @media(max-width: 375px)
+                            font-size: 19px
+                p
+                    font-size: 1em
+                    font-weight: 300
+                    font-family: $font-mukta
+                    color: #003554B2
+                    line-height: 28px
+                    @media(max-width: 425px)
+                        font-size: 0.95em
+                &:first-child
+                    background-color: $blue-dark
+                    h3, p
+                        color: #fff
+                &:last-child
+                    background-color: $blue-soft-light
+
+#equipe
+    .container
+        padding: 175px 102px
+        padding-bottom: 5em
+        @media(max-width: 1024px)
+            padding: 82px 102px
+            padding-bottom: 5em
+        @media(max-width: 425px)
+            padding: 82px 3em
+            padding-bottom: 0em
+        .equipe-container
+            display: flex
+            align-items: center
+            justify-content: center
+            .arrows
+                position: absolute
+                height: 3em
+                width: 3em
+                display: flex
+                align-items: center
+                justify-content: center
+                background-color: #ffc225
+                border-radius: 7px
+                cursor: pointer
+                @media(max-width: 425px)
+                    bottom: -5em
+            .boxLeft
+                left: -4em
+                @media(max-width: 425px)
+                    left: 0em
+                img
+                    transform: rotate(178deg)
+            .boxRight
+                right: 1.5em
+                @media(max-width: 698px)
+                    right: -3.5em
+                @media(max-width: 425px)
+                    right: 1em
+                    
+        .title
+            h2
+                color: $blue-dark
+                font-size: 48px
+                font-family: $font-ubuntu
+                line-height: 60px
+                width: 30%
+                @media(max-width: 1440px)
+                    width: 34%
+                @media(max-width: 1024px)
+                    width: 51%
+                @media(max-width: 768px)
+                    width: 75%
+                @media(max-width: 425px)
+                    width: 85%
+                    font-size: 32px
+                @media(max-width: 375px)
+                    width: auto
+                    line-height: 44px
+            .border
+                width: 113px
+                height: 2px
+                background-color: $yellow
+                display: flex
+                margin-top: 10px
+                margin-bottom: 29px
+
+        legend
+            font-family: $font-mukta
+            color: $blue-dark
+            font-weight: 300
+            line-height: 25px
+            margin-bottom: 86px
+            width: 29%
+            @media(max-width: 1440px)
+                width: 40%
+            @media(max-width: 1024px)
+                width: 60%
+            @media(max-width: 768px)
+                width: 93%
+            @media(max-width: 425px)
+                width: auto
+                margin-bottom: 50px
+        
+        .equipe-container
+            .equipe-box
+                height: 409px
+                border-radius: 8px
+                display: flex
+                overflow: hidden
+                flex-direction: column
+                justify-content: flex-end
+                margin-right: 6em
+                position: relative
+                cursor: pointer
+                @media(max-width: 1440px)
+                    margin-right: 1em
+                @media(max-width: 375px)
+                    height: 23em
+                @media(max-width: 320px)
+                    height: 18em
+                .gradient
+                    width: 100%
+                    height: 100%
+                    display: flex
+                    background: linear-gradient(180deg, #003554 0%, rgba(0, 53, 84, 0) 100%)
+                    transform: rotate(-180deg)
+                    position: absolute
+                    left: 0
+                    top: 0
+                    z-index: 11
+
+                .foto-equipe
+                    height: 100%
+                    position: absolute
+                    left: 0
+                    top: 0
+                    z-index: 10
+                    @media(max-width: 768px)
+                        width: auto
+                        height: 100%
+                    @media(max-width: 425px)
+                        width: 100%
+                        height: auto
+
+                h4
+                    color: #fff
+                    font-family: $font-ubuntu
+                    font-weight: 300
+                    font-size: 22px
+                    margin-bottom: 6px
+
+                .cargo
+                    font-family: $font-mukta
+                    color: #fff
+                    font-size: 0.9em
+                    font-weight: 300
+                    padding-bottom: 7px
+                    margin-bottom: 3px
+                .border
+                    width: 100%
+                    background-color: $yellow
+                    height: 2px
+                    display: flex
+                    margin-bottom: 12px
+
+                .equipe-desc
+                    position: absolute
+                    z-index: 12
+                    bottom: 22px
+                    left: 25px
+                    right: 25px
+                    
+                .equipe-redes
+                    display: flex
+                    align-items: center
+                    a
+                        margin-right: 14px
+
+
+.content-header-1
+    display: flex
+    justify-content: space-between
+    position: relative
+    height: auto
+    @media(max-width: 768px)
+        flex-direction: column
+
+    .content-header-left
+        background-color: $blue-light
+        display: flex
+        flex-direction: column
+        padding: 122px 99px
+        padding-right: 51px
+        width: 29.8%
+        height: 28.313em
+        @media(max-width: 1024px)
+            width: 26%
+            padding: 6em 4em
+            height: auto
+        @media(max-width: 768px)
+            width: auto
+        @media(max-width: 425px)
+            padding: 6em 2em
+        @media(max-width: 320px)
+            padding: 3em 2em
+        h1
+            color: $blue-dark
+            @extend %h2-title
+            margin-bottom: 29px
+            font-weight: 300
+            line-height: 59px
+            @media(max-width: 1440px)
+                font-size: 2.3em
+                line-height: 52px
+            @media(max-width: 1024px)
+                font-size: 1.8em
+                line-height: 38px
+            @media(max-width: 320px)
+                font-size: 1.5em
+        p
+            font-family: $font-mukta
+            color: $blue-dark
+            font-size: 16px
+            font-weight: 300
+            line-height: 25px
+            width: 77%
+            @media(max-width: 1024px)
+                width: 100%
+
+
+    .content-header-right
+        padding: 122px 73px
+        width: 54.45%
+        display: flex
+        flex-direction: column
+        position: absolute
+        right: 0
+        @media(max-width: 1440px)
+            width: 49.45%
+        @media(max-width: 1024px)
+            width: 52.45%
+            padding: 112px 47px
+        @media(max-width: 768px)
+            width: auto
+            position: relative
+            right: unset
+        @media(max-width: 425px)
+            padding: 3em 2em
+        .title
+            display: flex
+            flex-direction: column
+            h3
+                color: $yellow
+                font-family: $font-mukta
+                font-size: 25px
+            h2
+                @extend %h2-title
+                color: $blue-dark
+                font-weight: 400
+                line-height: 60px
+                margin-bottom: 24px
+                width: 41%
+                @media(max-width: 1440px)
+                    width: 64%
+                @media(max-width: 1024px)
+                    width: auto
+                    font-size: 2.5em
+                    line-height: 1.5em
+                @media(max-width: 425px)
+                    font-size: 2em
+                    line-height: 53px
+                @media(max-width: 320px)
+                    font-size: 1.7em
+                    line-height: 42px
+                    margin-top: 0.5em
+        .descMetodologia
+            font-family: $font-mukta
+            color: $blue-dark
+            line-height: 25px
+            font-weight: 300
+            font-size: 1em
+            width: 80%
+            height: 18em
+            line-height: 1.7em
+            @media(max-width: 1024px)
+                width: auto
+                height: auto
+                line-height: 1.7em
+        .slick-track
+            margin-left: 3em !important
+        .tags-servicos
+            display: flex
+            align-items: center
+            margin-top: 1em
+            @media(max-width: 768px)
+                flex-wrap: wrap
+            .tags-servicos-box
+
+                margin-right: 23px
+                display: flex
+                align-items: center
+                @media(max-width: 768px)
+                    margin-bottom: 1em
+                @media(max-width: 425px)
+                    padding: 0.5em 1em
+
+                div
+                    border: 1px solid $yellow
+                    border-radius: 4px
+                    padding: 0.08em 0.5em
+                    display: flex
+                    align-items: center
+                    span
+                        width: 23px
+                        height: 23px
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        overflow: hidden
+                        background-color: $yellow-light
+                        border-radius: 2px
+                        @media(max-width: 425px)
+                            width: 2.5em
+                            height: 2.5em
+                        img
+                            width: 61%
+
+                    p
+                        font-family: $font-mukta
+                        color: $blue-dark
+                        font-size: 1em
+                        line-height: 35px
+                        margin-left: 11px
+                        width: auto
+                        @media(max-width: 425px)
+                            font-size: 1.3em
+                        @media(max-width: 320px)
+                            font-size: 1.2em
+
+            .seta_tiny
+                margin-left: 23px
+                @media(max-width: 425px)
+                    display: none
+        .subtitle
+            @extend %subtitle
+            margin-top: 60px
+            margin-bottom: 55px
+            line-height: 59px
+            h2
+                width: 11em
+                line-height: 66px
+                @media(max-width: 425px)
+                    font-size: 2em
+                    line-height: 53px
+                    width: auto
+            .border 
+                width: 113px
+                height: 2px
+                display: flex
+                background-color: $yellow
+                margin-top: 12px
+
+
+        .servicos-collapse
+            display: flex
+            flex-direction: column
+            .collapse-box
+                background-color: $blue-soft-light
+                overflow: hidden
+                margin-bottom: 33px
+                .collapse-header
+                    display: flex
+                    align-items: flex-start
+                    height: auto
+                    position: relative
+                    cursor: pointer
+                    padding: 2em 42px
+                    @media(max-width: 425px)
+                        padding: 2em 36px
+                    span
+                        background-color: $yellow
+                        border-radius: 4px
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        overflow: hidden
+                        height: 44px
+                        width: 44px
+
+                    h4
+                        font-family: $font-ubuntu
+                        color: $blue-dark
+                        font-size: 36px
+                        font-weight: 300
+                        line-height: 43px
+                        width: 67%
+                        margin-left: 25px
+                        margin-top: -8px
+                        @media(max-width: 1440px)
+                            font-size: 30px
+                            width: 67%
+                        @media(max-width: 1024px)
+                            width: 89%
+                            font-size: 25px
+                        @media(max-width: 425px)
+                            font-size: 17px
+                            line-height: 30px
+                        @media(max-width: 320px)
+                            font-size: 14px
+                    .seta_open
+                        position: absolute
+                        right: 43px
+                        bottom: 37px
+
+                .collapse-body
+                    height: 0em
+                    overflow: hidden
+
+                    p
+                        font-family: $font-mukta
+                        font-size: 1em
+                        font-weight: 300
+                        color: $blue-dark
+                        width: 94%
+                        line-height: 32px
+                        margin-bottom: 2em
+                        @media(max-width: 425px)
+                            width: 100%
+                            font-size: 0.9em
+                            
+                    ul
+                        font-family: $font-mukta
+                        color: $blue-dark
+                        font-size: 1em
+                        list-style-type: disc
+                        margin-top: 1em
+                        padding-left: 1.2em
+                        li
+                            margin-bottom: 1em
+                    a
+                        @extend %button-orange
+                        font-size: 1em
+                        width: 12em
+                        img
+                            max-width: 0.5em
+                            margin-left: 0.5em
+                    
+            .collapse-active
+                .collapse-body
+                    height: auto
+                    padding: 0em 114px
+                    padding-bottom: 3em
+                    @media(max-width: 425px)
+                        padding: 0em 42px
+                        padding-bottom: 3em
+                    @media(max-width: 320px)
+                        padding: 0em 9px
+
+.banner-separetor
+    height: 407px
+    display: flex
+    justify-content: space-between
+    @media(max-width: 425px)
+        display: none
+    .text
+        padding: 0px 99px
+        width: 33%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        background-color: $blue-light
+        @media(max-width: 1440px)
+            width: 33.5%
+        @media(max-width: 1024px)
+            width: 31.5%
+            padding: 0em 4em
+        h2
+            font-family: $font-ubuntu
+            font-size: 42px
+            font-weight: 400
+            padding-bottom: 27px
+            border-bottom: 4px solid $blue-dark
+            color: $blue-dark
+            width: 42%
+            line-height: 49px
+            @media(max-width: 1440px)
+                width: 50%
+            
+            @media(max-width: 1024px)
+                font-size: 2em
+                width: 100%
+        h3
+            color: $yellow
+            font-family: $font-ubuntu
+            font-size: 39px
+            font-weight: 400
+            margin-top: 21px
+            @media(max-width: 1024px)
+                font-size: 29px
+    .banner
+        width: 75%
+        overflow: hidden
+        img
+            width: 100%
+            @media(max-width: 1440px)
+                width: auto
+                height: 100%
+#vagasBanner
+    height: 445px
+    display: flex
+    justify-content: space-between
+    @media(max-width: 1024px)
+        flex-direction: column
+        height: auto
+    
+    .box-left
+        width: 39.5%
+        height: 100%
+        background-color: $blue-light
+        padding: 0em 104px
+        @media(max-width: 1024px)
+            height: 22em
+            width: auto
+        @media(max-width: 425px)
+            padding: 0em 3em
+        h1
+            font-family: $font-ubuntu
+            font-size: 48px
+            line-height: 60px
+            color: $blue-dark
+            margin-top: 104px
+            width: 59%
+            @media(max-width: 1440px)
+                margin-top: 79px
+            @media(max-width: 1024px)
+                width: auto
+            @media(max-width: 768px)
+                font-size: 40px
+            @media(max-width: 425px)
+                font-size: 31px
+                line-height: 48px
+            strong
+                color: $yellow
+
+        legend
+            margin-top: 27px
+            font-family: $font-mukta
+            font-size: 25px
+            line-height: 35px
+            color: $blue-dark
+            width: 54%
+            @media(max-width: 1440px)
+                width: 88%
+            @media(max-width: 425px)
+                width: auto
+                font-size: 17px
+                line-height: 26px
+            strong
+                color: $yellow
+
+    .box-right
+        width: 50.2%
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        overflow: hidden
+        @media(max-width: 1440px)
+            width: 62.2%
+        @media(max-width: 1024px)
+            display: none
+        img
+            width: 100%
+
+.encontre
+    height: 392px
+    background-color: $blue-dark
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    h2
+        color: #fff
+        font-size: 48px
+        font-family: $font-ubuntu
+        line-height: 60px
+        margin-bottom: 21px
+        @media(max-width: 768px)
+            font-size: 34px
+        @media(max-width: 425px)
+            width: 71%
+            line-height: 45px
+            text-align: center
+        @media(max-width: 375px)
+            font-size: 32px
+
+    form
+        background-color: rgb(255 255 255 / 5%)
+        padding: 0px 43px
+        border-radius: 8px
+        height: 112px
+        width: 803px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        @media(max-width: 768px)
+            width: 73%
+        input
+            background-color: #fff
+            width: 90%
+            height: 56px
+            font-family: $font-mukta
+            font-size: 1em
+            font-weight: 300
+            padding: 15px 16px
+            border: 0px
+            box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08)
+            border-radius: 4px
+            @media(max-width: 425px)
+                width: 79%
+            &:focus
+                outline: none
+
+        button
+            border: 0px
+            background-color: $yellow
+            border-radius: 4px
+            height: 56px
+            display: flex
+            align-items: center
+            justify-content: center
+            cursor: pointer
+            width: 7%
+            @media(max-width: 425px)
+                width: 18%
+
+#vagas-page
+    padding: 48px 93px
+    @media(max-width: 768px)
+        padding: 48px 3em
+    @media(max-width: 425px)
+        padding: 48px 2em
+    h2
+        font-family: $font-ubuntu
+        color: $blue-dark
+        font-size: 36px
+        font-weight: 300
+        line-height: 43px
+        width: 100%
+        padding-bottom: 24px
+        border-bottom: 1px solid $blue-dark
+        margin-bottom: 53px
+
+    .filtros
+        display: flex
+        justify-content: space-between
+        @media(max-width: 1024px)
+            flex-direction: column
+
+        .buttonFiltro
+            display: none
+            @media(max-width: 1024px)
+                padding: 4px 16px
+                background-color: #FFD8CC
+                border-radius: 4px
+                font-size: 18px
+                color: #FF5D29
+                font-family: "Ubuntu"
+                font-weight: 300
+                border: 0px
+                width: 6.6em
+                cursor: pointer
+                margin-bottom: 2em
+                width: 100%
+                text-align: center
+                display: flex
+                align-items: center
+                justify-content: center
+                img
+                    margin-right: 9px
+
+        .form-filtros
+            width: 11%
+            display: flex
+            flex-direction: column
+            @media(max-width: 1440px)
+                width: 21%
+            @media(max-width: 1024px)
+                width: 100%
+                flex-direction: row
+                flex-wrap: wrap
+            .form-filtros-content
+                display: flex
+                flex-direction: column
+                width: 100%
+                margin-bottom: 48px
+                @media(max-width: 1024px)
+                    width: 33%
+                    display: none
+                @media(max-width: 425px)
+                    width: 50%
+                h5
+                    font-family: $font-mukta
+                    color: $blue-dark
+                    font-size: 25px
+                    margin-bottom: 1em
+
+                label
+                    display: flex
+                    align-items: center
+                    font-family: $font-mukta
+                    color: $blue-dark
+                    font-weight: 300
+                    font-size: 16px
+                    margin-bottom: 0.5em
+                    cursor: pointer
+                    input
+                        display: none
+                        &:checked + span
+                            background-color: $yellow
+
+                    span
+                        border: 1px solid $yellow
+                        width: 18px
+                        height: 18px
+                        border-radius: 4px
+                        display: flex
+                        transition: .3s ease-out
+                        margin-right: 16px
+            .form-filtros-content-active
+                display: flex
+
+.vagas-container
+    display: flex
+    flex-direction: column
+    width: 83%
+    @media(max-width: 1440px)
+        width: 77%
+    @media(max-width: 1024px)
+        width: 100%
+    .vagas-box
+        background-color: $blue-soft-light
+        height: 341px
+        padding: 0em 60px
+        display: flex
+        flex-direction: column
+        position: relative
+        margin-bottom: 24px
+        @media(max-width: 768px)
+            height: 24.4em
+        @media(max-width: 425px)
+            padding: 2em 2em
+            height: auto
+        @media(max-width: 375px)
+            padding-bottom: 5em
+        h5
+            font-family: $font-mukta
+            font-size: 32px
+            line-height: 45px
+            color: $blue-dark
+            margin-top: 33px
+            @media(max-width: 425px)
+                font-size: 22px
+                margin-top: 0px
+
+        h4
+            font-family: $font-mukta
+            font-weight: 300
+            font-size: 16px
+            line-height: 25px
+            color: #003554CC
+            margin-bottom: 27px
+        p
+            font-family: $font-mukta
+            color: $blue-dark
+            font-weight: 300
+            line-height: 25px
+            font-size: 16px
+            height: 8em
+            @media(max-width: 425px)
+                display: none
+        .vagas-box-bottom
+            display: flex
+            justify-content: space-between
+            align-items: center
+            @media(max-width: 768px)
+                flex-wrap: wrap
+            .location
+                display: flex
+                font-family: $font-mukta
+                color: $blue-dark
+                font-weight: 300
+                align-items: center
+                img
+                    margin-right: 13px
+            .tags-container
+                display: flex
+                align-items: center
+                @media(max-width: 425px)
+                    display: none
+                .tags-box
+                    font-family: $font-mukta
+                    font-size: 16px
+                    font-weight: 300
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    padding: 0.5em
+                    background-color: $yellow
+                    color: $blue-dark
+                    border-radius: 4px
+                    margin-right: 16px
+                    &:last-child
+                        margin-right: 0px
+
+            a
+                @extend %button-orange
+                font-size: 1em
+                @media(max-width: 768px)
+                    margin-top: 1em
+        .time
+            position: absolute
+            right: 51px
+            top: 40px
+            font-family: $font-mukta
+            font-size: 1em
+            font-weight: 300
+            color: #003554CC
+            display: flex
+            align-items: center
+            img
+                margin-right: 0.5em
+            @media(max-width: 425px)
+                right: 21px
+                top: 22px
+                img
+                    max-width: 1.2em
+                    margin-right: 0.5em
+            @media(max-width: 375px)
+                right: unset
+                top: unset
+                bottom: 1.5em
+                    
+    .maisVagas
+        color: $yellow-dark
+        font-size: 25px
+        font-family: $font-mukta
+        line-height: 35px
+        margin-top: 46px
+        background: 0
+        border: 0
+        width: 8.2em
+        padding: 0
+        margin-bottom: 0.5
+        cursor: pointer
+        text-align: start
+        .border
+            width: 113px
+            background-color: $yellow-dark
+            height: 2px
+            display: flex
+            margin-top: 8px
+.enconte-interno
+    height: 337px
+    @media(max-width: 768px)
+        height: 19em
+
+
+#vaga-interno
+    .container
+        padding: 55px 96px
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+        margin-bottom: 4em
+        @media(max-width: 1024px)
+            flex-direction: column-reverse
+        @media(max-width: 768px)
+            padding: 55px 4em  
+        @media(max-width: 425px)
+            padding: 53px 3em
+        .box-left
+            width: 64%
+            display: flex
+            flex-direction: column
+            @media(max-width: 1024px)
+                width: 100%
+            .header-box
+                display: flex
+                align-items: flex-start
+                margin-bottom: 109px
+                @media(max-width: 425px)
+                    margin-bottom: 3em
+                    flex-direction: column
+                .imagem
+                    height: 132px
+                    width: 132px
+                    border: 1px solid $blue-dark
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    margin-right: 40px
+                    img
+                        width: 88%
+                .text
+                    display: flex
+                    flex-direction: column
+                    h1
+                        color: $blue-dark
+                        font-family: $font-ubuntu
+                        font-size: 48px
+                        line-height: 60px
+                        margin-bottom: 3px
+                        @media(max-width: 425px)
+                            margin-top: 1em
+                        @media(max-width: 375px)
+                            font-size: 31px
+                    h3
+                        font-family: $font-mukta
+                        font-size: 25px
+                        line-height: 35px
+                        color: $blue-dark
+
+                    h4
+                        font-family: $font-mukta
+                        font-size: 25px
+                        line-height: 35px
+                        color: rgb(0 53 84 / 50%)
+            .box-content-text
+                border: 1px solid $yellow-light
+                border-radius: 4px
+                padding: 35px 25px
+                display: flex
+                flex-direction: column
+                align-items: flex-start
+                font-family: $font-mukta
+                font-size: 25px
+                color: $blue-dark
+                @media(max-width: 425px)
+                    font-size: 14px
+
+                h5
+                    margin-bottom: 1em
+                
+                .content-text
+                    font-size: 17px
+                    line-height: 35px
+                    color: rgb(0 53 84 / 62%)
+
+            .box-left-bottom
+                margin-top: 44px
+                display: flex
+                align-items: center
+                a
+                    @extend %button-orange
+                button
+                    background-color: transparent
+                    border: 0
+                    outline: none
+                    margin-left: 36px
+
+            .subtitle
+                font-family: $font-mukta
+                color: $blue-dark
+                font-size: 32px
+                line-height: 45px
+                margin-top: 92px
+                margin-bottom: 48px
+
+        .box-right
+            display: flex
+            flex-direction: column
+            width: 23%
+            @media(max-width: 1024px)
+                width: 100%
+                margin-top: 4em
+                margin-bottom: 6em
+            @media(max-width: 425px)
+                margin-top: 1em
+            .box-right-header
+                display: flex
+                align-items: flex-start
+                border-bottom: 1px solid $yellow
+                padding-bottom: 25px
+                position: relative
+                .imagem
+                    width: 81px
+                    height: 81px
+                    border: 1px solid $blue-dark
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    margin-right: 25px
+                    img
+                        width: 75%
+                    
+                h3
+                    font-size: 36px
+                    font-family: $font-ubuntu
+                    font-weight: 300
+                    line-height: 43px
+
+                .sharebutton
+                    position: absolute
+                    right: 0
+                    top: 0
+                    cursor: pointer
+
+            .vaga-infos
+                margin-top: 30px
+                display: flex
+                flex-direction: column
+                margin-bottom: 28px
+                span
+                    display: flex
+                    align-items: center
+                    font-size: 16px
+                    line-height: 25px
+                    font-family: $font-mukta
+                    font-weight: 300
+                    color: $blue-dark
+                    margin-bottom: 25px
+                    img
+                        margin-right: 20px
+            .share-content
+                display: flex
+                flex-direction: column
+                h3
+                    font-family: $font-mukta
+                    font-size: 25px
+                    color: $blue-dark
+                    line-height: 35px
+                    margin-bottom: 17px
+
+                .share-links
+                    display: flex
+                    align-items: center
+                    a
+                        width: 29px
+                        height: 29px
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        overflow: hidden
+                        border-radius: 4px
+                        background-color: $blue-dark
+                        margin-right: 14px
+                        &:last-child
+                            margin-right: 0px
+                    margin-bottom: 43px
+                .share-button
+                    @extend %button-orange
+                    width: 62%
+                    @media(max-width: 1024px)
+                        width: 18%
+                    @media(max-width: 768px)
+                        width: 25%
+                    @media(max-width: 425px)
+                        width: 49%
+
+                
+
+.candidatura-content
+    position: fixed
+    left: 0
+    top: 0
+    z-index: 99999
+    display: none
+    align-items: center
+    justify-content: center
+    background-color: rgb(0 0 0 / 29%)
+    width: 100%
+    height: 100%
+    transition: .3s ease-out
+    opacity: 0
+    .candidatura-form
+        padding: 56px
+        background-color: #fff
+        border-radius: 8px
+        position: relative
+        height: 79%
+        width: 33%
+        @media(max-width: 1440px)
+            height: 80%
+        @media(max-width: 1024px)
+            width: 70%
+        @media(max-width: 425px)
+            padding: 35px 2.4em
+        .feedback
+            align-items: center
+            justify-content: center
+            display: none
+            width: 100%
+            flex-direction: column
+            height: 100%
+            font-family: $font-ubuntu
+            img
+                margin-bottom: 2em
+            p
+                font-size: 36px
+                font-weight: 300
+                color: $blue-dark
+        .feedback-active
+            display: flex
+        h2
+            font-family: $font-ubuntu
+            color: $blue-dark
+            font-size: 33px
+            font-weight: 300
+            margin-bottom: 46px
+        input, textarea
+            width: 100%
+        input, select, textarea, .curriculo
+            border: 1px solid $yellow
+            border-radius: 4px
+            background-color: #fff
+            padding: 11px 16px
+            font-family: $font-mukta
+            font-size: 16px
+            font-weight: 300
+            margin-bottom: 23px
+            @media(max-width: 425px)
+                font-size: 15px
+        button
+            @extend %button-orange
+            font-size: 1.2em
+            border: 0px
+        .form-group
+            display: flex
+            align-items: center
+            justify-content: space-between
+            input, select
+                width: 48%
+        .curriculo
+            position: relative
+            display: flex
+            align-items: center
+            color: #6f7175
+            cursor: pointer
+            height: 1.8em
+            span
+                position: absolute
+                right: 5px
+                background-color: $yellow
+                padding: 5px 6px
+                border-radius: 3px
+                @media(max-width: 375px)
+                    p
+                        width: 62%
+        textarea
+            height: 15em
+        .close-candidatura
+            position: absolute
+            right: 28px
+            top: 25px
+            font-size: 1.5em
+            cursor: pointer
+            color: $blue-dark
+.candidatura-content-active
+    display: flex
+    opacity: 1
+
+.share-candidatura
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    display: none
+    align-items: center
+    justify-content: center
+    z-index: 9999
+    background-color: rgb(0 0 0 / 16%)
+    opacity: 0
+    transition: .3s ease-out
+    .share-candidatura-box
+        background-color: #fff
+        padding: 38px 49px
+        border-radius: 9px
+        position: relative
+        width: 28%
+        @media(max-width: 768px)
+            width: 59%
+        @media(max-width: 425px)
+            width: 68%
+        @media(max-width: 375px)
+            padding: 38px 32px
+            width: 76%
+
+        i
+            position: absolute
+            right: 14px
+            top: 10px
+            cursor: pointer
+            font-size: 1.4em
+            color: $blue-dark
+        h2
+            font-family: $font-ubuntu
+            font-size: 30px
+            color: $blue-dark
+            font-weight: 300
+        
+        span
+            display: flex
+            align-items: center
+            position: relative
+            margin-bottom: 40px
+            margin-top: 2em
+            cursor: pointer
+            input
+                border: 1px solid $yellow
+                border-radius: 4px
+                padding: 15px 16px
+                width: 100%
+                cursor: pointer
+            i
+                position: absolute
+                right: 10px
+                top: 12px
+                color: $yellow
+                cursor: pointer
+        .share-links
+            display: flex
+            align-items: center
+            a
+                width: 29px
+                height: 29px
+                display: flex
+                align-items: center
+                justify-content: center
+                overflow: hidden
+                border-radius: 4px
+                background-color: $blue-dark
+                margin-right: 14px
+                &:last-child
+                    margin-right: 0px
+.share-candidatura-active
+    display: flex
+    opacity: 1
+.sharebutton
+    cursor: pointer
+
+.modal-time
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: rgb(0 0 0 / 24%)
+    z-index: 9999
+    display: none
+    .main
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 100%
+        height: 100%
+        .content
+            background-color: #fff
+            width: 33%
+            padding: 3em
+            border-radius: 9px
+            font-family: $font-ubuntu
+            position: relative
+            @media(max-width: 1024px)
+                width: 59%
+            @media(max-width: 768px)
+                width: 63%
+            
+            i
+                position: absolute
+                right: 23px
+                top: 18px
+                font-size: 24px
+                color: $blue-dark
+                cursor: pointer
+            .top
+                display: flex
+                @media(max-width: 698px)
+                    flex-direction: column
+                .left
+                    width: 37%
+                    height: 18em
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    overflow: hidden
+                    border-radius: 5px
+                    @media(max-width: 698px)
+                        width: 47%
+                    @media(max-width: 500px)
+                        width: auto
+                    img
+                        height: 100%
+                .right
+                    margin-left: 1.5em
+                    width: 56%
+                    @media(max-width: 698px)
+                        width: 100%
+                        margin-top: 2em
+                        margin-left: 0em
+                    h1
+                        font-size: 1.7em
+                        color: $blue-dark
+                    h2
+                        color: $yellow
+                        margin-top: 10px
+                    p
+                        font-size: 0.8em
+                        margin-top: 1em
+                        line-height: 18px
+                        color: rgb(0 0 0 / 63%)
+            .bottom
+                margin-top: 2em
+                strong
+                    color: $blue-dark
+                p
+                    line-height: 23px
+                    font-size: 0.9em
+                    color: #5d5d5d
+                    margin-top: 1em
+#privacy-policies
+    position: fixed
+    left: 0
+    right: 0
+    bottom: 0
+    height: auto
+    background-color: $yellow
+    display: flex
+    padding: 2em
+    align-items: center
+    justify-content: space-between
+    font-family: 'Mukta'
+    h2
+        font-size: 1.2em
+        color: #003e51
+        margin-bottom: 0.6em
+        font-weight: 500
+    legend
+        color: $blue-dark
+    a
+        color: blue
+    button
+        @extend %button-orange
+        font-size: 1.1em
+        border: 0px
+        background-color: $blue-dark
+        color: #fff
+        &:hover 
+            background-color: $blue
+.policies
+    font-family: 'Ubuntu'
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    padding: 4em 3em
+    line-height: 36px
+    font-size: 15px
+    h1
+        font-size: 1.4rem
+        font-weight: 500
+        margin-bottom: 1em
+    h2
+        font-weight: 500
+        margin-top: 1em
+        margin-bottom: 1em
+        font-size: 1rem
