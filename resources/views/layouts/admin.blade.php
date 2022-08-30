@@ -21,12 +21,12 @@
     <link href="https://fonts.googleapis.com/css?family=Exo:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/plugins/richtext.min.css">
-    <link rel="stylesheet" href="/css/admin/app.css">
+    <link rel="stylesheet" href="{{ asset('css/plugins/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/plugins/richtext.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/admin/app.css')}}">
 
 </head>
 
@@ -95,14 +95,14 @@
         </footer>
     </main>
 
-    <script src="/js/plugins/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script type="text/javascript" src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('js/plugins/jquery.min.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="/js/plugins/jquery.richtext.min.js" type="text/javascript"></script>
-    <script src="/js/plugins/sweetalert.min.js"></script>
-    <script src="/js/admin/alerts.js"></script>
-    <script src="/js/admin/app.js"></script>
+    <script src="{{ asset('js/plugins/jquery.richtext.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/plugins/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('js/admin/alerts.js') }}"></script>
+    <script src="{{ asset('js/admin/app.js') }}"></script>
 
 </body>
 </html>

@@ -33,7 +33,8 @@
                         <td><?=$candidatura->escolaridade?></td>
                         <td><?=$candidatura->cidade?></td>
                         <td>
-                            <a href="/admin/vagas/form?id=<?=$candidatura->id?>" target="_blank" class='link-td'>
+
+                            <a href="{{ route('vagas.form') . '?id=' . $candidatura->id }}" target="_blank" class='link-td'>
                                 <i class="fa fa-external-link" aria-hidden="true"></i>
                                 #<?=$candidatura->vaga_id?> - <?=$candidatura->vaga_name?>
                             </a>
@@ -41,7 +42,7 @@
                         <td><?=$candidatura->data_candidatura?></td>
 
                         <td class="td-acoes">
-                            <button class="btn-visualizar" data-id="<?=$candidatura->id?>"  type="button"><i class="fa fa-eye" aria-hidden="true"></i>Visualizar</button>
+                            <button class="btn-visualizar" data-id="{{ $candidatura->id }}" data-url="{{ route('candidatura.visualizar' , ['id' => $candidatura->id]) }}"  type="button"><i class="fa fa-eye" aria-hidden="true"></i>Visualizar</button>
                         </td>
                     </tr>
                     <?php } ?>
@@ -56,7 +57,7 @@
 <div class='visualizar-modal'>
     <div class='content'>
         <i class="fa fa-times close-modal-visualizar" aria-hidden="true"></i>
-        <h2>Candidatura: (23)</h2>
+        <h3>Candidatura: (23)</h3>
         <div class='row'>
             <div class='group-form'>
                 <label for="nome-modal">Nome:</label>
@@ -96,7 +97,7 @@
         <div class='row'>
             <div class='group-form-2'>
                 <label for="descricao-modal">Descrição:</label>
-                <textarea id="descricao-modal" disabled></textarea>
+                <textarea id="descricao-modal" disabled style="resize:none;height: 150px;"></textarea>
             </div>
         </div>
 

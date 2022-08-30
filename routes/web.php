@@ -36,7 +36,7 @@ Route::get('/admin', 'admin\VagasController@index');
 
 // Vagas
 Route::get('/admin/vagas', 'admin\VagasController@index');
-Route::get('/admin/vagas/form', 'admin\VagasController@form');
+Route::get('/admin/vagas/form', 'admin\VagasController@form')->name('vagas.form');
 Route::post('/admin/vagas/sendform', 'admin\VagasController@save');
 Route::post('/admin/vagas/remove', 'admin\VagasController@remove');
 
@@ -52,7 +52,7 @@ Route::post('/admin/categorias/remove', 'admin\CategoriasController@remove');
 // Candidaturas
 
 Route::get('/admin/candidaturas', 'admin\CandidaturasController@index');
-Route::get('/admin/candidaturas/visualizar/{id}', 'admin\CandidaturasController@visualizar');
+Route::get('/admin/candidaturas/visualizar/{id}', 'admin\CandidaturasController@visualizar')->name('candidatura.visualizar');
 Route::get('/admin/candidaturas/download/{id}', 'admin\CandidaturasController@download');
 
 

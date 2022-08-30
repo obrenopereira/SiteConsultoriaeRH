@@ -1,17 +1,17 @@
 var Main = {
     setup: function() {
         var __this = this;
-        
+
         if($(".message-feedback-session").length) {
             setTimeout(function(){
                 $(".message-feedback-session").fadeOut();
-                
+
             }, 2000)
             setTimeout(function(){
                 $(".message-feedback-session").remove();
             }, 2500)
         }
-        
+
         if($(".categorias-select").length) {
             $(".categorias-select").select2();
         }
@@ -22,25 +22,25 @@ var Main = {
         }
         if($("#descricao-text").length) {
             $('#descricao-text').richText({
-                
+
                 // text formatting
                 bold: true,
                 italic: true,
                 underline: true,
-                
+
                 // text alignment
                 leftAlign: true,
                 centerAlign: true,
                 rightAlign: true,
                 justify: true,
-                
+
                 // lists
                 ol: true,
                 ul: true,
-                
+
                 // title
                 heading: true,
-                
+
                 // fonts
                 fonts: true,
                 fontList: [
@@ -49,31 +49,31 @@ var Main = {
                 ],
                 fontColor: true,
                 fontSize: true,
-                
+
                 // uploads
                 imageUpload: false,
                 fileUpload: false,
-                
+
                 // media
                 videoEmbed: false,
-                
+
                 // link
                 urls: true,
-                
+
                 // tables
                 table: false,
-                
+
                 // code
                 removeStyles: true,
                 code: true,
-                
+
                 // colors
                 colors: [],
-                
+
                 // dropdowns
                 fileHTML: '',
                 imageHTML: '',
-                
+
                 // translations
                 translations: {
                     'title': 'Titulo',
@@ -129,16 +129,16 @@ var Main = {
                     'redo': 'Refazer',
                     'close': 'Fechar'
                 },
-                
+
                 // privacy
                 youtubeCookies: false,
-                
+
                 // preview
                 preview: false,
-                
+
                 // placeholder
                 placeholder: '',
-                
+
                 // developer settings
                 useSingleQuotes: false,
                 height: 0,
@@ -153,7 +153,7 @@ var Main = {
             });
         }
         if($("#table").length) {
-            
+
             $('#table').DataTable({
                 "aLengthMenu": [[7], [7]],
                 "pageLength": 7,
@@ -182,11 +182,11 @@ var Main = {
                         "sortDescending": ": activate to sort column descending"
                     }
                 },
-                
+
             });
         }
         if($("#table-empresa").length) {
-            
+
             $('#table-empresa').DataTable({
                 "ordering": false,
                 "aLengthMenu": [[4], [4]],
@@ -215,11 +215,11 @@ var Main = {
                         "sortDescending": ": activate to sort column descending"
                     }
                 },
-                
+
             });
         }
         if($("#table-galeria").length) {
-            
+
             $('#table-galeria').DataTable({
                 "ordering": false,
                 "aLengthMenu": [[3], [3]],
@@ -248,7 +248,7 @@ var Main = {
                         "sortDescending": ": activate to sort column descending"
                     }
                 },
-                
+
             });
         }
         __this.Form .setup();
@@ -262,7 +262,7 @@ var Main = {
             __this.Vagas .setup();
 
         }
-        
+
         if($(".skills-form").length) {
             __this.Skills .setup();
 
@@ -276,15 +276,15 @@ var Main = {
             $(".closeSkills").on("click", function(){
                 $(".skills-content").removeClass("skills-content-active")
             });
-            
+
             $(".saveSkills").on("click", function() {
                 let form = $(".skills-form");
                 let inputNew = $(".skills-form .adicionarSkillInput");
                 let id = $(".skills-form .case-id").val()
                 let data = new FormData(form[0]);
-                
+
                 data.append("id", id)
-                
+
                 $.ajax({
                     type: "POST",
                     url: '/admin/skills/send',
@@ -301,7 +301,7 @@ var Main = {
                                     id: data.nova,
                                     text: inputNew.val()
                                 };
-                                
+
                                 var newOption = new Option(nova.text, nova.id, false, false);
                                 $('.skills-select').append(newOption).trigger('change');
                                 $(`.skills-select option[value=${nova.id}]`).prop("selected", true);
@@ -311,7 +311,7 @@ var Main = {
 
                         }
                     }
-                });            
+                });
             });
         }
     },
@@ -327,11 +327,11 @@ var Main = {
             let cidadeSave = $("#cidade-value").val();
 
             $.getJSON('https://servicodados.ibge.gov.br/api/v1/localidades/estados/', function (json) {
- 
+
                 json.map(function(item){
                     if(ufSave != '' && ufSave == item.sigla) {
                         $("#uf").append(`<option value='${item.sigla}' selected>${item.nome} </option>`)
-                        
+
                         $.getJSON(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${item.sigla}/municipios`, function (json) {
 
                             $("#cidade option").remove();
@@ -344,7 +344,7 @@ var Main = {
                                     $("#cidade").append(`<option value='${element.nome}'>${element.nome} </option>`)
                                 }
                             })
-                        
+
                         });
 
                     }else {
@@ -352,13 +352,13 @@ var Main = {
                     }
                 })
             });
-        
+
             $("#uf").on("change", function(){
                 let _this = $(this);
                 let uf = _this.val();
 
                 $.getJSON(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`, function (json) {
-                
+
                 $("#cidade option").remove();
                 $("#cidade").append("<option value=''>Selecione uma cidade</option>");
 
@@ -367,7 +367,7 @@ var Main = {
                 })
 
             });
-        
+
 
             });
 
@@ -379,7 +379,7 @@ var Main = {
 
             __this.CloseModal();
             __this.Visualizar();
-        },  
+        },
         Visualizar: function() {
             jQuery(document).off('click', '.btn-visualizar');
             jQuery(document).on('click', '.btn-visualizar', function(e) {
@@ -387,14 +387,15 @@ var Main = {
                 let _this = jQuery(this);
 
                 let id = _this.data("id");
+                let url = _this.data("url");
                 $.ajax({
                     type: "GET",
-                    url: '/admin/candidaturas/visualizar/'+id,
+                    url: url,
                     success: function (data) {
-                        
+
                         data = data.candidatura
                         let href = $(".downloadPDF").attr("href")+id;
-                        $(".downloadPDF").attr("href", href);   
+                        $(".downloadPDF").attr("href", href);
                         $(".visualizar-modal h2").text('Candidatura: ('+data.id+')')
                         $("#nome-modal").val(data.name)
                         $("#email-modal").val(data.email)
@@ -409,7 +410,7 @@ var Main = {
                         $(".gradient").fadeIn()
                         $(".visualizar-modal").addClass('active-modal')
                     }
-                });    
+                });
 
             });
         },
@@ -434,13 +435,13 @@ var Main = {
     Form: {
         setup: function() {
             var __this = this;
-            
+
             __this.resetForm();
             __this.saveForm();
             __this.Preview();
             __this.Remover();
-            
-            
+
+
         },
         resetForm: function(){
             $(".form").find(".data-form").on("click", function(){
@@ -451,21 +452,21 @@ var Main = {
             $(".enviar").on("click", function(e){
                 e.preventDefault();
                 let form = $(".form");
-                
+
                 form.find(".data-form").each(function(index, item) {
                     if($(item).val() == '') {
                         $(item).addClass("border-danger");
                         return
                     }
                 })
-                
+
                 form = form[0]
                 let data = new FormData(form);
-                
+
                 if($("#id").val() != '') {
                     data.append("id", $("#id").val())
                 }
-                
+
                 $.ajax({
                     type: "POST",
                     url: $(".form").find(".url").val(),
@@ -484,18 +485,18 @@ var Main = {
                         $(".message-feedback").text(data.msg);
                         $(".message-feedback").show(500)
                         console.log(data)
-                        
+
                         setTimeout(function(){
                             $(".message-feedback").fadeOut()
 
                             if(!$(".form-configuracoes").length) {
-                                window.location.replace($('.url-reload').val()+data.id); 
+                                window.location.replace($('.url-reload').val()+data.id);
                             }
                         }, 1200);
-                        
+
                     }
-                });                
-                
+                });
+
             })
         },
         Preview: function() {
@@ -503,7 +504,7 @@ var Main = {
 
             $(".input_upload").on("change", function(event) {
                 let _this = $(this);
-               
+
                 if(event.target.files.length > 0){
                     _this.siblings(".preview, .imagem-content").addClass("preview-active");
                     _this.siblings(".preview, .imagem-content").find('button').css("display", "none")
@@ -520,7 +521,7 @@ var Main = {
                 let tr    = _this.parent().parent().parent();
                 let form  = _this.parent()
                 let id    = _this.data("id")
-                
+
                 let data = new FormData(form[0]);
                 swal({
                     title: 'Tem certeza disso?',
@@ -568,13 +569,13 @@ var Main = {
                                 showSwal('success-message', data.msg);
 
                                 setTimeout(function(){
-                                    window.location.replace(form.find('.url-reload').val()); 
+                                    window.location.replace(form.find('.url-reload').val());
                                 }, 1500)
                             }
                         });
-                    } 
+                    }
                 });
-                
+
             })
         },
     }
