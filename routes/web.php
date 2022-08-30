@@ -24,7 +24,7 @@ Route::get('/vagas', 'site\VagasController@index')->name('vagas.index');
 Route::get('/vagas/get', 'site\VagasController@getVagas');
 Route::get('/vagas/search', 'site\VagasController@search');
 Route::get('/vagas/remove-filter', 'site\VagasController@removeFilter');
-Route::get('/vagas/detalhes/{id}', 'site\VagasController@detalhes');
+Route::get('/vagas/detalhes/{id}', 'site\VagasController@detalhes')->name('vagas.show');
 Route::post('/candidaturas/send', 'site\CandidaturasController@send');
 Route::get('/politicas-privacidade', 'site\HomepageController@policies');
 Route::post('/accept-policies', 'site\HomepageController@acceptPolicies')

@@ -17,16 +17,16 @@
         <div class='share-links'>
             <a href="#" target="_bank">
                 <img src="/img/site/facebook_invertido.png" alt="">
-            </a> 
+            </a>
             <a href="#" target="_bank">
                 <img src="/img/site/linkedin_invertido.png" alt="">
-            </a> 
+            </a>
             <a href="#" target="_bank">
                 <img src="/img/site/youtube_invertido.png" alt="">
-            </a> 
+            </a>
             <a href="#" target="_bank">
                 <img src="/img/site/instagram_invertido.png" alt="">
-            </a> 
+            </a>
         </div>
     </div>
 </div>
@@ -55,7 +55,7 @@
                     <img src="/img/site/Paperclip.png" alt="">
                 </span>
             </label>
-            <textarea name="descricao" class='data-form' id="descricao" placeholder='Fique à vontade para escrever o que desejar...'></textarea>
+            <textarea name="descricao" class='data-form' id="descricao" placeholder='Fique à vontade para escrever o que desejar...' style="resize:none"></textarea>
             <button type='button' class='submitCandidatura'>Candidatar-se</button>
         </div>
         <div class='feedback'>
@@ -64,7 +64,7 @@
         </div>
     </form>
 </div>
-    
+
 <section class="encontre enconte-interno">
     <h2>Encontre aqui seu próximo emprego</h2>
     <form class="encontre-form">
@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            <div class='box-content-text'> 
+            <div class='box-content-text'>
                 <h5>Descrição da Vaga</h5>
                 <div class='content-text'>
                 <?php echo $vaga->descricao?>
@@ -165,16 +165,16 @@
                 <div class='share-links'>
                     <a href="#" target="_bank">
                         <img src="/img/site/facebook_invertido.png" alt="">
-                    </a> 
+                    </a>
                     <a href="#" target="_bank">
                         <img src="/img/site/linkedin_invertido.png" alt="">
-                    </a> 
+                    </a>
                     <a href="#" target="_bank">
                         <img src="/img/site/youtube_invertido.png" alt="">
-                    </a> 
+                    </a>
                     <a href="#" target="_bank">
                         <img src="/img/site/instagram_invertido.png" alt="">
-                    </a> 
+                    </a>
                 </div>
                 <a href="javascript:void(0)" class='share-button candidatar-button'>Candidatar-se</a>
             </div>

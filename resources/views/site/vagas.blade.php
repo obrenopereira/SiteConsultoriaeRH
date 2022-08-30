@@ -24,9 +24,9 @@
 </section>
 
 <section id="vagas-page">
-    
+
     <h2 id='vagas-title'>Processos Seletivos em Aberto</h2>
-    
+
     <div class="filtros">
         <form class="form-filtros">
             <button class='buttonFiltro' type='button'><img src="/img/site/Filter.png"> Filtros</button>
@@ -72,7 +72,7 @@
             </div>
         </form>
         <div class="vagas-container">
-            <?php 
+            <?php
             if(count($vagas)) {
                 foreach($vagas as $vaga) { ?>
                     <div class="vagas-box">
@@ -93,16 +93,16 @@
                                 <span class="tags-box"><?=$vaga->experiencia_name?></span>
                                 <span class="tags-box"><?=$vaga->escolaridade_name?></span>
                             </div>
-                            <a href="/vagas/detalhes/<?=$vaga->id?>">Ver mais sobre</a>
+                            <a href="{{ route('vagas.show' , ['id' => $vaga->id]) }}">Ver mais sobre</a>
                         </div>
                     </div>
-            <?php } 
+            <?php }
             } ?>
 
             <button class='maisVagas moreActionVagas' type="button">Ver mais vagas <span class="border"></span></button>
         </div>
     </div>
-    
+
 </section>
 
 @stop
