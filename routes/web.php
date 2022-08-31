@@ -53,7 +53,7 @@ Route::post('/admin/categorias/remove', 'admin\CategoriasController@remove');
 
 Route::get('/admin/candidaturas', 'admin\CandidaturasController@index');
 Route::get('/admin/candidaturas/visualizar/{id}', 'admin\CandidaturasController@visualizar')->name('candidatura.visualizar');
-Route::get('/admin/candidaturas/download/{id}', 'admin\CandidaturasController@download');
+Route::get('/admin/candidaturas/download/{id}', 'admin\CandidaturasController@download')->name('curriculo.download');
 
 
 // Empresas
