@@ -61,7 +61,7 @@ class CandidaturasController extends Controller
     public function download($id)
     {
 //        $file = storage_path( "app/curriculos/curriculo-".$id.".pdf");
-        return Storage::download("app/curriculos/curriculo-".$id.".pdf");
+        return Storage::download("curriculos/curriculo-".$id.".pdf");
         dd($file);
         $candidatura = $this->candidaturas->getCandidaturaById($id)[0];
 
