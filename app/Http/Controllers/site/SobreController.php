@@ -26,6 +26,7 @@ class SobreController extends Controller
                 $bannerSecundario = $value;
             }
         }
-        return view("site/sobre")->with(['bannerPrincipal' => $bannerPrincipal, 'bannerSecundario' => $bannerSecundario]);
+        return view("site/sobre")
+            ->with(['bannerPrincipal' => $bannerPrincipal, 'bannerSecundario' => $bannerSecundario]);
     }
 }

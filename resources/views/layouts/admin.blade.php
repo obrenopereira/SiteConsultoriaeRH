@@ -41,53 +41,51 @@
         </header>
         <nav>
             <a href="/admin/vagas" class='logotipo' title="TS - Consultoria Logotipo" alt="TS - Consultoria Ínicio">
-                <img src="<?php echo asset('configuracoes/'.$configuracoes->logotipo_1); ?>">
+                <img src="{{ asset('configuracoes/'.$configuracoes->logotipo_1) }}">
             </a>
-                <ul class="navbar">
-                    <li class="link-vagas">
-                        <i class="fa fa-suitcase" aria-hidden="true"></i>
-                        <a href="/admin/vagas" title="Vagas" alt="Vagas">Vagas</a>
-                    </li>
-                    <li class="link-candidaturas">
-                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                        <a href="/admin/candidaturas" title="Candidaturas" alt="Candidaturas">Candidaturas</a>
-                    </li>
-                    <li class="link-categorias">
-                        <i class="fa fa-folder-open" aria-hidden="true"></i>
-                        <a href="/admin/categorias" title="Categorias" alt="Categorias">Categorias</a>
-                    </li>
-                    <li class="link-empresas">
-                        <i class="fa fa-building" aria-hidden="true"></i>
-                        <a href="/admin/empresas" title="Empresas" alt="Empresas">Empresas</a>
-                    </li>
-                    <li class="link-galeria">
-                        <i class="fa fa-picture-o" aria-hidden="true"></i>
-                        <a href="/admin/galeria" title="Galeria" alt="Galeria">Galeria</a>
-                    </li>
-                    <li class="link-cases">
-                        <i class="fa fa-coffee" aria-hidden="true"></i>
-                        <a href="/admin/cases" title="Cases" alt="Cases">Cases</a>
-                    </li>
-                    <li class="link-clientes">
-                        <i class="fa fa-users" aria-hidden="true"></i>
-                        <a href="/admin/clientes" title="clintes" alt="clintes">Clientes</a>
-                    </li>
-                    <li class="link-configuracoes">
-                        <i class="fa fa-cog" aria-hidden="true"></i>
-                        <a href="/admin/configuracoes" title="Configurações" alt="Configurações">Configurações</a>
-                    </li>
-                    <li class='logout-li'>
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>
-                        <a href="{{ route('logout') }}" title="Sair" alt="Sair" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Sair</a>
+            <ul class="navbar">
+                <li class="link-vagas">
+                    <i class="fa fa-suitcase" aria-hidden="true"></i>
+                    <a href="{{ route('admin.vagas') }}" title="Vagas" alt="Vagas">Vagas</a>
+                </li>
+                <li class="link-candidaturas">
+                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                    <a href="/admin/candidaturas" title="Candidaturas" alt="Candidaturas">Candidaturas</a>
+                </li>
+                <li class="link-categorias">
+                    <i class="fa fa-folder-open" aria-hidden="true"></i>
+                    <a href="/admin/categorias" title="Categorias" alt="Categorias">Categorias</a>
+                </li>
+                <li class="link-empresas">
+                    <i class="fa fa-building" aria-hidden="true"></i>
+                    <a href="/admin/empresas" title="Empresas" alt="Empresas">Empresas</a>
+                </li>
+                <li class="link-galeria">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    <a href="/admin/galeria" title="Galeria" alt="Galeria">Galeria</a>
+                </li>
+                <li class="link-cases">
+                    <i class="fa fa-coffee" aria-hidden="true"></i>
+                    <a href="/admin/cases" title="Cases" alt="Cases">Cases</a>
+                </li>
+                <li class="link-clientes">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <a href="/admin/clientes" title="clintes" alt="clintes">Clientes</a>
+                </li>
+                <li class="link-configuracoes">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    <a href="/admin/configuracoes" title="Configurações" alt="Configurações">Configurações</a>
+                </li>
+                <li class='logout-li'>
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <a href="{{ route('logout') }}" title="Sair" alt="Sair" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">Sair</a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </li>
-                </ul>
-
-
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
+            </ul>
         </nav>
         @yield('content')
         <footer>
