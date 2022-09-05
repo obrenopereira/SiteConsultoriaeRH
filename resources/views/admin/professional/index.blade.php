@@ -1,4 +1,4 @@
-@extends('layouts.admin_test')
+@extends('layouts.admin1')
 @section('title', 'Vagas')
 
 @section('content')
