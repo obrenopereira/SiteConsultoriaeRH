@@ -17,7 +17,7 @@ class ProfessionalController extends Controller
 {
     public function index()
     {
-        $professionals = collect([]);
+        $professionals = Professional::get();
 
         return view('admin.professional.index')->with([
             'professionals' => $professionals
@@ -76,5 +76,29 @@ class ProfessionalController extends Controller
             ] , $e->getCode());
         }
 
+    }
+
+    public function destroy(int $id)
+    {
+        DB::beginTransaction();
+
+        try {
+            $professional = Professional::find($id);
+
+            $professional->delete();
+
+            Storage::delete($professional->file);
+
+            DB::commit();
+            return response()->json([
+                'message' => 'Profissional exluido com sucesso.'
+            ]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return response()->json([
+                'message' => 'Ocorreu um erro inesperado'
+            ], $e->getCode());
+        }
     }
 }

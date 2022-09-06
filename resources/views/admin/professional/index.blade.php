@@ -1,6 +1,65 @@
 @extends('layouts.admin1')
 @section('title', 'Vagas')
 
+@section('scripts')
+    <script>
+        $(document).ready(() => {
+            $('.btn-remove').click(function() {
+                let tr    = $(this).parent().parent().parent();
+                let form  = $(this).parent()
+                let id    = $(this).data("id")
+                let url = form.attr('action')
+                swal({
+                    title: 'Tem certeza disso?',
+                    text: "Você realmente deseja realizar essa ação?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3f51b5',
+                    cancelButtonColor: '#ff4081',
+                    confirmButtonText: 'Great ',
+                    buttons: {
+                        cancel: {
+                            text: "Cancelar",
+                            value: null,
+                            visible: true,
+                            className: "btn btn-danger btnCancel",
+                            closeModal: true,
+                        },
+                        confirm: {
+                            text: "Continuar",
+                            value: true,
+                            visible: true,
+                            className: "btn btn-primary btnContinue",
+                            closeModal: true
+                        }
+                    }
+                }).then(willDelete => {
+                    if (willDelete === true) {
+                        $.ajax({
+                            url: url,
+                            type: 'DELETE',
+                            contentType: false,
+                            processData: false,
+                            enctype: 'multipart/form-data',
+                            headers: {
+                                'X-CSRF-TOKEN': form.find("input[name=_token]").val()
+                            },
+                        }).done(function(data,_, xhr) {
+                            if(xhr.status != 200) {
+                                showSwal('danger-message', data.msg);
+                            }else {
+                                showSwal('success-message', data.msg);
+                                setTimeout(function(){
+                                    location.reload();
+                                }, 1500)
+                            }
+                        });
+                    }
+                })
+            })
+        })
+    </script>
+@endsection
 @section('content')
     <div class="container">
         @if(Session::has('message-feedback'))
@@ -22,22 +81,24 @@
                     <tr>
                         <th>#</th>
                         <th>Nome</th>
+                        <th>Vaga</th>
                         <th>Descrição</th>
+                        <th>Ação</th>
                     </thead>
                     <tbody>
                     @foreach($professionals as $professional)
                     <tr>
                         <td>{{ $professional->id }}</td>
                         <td>{{ $professional->name }}</td>
+                        <td>{{ $professional->office }}</td>
                         <td>{{ $professional->description }}</td>
                         <td class="td-acoes">
-                            <form>
-                                <a href="/admin/vagas/form?id=<?=$professional->id?>" class="btn-editar" ><i class="fa fa-pencil" aria-hidden="true"></i>Editar</a>
+                            <form action="{{ route('admin.professionals.destroy' , ['id' => $professional->id]) }}">
                                 @csrf
-                                <input type="hidden" class="url-remove" value="/admin/vagas/remove">
+                                <input type="hidden" class="url-remove" value="{{ route('admin.professionals.destroy' , ['id' => $professional->id]) }}">
                                 <input type="hidden" class="url-reload" value="/admin/vagas">
                                 <input type="hidden" name='id' class='id' value="<?=$professional->id?>">
-                                <button class="btn-remover" data-id="<?=$professional->id?>"  type="button"><i class="fa fa-trash" aria-hidden="true"></i>Remover</button>
+                                <button class="btn-remove" data-id="{{ $professional->id }}" type="button"><i class="fa fa-trash" aria-hidden="true"></i>Remover</button>
                             </form>
                         </td>
                     </tr>
@@ -48,7 +109,6 @@
         </div>
     </div>
 @endsection
-
 
 <style>
     .link-profissionais {
