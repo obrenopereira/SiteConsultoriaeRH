@@ -72,6 +72,10 @@
                     <i class="fa fa-users" aria-hidden="true"></i>
                     <a href="/admin/clientes" title="clintes" alt="clintes">Clientes</a>
                 </li>
+                <li class="link-clientes">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <a href="{{ route('admin.professionals.index') }}" title="clintes" alt="clintes">Profissionais</a>
+                </li>
                 <li class="link-configuracoes">
                     <i class="fa fa-cog" aria-hidden="true"></i>
                     <a href="/admin/configuracoes" title="Configurações" alt="Configurações">Configurações</a>

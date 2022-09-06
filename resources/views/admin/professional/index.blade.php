@@ -51,7 +51,7 @@
 
 
 <style>
-    .link-vagas {
+    .link-profissionais {
         border-bottom: 1px solid #173979;
         margin-bottom: 0.5em
     }
