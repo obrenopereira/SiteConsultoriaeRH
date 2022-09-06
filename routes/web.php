@@ -82,10 +82,11 @@ Route::post('/admin/clientes/sendform', 'admin\ClientesController@save');
 Route::post('/admin/clientes/remove', 'admin\ClientesController@remove');
 
 //Profissionais
-Route::get('/admin/profissionais', 'admin\ProfessionalController@index')->name('admin.professionals.index');
-Route::get('/admin/profissionais/novo', 'admin\ProfessionalController@create')->name('admin.professionals.create');
-Route::post('/admin/profissionais/cadastrar', 'admin\ProfessionalController@store')->name('admin.professionals.store');
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/profissionais', 'admin\ProfessionalController@index')->name('admin.professionals.index');
+    Route::get('/admin/profissionais/novo', 'admin\ProfessionalController@create')->name('admin.professionals.create');
+    Route::post('/admin/profissionais/cadastrar', 'admin\ProfessionalController@store')->name('admin.professionals.store');
+});
 
 // Skills
 Route::post('/admin/skills/send', 'admin\CasesController@saveSkills');
