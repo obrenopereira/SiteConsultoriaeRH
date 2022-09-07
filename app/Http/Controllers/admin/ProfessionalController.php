@@ -17,7 +17,7 @@ class ProfessionalController extends Controller
 {
     public function index()
     {
-        $professionals = Professional::get();
+        $professionals = Professional::orderBy('name')->get();
 
         return view('admin.professional.index')->with([
             'professionals' => $professionals

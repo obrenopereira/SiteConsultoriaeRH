@@ -17,7 +17,7 @@ class CreateProfessionalsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('office');
-            $table->string('description');
+            $table->text('description');
             $table->string('file');
             $table->timestamps();
         });

@@ -125,7 +125,6 @@
             <span class="border"></span>
         </div>
         <legend>Especialistas capacitados para atender a sua empresa da forma que ela precisa. Trabalhamos como um time. São essas pessoas que estarão ao seu lado para te ajudar a alcançar o resultado que você deseja.</legend>
-
         @if($functionalityReleased)
             <div class='equipe-container'>
                 @foreach($professionals as $professional)
@@ -134,9 +133,8 @@
                         <img class='foto-equipe' src="{{ Storage::url($professional->file) }}" alt="">
                         <div class='equipe-desc'>
                             <h4>{{ $professional->name }}</h4>
-                            <p class='cargo'>{{ $professional->description }}</p>
+                            <p class='cargo'>{{ $professional->office }}</p>
                             <span class='border'></span>
-
                             <legend style="display: none;">{{ $professional->description }}</legend>
                         </div>
                     </div>

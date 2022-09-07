@@ -31,7 +31,7 @@ class SobreController extends Controller
                 }
             }
 
-            $professionals = Professional::get();
+            $professionals = Professional::orderBy('name')->get();
 
             return view("site/sobre")
                 ->with([

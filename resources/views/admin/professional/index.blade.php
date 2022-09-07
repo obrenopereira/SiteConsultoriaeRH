@@ -91,7 +91,7 @@
                         <td>{{ $professional->id }}</td>
                         <td>{{ $professional->name }}</td>
                         <td>{{ $professional->office }}</td>
-                        <td>{{ $professional->description }}</td>
+                        <td>{{ \Str::limit($professional->description , 90) }}</td>
                         <td class="td-acoes">
                             <form action="{{ route('admin.professionals.destroy' , ['id' => $professional->id]) }}">
                                 @csrf
