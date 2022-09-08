@@ -19,7 +19,7 @@ Route::get('/cases', 'site\CasesController@index');
 Route::get('/cases/detalhes/{id}', 'site\CasesController@case');
 Route::get('/contato', 'site\ContatoController@index');
 Route::post('/contato/send', 'site\ContatoController@sendEmail');
-Route::get('/sobre', 'site\SobreController@index');
+Route::get('/sobre', 'site\SobreController@index')->name('about');
 Route::get('/vagas', 'site\VagasController@index')->name('vagas.index');
 Route::get('/vagas/get', 'site\VagasController@getVagas');
 Route::get('/vagas/search', 'site\VagasController@search');
@@ -35,7 +35,7 @@ Auth::routes();
 Route::get('/admin', 'admin\VagasController@index');
 
 // Vagas
-Route::get('/admin/vagas', 'admin\VagasController@index');
+Route::get('/admin/vagas', 'admin\VagasController@index')->name('admin.vagas');
 Route::get('/admin/vagas/form', 'admin\VagasController@form')->name('vagas.form');
 Route::post('/admin/vagas/sendform', 'admin\VagasController@save');
 Route::post('/admin/vagas/remove', 'admin\VagasController@remove');
@@ -53,7 +53,7 @@ Route::post('/admin/categorias/remove', 'admin\CategoriasController@remove');
 
 Route::get('/admin/candidaturas', 'admin\CandidaturasController@index');
 Route::get('/admin/candidaturas/visualizar/{id}', 'admin\CandidaturasController@visualizar')->name('candidatura.visualizar');
-Route::get('/admin/candidaturas/download/{id}', 'admin\CandidaturasController@download');
+Route::get('/admin/candidaturas/download/{id}', 'admin\CandidaturasController@download')->name('curriculo.download');
 
 
 // Empresas
@@ -81,7 +81,13 @@ Route::get('/admin/clientes/form', 'admin\ClientesController@form');
 Route::post('/admin/clientes/sendform', 'admin\ClientesController@save');
 Route::post('/admin/clientes/remove', 'admin\ClientesController@remove');
 
-
+//Profissionais
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/profissionais', 'admin\ProfessionalController@index')->name('admin.professionals.index');
+    Route::delete('/admin/profissionais/{id}/delete', 'admin\ProfessionalController@destroy')->name('admin.professionals.destroy');
+    Route::get('/admin/profissionais/novo', 'admin\ProfessionalController@create')->name('admin.professionals.create');
+    Route::post('/admin/profissionais/cadastrar', 'admin\ProfessionalController@store')->name('admin.professionals.store');
+});
 
 // Skills
 Route::post('/admin/skills/send', 'admin\CasesController@saveSkills');

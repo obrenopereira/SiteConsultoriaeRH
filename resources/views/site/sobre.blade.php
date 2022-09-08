@@ -125,93 +125,109 @@
             <span class="border"></span>
         </div>
         <legend>Especialistas capacitados para atender a sua empresa da forma que ela precisa. Trabalhamos como um time. São essas pessoas que estarão ao seu lado para te ajudar a alcançar o resultado que você deseja.</legend>
-
-        <div class='equipe-container'>
-            <div class='equipe-box' >
-                <span class='gradient'></span>
-                <img class='foto-equipe' src="/img/site/Tatiane.jpg" alt="">
-                <div class='equipe-desc'>
-                    <h4>Tatiane da Costa</h4>
-                    <p class='cargo'>Diretora e Consultora</p>
-                    <span class='border'></span>
-
-                    <legend style="display: none;">Profissional com 18 anos de experiência no desenvolvimento de pessoas e organizações dos mais diversos segmentos (metalúrgica, fumageira, bancário, comércio, agronegócio, entre outros) implantando e desenvolvendo todos os subsistemas de gestão de pessoas e gestão empresarial, com foco em resultados embasados nos procedimentos e políticas da empresa. Também ministra treinamentos e palestras ligados à área comportamental e é professora convidada na MBA de Coaching e Gerenciamento de Pessoas da Unijuí.</legend>
-                </div>
+        @if($functionalityReleased)
+            <div class='equipe-container'>
+                @foreach($professionals as $professional)
+                    <div class='equipe-box' >
+                        <span class='gradient'></span>
+                        <img class='foto-equipe' src="{{ Storage::url($professional->file) }}" alt="">
+                        <div class='equipe-desc'>
+                            <h4>{{ $professional->name }}</h4>
+                            <p class='cargo'>{{ $professional->office }}</p>
+                            <span class='border'></span>
+                            <legend style="display: none;">{{ $professional->description }}</legend>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-            <div class='equipe-box'>
-                <span class='gradient'></span>
-                <img class='foto-equipe' src="/img/site/Alan.jpg" alt="">
-                <div class='equipe-desc'>
-                    <h4>Alan da Costa</h4>
-                    <p class='cargo'>Gerente de projetos e obras</p>
-                    <span class='border'></span>
-                    <legend style="display: none;">Com mais de 18 anos de experiência no ambiente corporativo em multinacional líder do segmento de armazenagem de grãos nas áreas de Engenharias e Planejamento (Gestão de S&OP), atuou durante vários anos no desenvolvimento de layouts e sistemas de armazenagem de grãos na agroindústria.
-                        Por 8 anos foi responsável pela coordenação técnica de equipes de engenharia no desenvolvimento de projetos de unidades agrícolas. Desde o nível fazenda até grandes sistemas de transporte e armazenagem de alta capacidade. Também responsável pela gestão de equipes multidisciplinares e equipes terceirizadas, voltado na implantação de melhores práticas na gestão de obras e projetos, desenvolvendo atividades deste a avaliação de viabilidade até a montagem final.
-                    </legend>
-                </div>
-            </div>
-            <div class='equipe-box'>
-                <span class='gradient'></span>
-                <img class='foto-equipe' src="/img/site/Paloma.jpg" alt="">
-                <div class='equipe-desc'>
-                    <h4>Paloma Parcianelos</h4>
-                    <p class='cargo'>Consultora em gestão de pessoas</p>
-                    <span class='border'></span>
-                    <legend style="display: none;">Consultora em Gestão de Pessoas, graduada em Psicologia pela URI Santo  ngelo/RS, especialista em Gestão Estratégica de Pessoas pela ULBRA, com formação de Analista de RH Generalista.</legend>
-                </div>
-            </div>
-            <div class='equipe-box'>
-                <span class='gradient'></span>
-                <img class='foto-equipe' src="/img/site/Fabiane.jpeg" alt="">
-                <div class='equipe-desc'>
-                    <h4>Fabiane Trentini</h4>
-                    <p class='cargo'>Parceira e consultora de gestão de pessoas</p>
-                    <span class='border'></span>
+        @else
+            <div class='equipe-container'>
+                <div class='equipe-box' >
+                    <span class='gradient'></span>
+                    <img class='foto-equipe' src="/img/site/Tatiane.jpg" alt="">
+                    <div class='equipe-desc'>
+                        <h4>Tatiane da Costa</h4>
+                        <p class='cargo'>Diretora e Consultora</p>
+                        <span class='border'></span>
 
-                    <legend style="display: none;">Com mais de 10 anos de experiência em lideranças e gestão de pessoas, também é analista de RH Generalista, Business Partner de RH, Gestão de Cargos e Salários, Pedagoga, Especialista na área de Recursos Humanos e Gestão de Pessoas.
-                    </legend>
+                        <legend style="display: none;">Profissional com 18 anos de experiência no desenvolvimento de pessoas e organizações dos mais diversos segmentos (metalúrgica, fumageira, bancário, comércio, agronegócio, entre outros) implantando e desenvolvendo todos os subsistemas de gestão de pessoas e gestão empresarial, com foco em resultados embasados nos procedimentos e políticas da empresa. Também ministra treinamentos e palestras ligados à área comportamental e é professora convidada na MBA de Coaching e Gerenciamento de Pessoas da Unijuí.</legend>
+                    </div>
                 </div>
-            </div>
-            <div class='equipe-box'>
-                <span class='gradient'></span>
-                <img class='foto-equipe' src="/img/site/Fernando.jpeg" alt="">
-                <div class='equipe-desc'>
-                    <h4>Fernando Anton</h4>
-                    <p class='cargo'>Parceiro em ISO, Sistemas de Qualidade Lean </p>
-                    <span class='border'></span>
-
-                    <legend style="display: none;">Manufacturing<br/>
-                        Engenheiro de qualidade com mais de cinco anos de experiência em qualidade, atuando em diferentes áreas da qualidade, manufatura e vendas.
+                <div class='equipe-box'>
+                    <span class='gradient'></span>
+                    <img class='foto-equipe' src="/img/site/Alan.jpg" alt="">
+                    <div class='equipe-desc'>
+                        <h4>Alan da Costa</h4>
+                        <p class='cargo'>Gerente de projetos e obras</p>
+                        <span class='border'></span>
+                        <legend style="display: none;">Com mais de 18 anos de experiência no ambiente corporativo em multinacional líder do segmento de armazenagem de grãos nas áreas de Engenharias e Planejamento (Gestão de S&OP), atuou durante vários anos no desenvolvimento de layouts e sistemas de armazenagem de grãos na agroindústria.
+                            Por 8 anos foi responsável pela coordenação técnica de equipes de engenharia no desenvolvimento de projetos de unidades agrícolas. Desde o nível fazenda até grandes sistemas de transporte e armazenagem de alta capacidade. Também responsável pela gestão de equipes multidisciplinares e equipes terceirizadas, voltado na implantação de melhores práticas na gestão de obras e projetos, desenvolvendo atividades deste a avaliação de viabilidade até a montagem final.
                         </legend>
-                    <textarea style="display: none;"></textarea>
+                    </div>
+                </div>
+                <div class='equipe-box'>
+                    <span class='gradient'></span>
+                    <img class='foto-equipe' src="/img/site/Paloma.jpg" alt="">
+                    <div class='equipe-desc'>
+                        <h4>Paloma Parcianelos</h4>
+                        <p class='cargo'>Consultora em gestão de pessoas</p>
+                        <span class='border'></span>
+                        <legend style="display: none;">Consultora em Gestão de Pessoas, graduada em Psicologia pela URI Santo  ngelo/RS, especialista em Gestão Estratégica de Pessoas pela ULBRA, com formação de Analista de RH Generalista.</legend>
+                    </div>
+                </div>
+                <div class='equipe-box'>
+                    <span class='gradient'></span>
+                    <img class='foto-equipe' src="/img/site/Fabiane.jpeg" alt="">
+                    <div class='equipe-desc'>
+                        <h4>Fabiane Trentini</h4>
+                        <p class='cargo'>Parceira e consultora de gestão de pessoas</p>
+                        <span class='border'></span>
+
+                        <legend style="display: none;">Com mais de 10 anos de experiência em lideranças e gestão de pessoas, também é analista de RH Generalista, Business Partner de RH, Gestão de Cargos e Salários, Pedagoga, Especialista na área de Recursos Humanos e Gestão de Pessoas.
+                        </legend>
+                    </div>
+                </div>
+                <div class='equipe-box'>
+                    <span class='gradient'></span>
+                    <img class='foto-equipe' src="/img/site/Fernando.jpeg" alt="">
+                    <div class='equipe-desc'>
+                        <h4>Fernando Anton</h4>
+                        <p class='cargo'>Parceiro em ISO, Sistemas de Qualidade Lean </p>
+                        <span class='border'></span>
+
+                        <legend style="display: none;">Manufacturing<br/>
+                            Engenheiro de qualidade com mais de cinco anos de experiência em qualidade, atuando em diferentes áreas da qualidade, manufatura e vendas.
+                        </legend>
+                        <textarea style="display: none;"></textarea>
+                    </div>
+                </div>
+                <div class='equipe-box'>
+                    <span class='gradient'></span>
+                    <img class='foto-equipe' src="/img/site/Marcos.jpeg" alt="">
+                    <div class='equipe-desc'>
+                        <h4>Marcos Zembruski</h4>
+                        <p class='cargo'>Parceiro especialista LEAN e gerente de projetos</p>
+                        <span class='border'></span>
+
+                        <legend style="display: none;">Experiência em manufatura, qualidade e projetos, em empresas de grande porte do setor agrícola (nacionais e multinacionais), implantando e desenvolvendo melhorias de produtos e processos, com ganhos comprovados na redução de custos e aumento de produtividade.
+                        </legend>
+                    </div>
+                </div>
+
+                <div class='equipe-box'>
+                    <span class='gradient'></span>
+                    <img class='foto-equipe' src="/img/site/Taisa.jpg" alt="">
+                    <div class='equipe-desc'>
+                        <h4>Taisa Kumm</h4>
+                        <p class='cargo'> Parceira em treinamento Plata, planejamento ambiental e ocupacional</p>
+                        <span class='border'></span>
+
+                        <legend style="display: none;">Ergonomista, Gestora ambiental, Especialista em Licenciamento Ambiental, Técnica em Segurança do Trabalho, Graduada em Gestão Ambiental – Unopar e Pós Graduação em Licenciamento Ambiental - Uri Santo  ngelo, Pós Graduação em Ergonomia e Promoção da saúde do trabalhador – Isepe Guaratuba, Administração e assistência técnica em empresas clientes, treinamentos diversos na área ocupacional, acompanhamento de perícias trabalhistas, defesas junto ao ministério do Trabalho e promotoria.
+                        </legend>
+                    </div>
                 </div>
             </div>
-            <div class='equipe-box'>
-                <span class='gradient'></span>
-                <img class='foto-equipe' src="/img/site/Marcos.jpeg" alt="">
-                <div class='equipe-desc'>
-                    <h4>Marcos Zembruski</h4>
-                    <p class='cargo'>Parceiro especialista LEAN e gerente de projetos</p>
-                    <span class='border'></span>
-
-                    <legend style="display: none;">Experiência em manufatura, qualidade e projetos, em empresas de grande porte do setor agrícola (nacionais e multinacionais), implantando e desenvolvendo melhorias de produtos e processos, com ganhos comprovados na redução de custos e aumento de produtividade.
-                    </legend>
-                </div>
-            </div>
-
-            <div class='equipe-box'>
-                <span class='gradient'></span>
-                <img class='foto-equipe' src="/img/site/Taisa.jpg" alt="">
-                <div class='equipe-desc'>
-                    <h4>Taisa Kumm</h4>
-                    <p class='cargo'> Parceira em treinamento Plata, planejamento ambiental e ocupacional</p>
-                    <span class='border'></span>
-
-                    <legend style="display: none;">Ergonomista, Gestora ambiental, Especialista em Licenciamento Ambiental, Técnica em Segurança do Trabalho, Graduada em Gestão Ambiental – Unopar e Pós Graduação em Licenciamento Ambiental - Uri Santo  ngelo, Pós Graduação em Ergonomia e Promoção da saúde do trabalhador – Isepe Guaratuba, Administração e assistência técnica em empresas clientes, treinamentos diversos na área ocupacional, acompanhamento de perícias trabalhistas, defesas junto ao ministério do Trabalho e promotoria.
-                    </legend>
-                </div>
-            </div>
-        </div>
+        @endif
     </div>
 </section>
 <section id="consultaGratis">

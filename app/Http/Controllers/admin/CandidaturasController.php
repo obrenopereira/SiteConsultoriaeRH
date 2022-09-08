@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Candidaturas;
 use App\Categorias;
+use Illuminate\Support\Facades\Storage;
 use Session;
 
 
@@ -59,7 +60,9 @@ class CandidaturasController extends Controller
 
     public function download($id)
     {
-        $file= public_path(). "/curriculos/curriculo-".$id.".pdf";
+//        $file = storage_path( "app/curriculos/curriculo-".$id.".pdf");
+        return Storage::download("curriculos/curriculo-".$id.".pdf");
+        dd($file);
         $candidatura = $this->candidaturas->getCandidaturaById($id)[0];
 
         $headers = ['Content-Type' => 'application/pdf',];

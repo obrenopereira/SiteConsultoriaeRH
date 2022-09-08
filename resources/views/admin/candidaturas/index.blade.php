@@ -101,7 +101,7 @@
             </div>
         </div>
 
-        <a href="/admin/candidaturas/download/" type='button' class='downloadPDF'>Baixar currículo</a>
+        <a href="{{ env('APP_URL') }}admin/candidaturas/download/" type='button' class='downloadPDF'>Baixar currículos</a>
     </div>
 </div>
 @endsection

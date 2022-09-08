@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel='stylesheet' type='text/css' href='/css/site/app.css' />
-
+    @yield('styles')
 </head>
 
 <body id='body'>
@@ -38,7 +38,7 @@
                 <ul class="navbar">
                     <li><a href="/" class='homePageLink' title="Home" alt="Home">Home</a></li>
                     <li><a href="/servicos" class='servicosLink' title="Serviços" alt="Serviços">Serviços</a></li>
-                    <li><a href="/sobre" title="A Empresa" alt="A Empresa">A Empresa</a></li>
+                    <li><a href="{{ route('about') }}" title="A Empresa" alt="A Empresa">A Empresa</a></li>
                     @if($casesCount)
                     <li><a href="/cases" title="Cases" alt="Cases">Cases</a></li>
                     @endif
@@ -72,7 +72,7 @@
                     <nav>
                         <li><a href="/">Home</a></li>
                         <li><a href="/servicos">Serviços</a></li>
-                        <li><a href="/sobre">A Empresa</a></li>
+                        <li><a href="{{ route('about') }}">A Empresa</a></li>
                         <li><a href="/cases">Cases</a></li>
                         <li><a href="/contato">Contato</a></li>
                         <li><a href="{{ route('vagas.index') }}">Vagas</a></li>
@@ -117,6 +117,6 @@
     <script src="{{ asset('js/plugins/jquery.min.js') }}" type="text/javascript"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="{{ asset('js/site/app.js') }}"></script>
-
+    @yield('scripts')
 </body>
 </html>
