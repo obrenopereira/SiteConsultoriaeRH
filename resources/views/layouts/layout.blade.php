@@ -14,6 +14,7 @@
     <meta property="og:type" content="website">
 
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

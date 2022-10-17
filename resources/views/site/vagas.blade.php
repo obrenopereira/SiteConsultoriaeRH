@@ -5,7 +5,6 @@
 @section('headerInterno', 'interno')
 
 @section('content')
-
 <section id='vagasBanner'>
     <div class='box-left'>
         <h1>Candidato,aqui é seu <strong>lugar!</strong></h1>
@@ -36,7 +35,7 @@
                 <input type="hidden" value="{{ route('vagas.remove_filter') }}" id="routeRemoveFilterVagas">
                 <?php foreach($areas as $area) {?>
                 <label for="area-<?=$area->id?>">
-                    <input type="checkbox"  <?php echo @(Session::has('area') && in_array($area->id, Session::get('area'))) ? 'checked'  : '' ;?> class='filtro-input' data-filtro='area' id="area-<?=$area->id?>"  value="<?=$area->id?>">
+                    <input type="checkbox"  <?php echo @(Session::has('area') && in_array($area->id, Session::get('area'))) ? 'checked'  : '' ;?> class='filtro-input area-filtro' data-filtro='area' id="area-<?=$area->id?>"  value="<?=$area->id?>">
                     <span></span>
                     <?=$area->name?>
                 </label>
@@ -46,7 +45,7 @@
                 <h5>Escolaridade</h5>
                 <?php foreach($escolaridades as $escolaridade) {?>
                 <label for="escolaridade-<?=$escolaridade->id?>">
-                    <input type="checkbox" class='filtro-input' <?php echo @(Session::has('escolaridade') && in_array($escolaridade->id, Session::get('escolaridade'))) ? 'checked'  : '' ;?> data-filtro='escolaridade' id="escolaridade-<?=$escolaridade->id?>"  value="<?=$escolaridade->id?>">
+                    <input type="checkbox" class='filtro-input escolaridade-filtro' <?php echo @(Session::has('escolaridade') && in_array($escolaridade->id, Session::get('escolaridade'))) ? 'checked'  : '' ;?> data-filtro='escolaridade' id="escolaridade-<?=$escolaridade->id?>"  value="<?=$escolaridade->id?>">
                     <span></span>
                     <?=$escolaridade->name?>
                 </label>
@@ -56,7 +55,7 @@
                 <h5>Experiência</h5>
                 <?php foreach($experiencias as $experiencia) {?>
                 <label for="experiencias-<?=$experiencia->id?>">
-                    <input type="checkbox"  <?php echo @(Session::has('experiencia') && in_array($experiencia->id, Session::get('experiencia'))) ? 'checked'  : '' ;?> class='filtro-input' data-filtro='experiencia' id="experiencias-<?=$experiencia->id?>" value="<?=$experiencia->id?>">
+                    <input type="checkbox"  <?php echo @(Session::has('experiencia') && in_array($experiencia->id, Session::get('experiencia'))) ? 'checked'  : '' ;?> class='filtro-input experiencia-filtro' data-filtro='experiencia' id="experiencias-<?=$experiencia->id?>" value="<?=$experiencia->id?>">
                     <span></span>
                     <?=$experiencia->name?>
                 </label>
@@ -66,21 +65,21 @@
                 <h5>Cidade</h5>
                 <?php foreach($cidades as $cidade) {?>
                 <label for="cidade-<?=$cidade->cidade?>">
-                    <input type="checkbox"  <?php echo @(Session::has('cidade') && in_array($cidade->cidade, Session::get('cidade'))) ? 'checked'  : '' ;?> class='filtro-input' data-filtro='cidade' id="cidade-<?=$cidade->cidade?>" value="<?=$cidade->cidade?>">
+                    <input type="checkbox"  <?php echo @(Session::has('cidade') && in_array($cidade->cidade, Session::get('cidade'))) ? 'checked'  : '' ;?> class='filtro-input cidade-filtro' data-filtro='cidade' id="cidade-<?=$cidade->cidade?>" value="<?=$cidade->cidade?>">
                     <span></span>
-                    <?=$cidade->cidade?>
+                    {{ $cidade->cidade }}
                 </label>
                 <?php } ?>
             </div>
         </form>
-        <div class="vagas-container">
+        <div class="vagas-container" id="vagas-container">
             <?php
             if(count($vagas)) {
                 foreach($vagas as $vaga) { ?>
                     <div class="vagas-box">
                         <span class="time">
                             <img src="{{ asset('img/site/Time Circle.png') }}">
-                            <?php echo @($vaga->data_publicacao > 0) ? 'Há '.$vaga->data_publicacao. ' dias'  : 'Publicada hoje'; ?>
+                            {{ $vaga->data_publicacao }}
                         </span>
                         <h5><?=$vaga->name?></h5>
                         <h4><?=$vaga->empresa_name?></h4>

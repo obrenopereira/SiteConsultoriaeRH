@@ -21,7 +21,7 @@ Route::get('/contato', 'site\ContatoController@index');
 Route::post('/contato/send', 'site\ContatoController@sendEmail');
 Route::get('/sobre', 'site\SobreController@index')->name('about');
 Route::get('/vagas', 'site\VagasController@index')->name('vagas.index');
-Route::get('/vagas/get', 'site\VagasController@getVagas')->name('vagas.get');
+Route::post('/vagas/get', 'site\VagasController@getVagas')->name('vagas.get');
 Route::get('/vagas/search', 'site\VagasController@search');
 Route::get('/vagas/remove-filter', 'site\VagasController@removeFilter')->name('vagas.remove_filter');
 Route::get('/vagas/detalhes/{id}', 'site\VagasController@detalhes')->name('vagas.show');

@@ -279,32 +279,71 @@ var Main = {
                 });
             });
 
-
-
-
-
             $(".filtro-input").on("change", function() {
-                let _this = $(this);
-                let filtro = $(this).data("filtro");
-                let value = $(this).val()
-                if($(this).prop("checked") == true) {
-                    let url = $("#routeGetVagas").val() + '?filtro='+filtro+'&val='+value
+                let url = $("#routeGetVagas").val()
 
-                    console.log(url)
-                    $.ajax({
-                        type: "GET",
-                        url: url,
-                        success: function (data) {
-                            let button = $(".moreActionVagas");
-                            $(".moreActionVagas").remove();
-                            $(".vagas-container").html('')
+                let areas = []
+                let escolaridades = []
+                let experiencias = []
+                let cidades = []
 
-                            data.vagas.map(function(item){
+                let filters = new Array()
 
-                                let box =   `<div class='vagas-box'>
+                $(".area-filtro").each(function (index, value) {
+                    if ($(this).is(":checked")) {
+                        areas.push(parseInt($(this).val()));
+                    }
+                })
+
+                $(".escolaridade-filtro").each(function (index, value) {
+                    if ($(this).is(":checked")) {
+                        escolaridades.push(parseInt($(this).val()));
+                    }
+                })
+
+                $(".experiencia-filtro").each(function (index, value) {
+                    if ($(this).is(":checked")) {
+                        experiencias.push(parseInt($(this).val()));
+                    }
+                })
+
+                $(".cidade-filtro").each(function (index, value) {
+                    if ($(this).is(":checked")) {
+                        cidades.push($(this).val());
+                    }
+                })
+
+                filters['areas'] = areas
+                filters['escolaridades'] = escolaridades
+                filters['experiencias'] = experiencias
+                filters['cidades'] = cidades
+
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                console.log(filters)
+
+                $.ajax({
+                    type: "POST",
+                    data:{
+                        areas : filters['areas'],
+                        escolaridades : filters['escolaridades'],
+                        experiencias : filters['experiencias'],
+                        cidades : filters['cidades'],
+                    },
+                    url:url,
+                    success:((data) => {
+                        let button = $(".moreActionVagas");
+                        $('#vagas-container').html('')
+
+                        data.vagas.map(function(item){
+                            let box =   `<div class='vagas-box'>
                                                 <span class='time'>
                                                     <img src='/img/site/Time Circle.png'>
-                                                    ${(item.data_publicacao > 0 ? 'Há '+ item.data_publicacao + ' dias' : 'Publicada hoje' )}
+                                                    ${(item.data_publicacao)}
                                                 </span>
                                                 <h5>${item.name}</h5>
                                                 <h4>${item.empresa_name}</h4>
@@ -323,61 +362,15 @@ var Main = {
                                                 </div>
                                             </div>`;
 
-                                $(".vagas-container").append(box)
+                            $("#vagas-container").append(box)
 
-                            })
+                        })
 
-                            $(".vagas-container").append(button)
-                            $(".moreActionVagas").text("Ver mais vagas");
-                            $(".moreActionVagas").append("<span class='border'></span>");
-                        }
-                    });
-                }else {
-                    let url = $("#routeRemoveFilterVagas").val() + '?filter=' + filtro+'&val='+value
-
-                    $.ajax({
-                        type: "GET",
-                        url: url,
-                        success: function (data) {
-                            _this.prop("checked", false);
-                            let button = $(".moreActionVagas");
-                            $(".moreActionVagas").remove();
-                            $(".vagas-container").html('')
-
-                            data.vagas.map(function(item){
-
-                                let box =   `<div class='vagas-box'>
-                                                <span class='time'>
-                                                    <img src='/img/site/Time Circle.png'>
-                                                    ${(item.data_publicacao > 0 ? 'Há '+ item.data_publicacao + ' dias' : 'Publicada hoje' )}
-                                                </span>
-                                                <h5>${item.name}</h5>
-                                                <h4>${item.empresa_name}</h4>
-                                                <p>${item.breve_descricao}</p>
-                                                <div class='vagas-box-bottom'>
-                                                    <span class='location'>
-                                                        <img src='/img/site/Location.png' alt=''>
-                                                        ${item.cidade}, ${item.uf}
-                                                    </span>
-                                                    <div class='tags-container'>
-                                                        <span class="tags-box">${item.area_name}</span>
-                                                        <span class="tags-box">${item.experiencia_name}</span>
-                                                        <span class="tags-box">${item.escolaridade_name}</span>
-                                                    </div>
-                                                    <a href='/vagas/detalhes/${item.id}'>Ver mais sobre</a>
-                                                </div>
-                                            </div>`;
-
-                                $(".vagas-container").append(box)
-
-                            })
-
-                            $(".vagas-container").append(button)
-                            $(".moreActionVagas").text("Ver mais vagas");
-                            $(".moreActionVagas").append("<span class='border'></span>");
-                        }
-                    });
-                }
+                        $(".vagas-container").append(button)
+                        $(".moreActionVagas").text("Ver mais vagas");
+                        $(".moreActionVagas").append("<span class='border'></span>");
+                    })
+                })
             });
 
             let start = 0;

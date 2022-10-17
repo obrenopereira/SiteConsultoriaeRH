@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\site;
 
 use App\Http\Controllers\Controller;
+use App\Models\Vaga;
+use Carbon\Carbon;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use App\Vagas;
 use App\Filtros;
 use App\Categorias;
 use App\Galeria;
 
+use Illuminate\Support\Collection;
 use Session;
 
 class VagasController extends Controller
@@ -24,12 +28,12 @@ class VagasController extends Controller
     }
 
 
-    public function index() {
+    public function index(Request $request) {
         $areas              = $this->filtros->getAreas();
         $escolaridades      = $this->filtros->getEscolaridades();
         $experiencias       = $this->filtros->getExperiencias();
         $cidades            = $this->filtros->getCidades();
-        $vagas              = $this->getVagas('private');
+        $vagas              = $this->getVagas($request, 'private');
         $galeria = $this->galeria->getGaleriaByPage("Cases");
         $bannerPrincipal = '';
         foreach($galeria as $value) {
@@ -37,101 +41,64 @@ class VagasController extends Controller
                 $bannerPrincipal = $value;
             }
         }
-    
+
 
         return view("site/vagas")->with(['bannerPrincipal' => $bannerPrincipal, 'vagas' => $vagas, 'escolaridades' => $escolaridades, 'areas' => $areas, 'experiencias' => $experiencias, 'cidades' => $cidades]);
     }
 
-    public function getVagas($action = 'public', $limit = 3) {
+    public function getVagas(Request $request, $action = 'public', $limit = 3) {
+        $areas = $request->areas;
+        $escolaridades = $request->escolaridades;
+        $experiencias = $request->experiencias;
+        $cidades = $request->cidades;
 
-        $query = '';
-        $start          =  (isset($_GET['start']) ? $_GET['start'] : 0);
-        $filter         = (isset($_GET['filtro']) ? $_GET['filtro'] : '');
-        $filterValue    = (isset($_GET['val']) ? $_GET['val'] : '');
-
-
-        $prefix = " WHERE vagas.status = 'Aberta' AND ";
-        if(!Session::has($filter)) {
-            Session::put($filter, []);
-        }
-        Session::push($filter, $filterValue);
-
-        if(Session::has('search') && Session::get('search') != '') {
-            $query = " WHERE vagas.name LIKE  '%".Session::get('search')."%'";
-       }
-
-
-        if(Session::has('area')) {
-             foreach(Session::get('area') as $area) {
-                 $query .= $prefix.'vagas.id_area = '.$area;
-                 if($prefix != ' OR ' && $prefix != '') {
-                     $prefix = ' OR ';
-                 }
-             }
-        }
-        if(Session::has('escolaridade')) {
-            foreach(Session::get('escolaridade') as $escolaridade) {
-                $query .= $prefix.'vagas.id_escolaridade = '.$escolaridade;
-                if($prefix != ' OR ' && $prefix != '') {
-                    $prefix = ' OR ';
-                }
-            }
-        }
-        if(Session::has('experiencia')) {
-            foreach(Session::get('experiencia') as $experiencia) {
-                $query .= $prefix.'vagas.id_experiencia = '.$experiencia;
-                if($prefix != ' OR ' && $prefix != '') {
-                    $prefix = ' OR ';
-                }
-            }
-        }
-        if(Session::has('cidade')) {
-            foreach(Session::get('cidade') as $cidade) {
-                $query .= $prefix."vagas.cidade = '".$cidade."'";
-                if($prefix != ' OR ' && $prefix != '') {
-                    $prefix = ' OR ';
-                }
-            }
-        }
-        $vagas = $this->vagas->getVagasList($start, $query, $limit);
-
-        if(count($vagas)) {
-            foreach($vagas as $vaga) {
-
-                $publicacao = explode("/", $vaga->data_publicacao);
-
-                $publicacao = $publicacao[2].'-'.$publicacao[1].'-'.$publicacao[0];
-
-                $data_final = date("Y-m-d");
-                $diferenca = strtotime($data_final) - strtotime($publicacao);
-                $dias = floor($diferenca / (60 * 60 * 24));
-                $dias = intval($dias);
-
-                $vaga->data_publicacao = $dias;
-
-            }
-            
-        }
+        $vagas = Vaga::with([
+            'area',
+            'experiencia',
+            'escolaridade'
+        ])->where([
+            'status' => 'Aberta'
+        ])->when(Session::has('search') , function ($query) {
+            $query->where('name' , 'LIKE' , '%' . Session::get('search') . '%');
+        })->when(is_array($areas) , function ($query) use ($areas){
+            return $query->whereIn('id_area' , $areas);
+        })->when(is_array($escolaridades) , function ($query) use ($escolaridades){
+            return $query->whereIn('id_escolaridade' , $escolaridades);
+        })->when(is_array($experiencias) , function ($query) use ($experiencias){
+            return $query->whereIn('id_experiencia' , $experiencias);
+        })->when(is_array($cidades) , function ($query) use ($cidades){
+            return $query->whereIn('cidade' , $cidades);
+        })->orderBy('data_publicacao' , 'desc')->get()->map(function(Vaga $vaga){
+            $publicationDate = Carbon::createFromFormat('Y/m/d' , $vaga->data_publicacao);
+            $vaga->data_publicacao = $publicationDate->isToday() ? 'Publicada hoje' : $publicationDate->diffForHumans();
+            $vaga->area_name = $vaga->area->name;
+            $vaga->experiencia_name = $vaga->experiencia->name;
+            $vaga->escolaridade_name = $vaga->escolaridade->name;
+            $vaga->empresa_name = $vaga->empresa->name;
+            return $vaga;
+        });
 
         if($action == 'private') {
             return $vagas;
         }
 
-        return response(['status' => 200, 'vagas' => $vagas]);
-
+        return response()->json([
+            'status' => 200,
+            'vagas' => $vagas
+        ]);
     }
 
-    public function search() {
+    public function search(Request $request) {
         $filter = $_GET['filtro'];
 
         Session::put('search', $filter);
 
-        $vagas = $this->getVagas('private');
+        $vagas = $this->getVagas($request, 'private');
         return response(['status' => 200, 'vagas' => $vagas]);
     }
 
 
-    public function removeFilter() {
+    public function removeFilter(Request $request) {
         $filter = $_GET['filter'];
         $val = $_GET['val'];
         if(Session::has($filter)) {
@@ -139,17 +106,17 @@ class VagasController extends Controller
             foreach($sessionArray as $key => $value) {
                 if($value == $val) {
                     unset($sessionArray[$key]);
-                } 
+                }
             }
             Session::forget($filter);
             Session::put($filter, $sessionArray);
         }
 
-        $vagas = $this->getVagas('private');
+        $vagas = $this->getVagas($request,'private');
         return response(['status' => 200, 'vagas' => $vagas]);
     }
 
-    public function detalhes($id) {
+    public function detalhes(Request $request, $id) {
 
         $vaga = $this->vagas->getVagaById($id);
         if(!count($vaga)) {
@@ -170,8 +137,8 @@ class VagasController extends Controller
         Session::put('escolaridade', [0 => $vaga->id_escolaridade]);
         Session::put('area', [0 => $vaga->id_area]);
         Session::put('experiencia', [0 => $vaga->id_experiencia]);
-        
-        $vaga_similiar = $this->getVagas('private', 1);
+
+        $vaga_similiar = $this->getVagas($request, 'private', 1);
 
         Session::forget("search");
         Session::forget("escolaridade");
