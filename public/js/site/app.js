@@ -324,7 +324,6 @@ var Main = {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
-                console.log(filters)
 
                 $.ajax({
                     type: "POST",
@@ -552,7 +551,6 @@ var Main = {
                 $(".content-header-1").css("height", '2188px')
                 let finish = 1619;
                 $(window).scroll(function () {
-                console.log($(window).scrollTop())
 
                     if($(window).scrollTop() >= 128 && $(window).scrollTop() <=  finish) {
                         $(".content-header-left").css("position", "fixed")
@@ -650,8 +648,6 @@ var Main = {
 
                         $(".candidatura-form .content").hide();
                         $(".candidatura-form .feedback").addClass('feedback-active');
-
-                        console.log(data)
 
                         setTimeout(function(){
                             $(".candidatura-content").removeClass("candidatura-content-active")
