@@ -288,9 +288,12 @@ var Main = {
                 let filtro = $(this).data("filtro");
                 let value = $(this).val()
                 if($(this).prop("checked") == true) {
+                    let url = $("#routeGetVagas").val() + '?filtro='+filtro+'&val='+value
+
+                    console.log(url)
                     $.ajax({
                         type: "GET",
-                        url: '/vagas/get?filtro='+filtro+'&val='+value,
+                        url: url,
                         success: function (data) {
                             let button = $(".moreActionVagas");
                             $(".moreActionVagas").remove();
@@ -330,9 +333,11 @@ var Main = {
                         }
                     });
                 }else {
+                    let url = $("#routeRemoveFilterVagas").val() + '?filter=' + filtro+'&val='+value
+
                     $.ajax({
                         type: "GET",
-                        url: '/vagas/remove-filter?filter='+filtro+'&val='+value,
+                        url: url,
                         success: function (data) {
                             _this.prop("checked", false);
                             let button = $(".moreActionVagas");

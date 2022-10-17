@@ -97,7 +97,7 @@
             <div class='box-left-bottom'>
                 <a href="javascript:void(0)" class='candidatar-button'>Candidatar-se</a>
                 <button type='button' class='sharebutton'>
-                    <img src="/img/site/share.svg" alt="">
+                    <img src="{{ asset('img/site/share.svg') }}" alt="">
                 </button>
             </div>
 
@@ -105,7 +105,7 @@
             <div class="vagas-container">
                 <div class="vagas-box">
                     <span class="time">
-                        <img src="/img/site/Time Circle.png">
+                        <img src="{{ asset('img/site/Time Circle.png') }}">
                         <?php echo @($vaga_similiar->data_publicacao > 0) ? 'Há '.$vaga_similiar->data_publicacao. ' dias'  : 'Publicada hoje'; ?>
                     </span>
                     <h5><?=$vaga_similiar->name?></h5>
@@ -113,7 +113,7 @@
                     <p><?=$vaga_similiar->breve_descricao?></p>
                     <div class="vagas-box-bottom">
                         <span class="location">
-                            <img src="/img/site/Location.png" alt="">
+                            <img src="{{ asset('img/site/Location.png') }}" alt="">
                             <?=$vaga_similiar->cidade?>, <?=$vaga_similiar->uf?>
                         </span>
                         <div class="tags-container">

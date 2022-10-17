@@ -32,6 +32,8 @@
             <button class='buttonFiltro' type='button'><img src="/img/site/Filter.png"> Filtros</button>
             <div class="form-filtros-content">
                 <h5>Área</h5>
+                <input type="hidden" value="{{ route('vagas.get') }}" id="routeGetVagas">
+                <input type="hidden" value="{{ route('vagas.remove_filter') }}" id="routeRemoveFilterVagas">
                 <?php foreach($areas as $area) {?>
                 <label for="area-<?=$area->id?>">
                     <input type="checkbox"  <?php echo @(Session::has('area') && in_array($area->id, Session::get('area'))) ? 'checked'  : '' ;?> class='filtro-input' data-filtro='area' id="area-<?=$area->id?>"  value="<?=$area->id?>">
@@ -77,7 +79,7 @@
                 foreach($vagas as $vaga) { ?>
                     <div class="vagas-box">
                         <span class="time">
-                            <img src="/img/site/Time Circle.png">
+                            <img src="{{ asset('img/site/Time Circle.png') }}">
                             <?php echo @($vaga->data_publicacao > 0) ? 'Há '.$vaga->data_publicacao. ' dias'  : 'Publicada hoje'; ?>
                         </span>
                         <h5><?=$vaga->name?></h5>
@@ -85,7 +87,7 @@
                         <p><?=$vaga->breve_descricao?></p>
                         <div class="vagas-box-bottom">
                             <span class="location">
-                                <img src="/img/site/Location.png" alt="">
+                                <img src="{{ asset('img/site/Location.png') }}" alt="">
                                 <?=$vaga->cidade?>, <?=$vaga->uf?>
                             </span>
                             <div class="tags-container">

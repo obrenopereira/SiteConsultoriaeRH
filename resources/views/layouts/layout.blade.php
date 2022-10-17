@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta author="Pedro Rago">
 
-    <link rel="icon" href="/img/logo_dark.png">
+    <link rel="icon" href="{{ asset('img/logo_dark.png')}}">
 
     <base href="{{env('APP_URL')}}">
 
@@ -21,9 +21,9 @@
     <link href="https://fonts.googleapis.com/css?family=Exo:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel='stylesheet' type='text/css' href='/css/site/app.css' />
+    <link rel="stylesheet" href="{{ asset('css/plugins/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/reset.css')}}">
+    <link rel='stylesheet' type='text/css' href='{{ asset('css/site/app.css') }}' />
     @yield('styles')
 </head>
 
@@ -48,10 +48,10 @@
 
                 <div class='menu-mobile'>
                     <button type='button' class='burguer-menu'>
-                        <img src="/img/site/Burger.png" alt="">
+                        <img src="{{ asset('img/site/Burger.png') }}" alt="">
                     </button>
                     <button type='button' class='close-menu'>
-                        <img src="/img/site/close.png" alt="">
+                        <img src="{{ asset('img/site/close.png') }}" alt="">
                     </button>
                 </div>
            </nav>
