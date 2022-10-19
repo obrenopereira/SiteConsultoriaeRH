@@ -18,7 +18,7 @@
     <h2>Encontre aqui seu próximo emprego</h2>
     <form class="encontre-form">
         <input type="text" name="encontre" id="encontre-input" placeholder="Auxiliar de diretoria" value="<?php echo @(Session::has('search') && Session::get('search') != '') ? Session::get('search') : '';?>">
-        <button type="button"><img src="/img/site/lupa.png"></button>
+        <button type="submit"><img src="{{ asset('img/site/lupa.png') }}"></button>
     </form>
 </section>
 
@@ -28,7 +28,7 @@
 
     <div class="filtros">
         <form class="form-filtros">
-            <button class='buttonFiltro' type='button'><img src="/img/site/Filter.png"> Filtros</button>
+            <button class='buttonFiltro' type='button'><img src="{{ asset('img/site/Filter.png') }}"> Filtros</button>
             <div class="form-filtros-content">
                 <h5>Área</h5>
                 <input type="hidden" value="{{ route('vagas.get') }}" id="routeGetVagas">

@@ -220,8 +220,8 @@ var Main = {
         setup: function() {
             let _this = this;
 
-            $(".encontre-form button").on("click", function(e) {
-
+            $(".encontre-form").on("submit", function(e) {
+                e.preventDefault()
                 $.ajax({
                     type: "GET",
                     url: '/vagas/search?filtro='+$(".encontre-form input").val(),
