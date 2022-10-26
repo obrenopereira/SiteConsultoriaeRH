@@ -388,9 +388,51 @@ var Main = {
 
                 let button = $(".moreActionVagas");
 
+                let areas = []
+                let escolaridades = []
+                let experiencias = []
+                let cidades = []
+
+                let filters = new Array()
+
+                $(".area-filtro").each(function (index, value) {
+                    if ($(this).is(":checked")) {
+                        areas.push(parseInt($(this).val()));
+                    }
+                })
+
+                $(".escolaridade-filtro").each(function (index, value) {
+                    if ($(this).is(":checked")) {
+                        escolaridades.push(parseInt($(this).val()));
+                    }
+                })
+
+                $(".experiencia-filtro").each(function (index, value) {
+                    if ($(this).is(":checked")) {
+                        experiencias.push(parseInt($(this).val()));
+                    }
+                })
+
+                $(".cidade-filtro").each(function (index, value) {
+                    if ($(this).is(":checked")) {
+                        cidades.push($(this).val());
+                    }
+                })
+
+                filters['areas'] = areas
+                filters['escolaridades'] = escolaridades
+                filters['experiencias'] = experiencias
+                filters['cidades'] = cidades
+
                 setTimeout(function(){
                     $.ajax({
                         type: "POST",
+                        data:{
+                        areas : filters['areas'],
+                            escolaridades : filters['escolaridades'],
+                            experiencias : filters['experiencias'],
+                            cidades : filters['cidades'],
+                        },
                         url: '/vagas/get?start='+start,
                         success: function (data) {
                             $(".moreActionVagas").remove();
