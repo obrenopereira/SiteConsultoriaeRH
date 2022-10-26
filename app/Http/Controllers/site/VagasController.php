@@ -51,6 +51,7 @@ class VagasController extends Controller
         $escolaridades = $request->escolaridades;
         $experiencias = $request->experiencias;
         $cidades = $request->cidades;
+        $start = $request->start;
 
         $vagas = Vaga::with([
             'area',
@@ -59,7 +60,9 @@ class VagasController extends Controller
         ])->where([
             'status' => 'Aberta'
         ])->when(Session::has('search') , function ($query) {
-            $query->where('name' , 'LIKE' , '%' . Session::get('search') . '%');
+            return $query->where('name' , 'LIKE' , '%' . Session::get('search') . '%');
+        })->when(! is_null($start) , function ($query) use($start){
+            return $query->offset($start);
         })->when(is_array($areas) , function ($query) use ($areas){
             return $query->whereIn('id_area' , $areas);
         })->when(is_array($escolaridades) , function ($query) use ($escolaridades){
@@ -68,7 +71,10 @@ class VagasController extends Controller
             return $query->whereIn('id_experiencia' , $experiencias);
         })->when(is_array($cidades) , function ($query) use ($cidades){
             return $query->whereIn('cidade' , $cidades);
-        })->orderBy('data_publicacao' , 'desc')->get()->map(function(Vaga $vaga){
+        })->orderBy('data_publicacao' , 'desc')
+        ->limit($limit)
+        ->get()
+        ->map(function(Vaga $vaga){
             $publicationDate = Carbon::createFromFormat('Y/m/d' , $vaga->data_publicacao);
             $vaga->data_publicacao = $publicationDate->isToday() ? 'Publicada hoje' : $publicationDate->diffForHumans();
             $vaga->area_name = $vaga->area->name;
@@ -76,7 +82,7 @@ class VagasController extends Controller
             $vaga->escolaridade_name = $vaga->escolaridade->name;
             $vaga->empresa_name = $vaga->empresa->name;
             return $vaga;
-        });
+    });
 
         if($action == 'private') {
             return $vagas;

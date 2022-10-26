@@ -236,7 +236,7 @@ var Main = {
                                 let box =   `<div class='vagas-box'>
                                                 <span class='time'>
                                                     <img src='/img/site/Time Circle.png'>
-                                                    ${(item.data_publicacao > 0 ? 'Há '+ item.data_publicacao + ' dias' : 'Publicada hoje' )}
+                                                    ${(item.data_publicacao)}
                                                 </span>
                                                 <h5>${item.name}</h5>
                                                 <h4>${item.empresa_name}</h4>
@@ -377,6 +377,11 @@ var Main = {
 
             jQuery(document).off('click', '.moreActionVagas');
             jQuery(document).on('click', '.moreActionVagas', function(e) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
                 start = start + 3
                 $(".moreActionVagas").text("Buscando vagas...");
                 $(".moreActionVagas").append("<span class='border'></span>");
@@ -385,7 +390,7 @@ var Main = {
 
                 setTimeout(function(){
                     $.ajax({
-                        type: "GET",
+                        type: "POST",
                         url: '/vagas/get?start='+start,
                         success: function (data) {
                             $(".moreActionVagas").remove();
@@ -394,7 +399,7 @@ var Main = {
                                 let box =   `<div class='vagas-box'>
                                                 <span class='time'>
                                                     <img src='/img/site/Time Circle.png'>
-                                                    ${(item.data_publicacao > 0 ? 'Há '+ item.data_publicacao + ' dias' : 'Publicada hoje' )}
+                                                    ${(item.data_publicacao)}
                                                 </span>
                                                 <h5>${item.name}</h5>
                                                 <h4>${item.empresa_name}</h4>
