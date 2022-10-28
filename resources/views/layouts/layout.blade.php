@@ -86,10 +86,10 @@
                         <li><a href="{{ $configuracoes->linkedin }}" title='Linkedin' target="_blank"><img src="/img/site/linkedin.png" alt=""></a></li>
                         @endif
                         @if($configuracoes->whatsapp_geral)
-                        <li><a href="{{ $configuracoes->whatsapp_geral }}" target="_blank" class='whatsapp-link' title='Whatsapp Geral'><img src="/img/site/whatsapp.png" alt=""></a></li>
+                        <li><a href="{{ $configuracoes->whatsapp_geral }}" target="_blank" class='whatsapp-link' title='Whatsapp Geral'><img src="{{ asset('img/site/whatsapp.png') }}" alt=""></a></li>
                         @endif
                         @if($configuracoes->whatsapp_especialista)
-                        <li><a href="{{ $configuracoes->whatsapp_especialista }}" target="_blank" class='whatsapp-link' title='Whatsapp Especialista'><img src="/img/site/whatsapp_espc.png" alt=""></a></li>
+                        <li><a href="{{ $configuracoes->whatsapp_especialista }}" target="_blank" class='whatsapp-link' title='Whatsapp Especialista'><img src="{{ asset('img/site/whatsApp_green.png') }}" alt=""></a></li>
                         @endif
                         @if($configuracoes->instagram)
                         <li><a href="{{ $configuracoes->instagram }}" title='Instagram' target="_blank"><img src="/img/site/instagram.png" alt=""></a></li>
