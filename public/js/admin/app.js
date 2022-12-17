@@ -451,6 +451,8 @@ var Main = {
         saveForm: function() {
             $(".enviar").on("click", function(e){
                 e.preventDefault();
+                let url = $("#formSaveClient").attr('action')
+
                 let form = $(".form");
 
                 form.find(".data-form").each(function(index, item) {
@@ -469,7 +471,7 @@ var Main = {
 
                 $.ajax({
                     type: "POST",
-                    url: $(".form").find(".url").val(),
+                    url: url,
                     data: data,
                     enctype: 'multipart/form-data',
                     processData: false,
@@ -477,23 +479,30 @@ var Main = {
                     cache: false,
                     timeout: 800000,
                     success: function (data) {
-                        if(data.status == 500) {
-                            $(".message-feedback").addClass("alert-danger");
-                        }else if(data.status == 200) {
-                            $(".message-feedback").addClass("alert-success");
-                        }
-                        $(".message-feedback").text(data.msg);
+                        let message = data.message
+                        $(".message-feedback").text(message);
+                        $(".message-feedback").addClass("alert-success");
                         $(".message-feedback").show(500)
-                        console.log(data)
 
                         setTimeout(function(){
                             $(".message-feedback").fadeOut()
-
-                            if(!$(".form-configuracoes").length) {
-                                window.location.replace($('.url-reload').val()+data.id);
-                            }
+                            location.reload()
                         }, 1200);
 
+                    },
+                    error: (request, status, error) => {
+                        let message = request.responseJSON.message
+                        let statusCode = request.status
+                        $(".message-feedback").addClass("alert-danger");
+                        $(".message-feedback").text(message);
+                        $(".message-feedback").show(500)
+
+                        if (statusCode !== 422) {
+                            setTimeout(function(){
+                                $(".message-feedback").fadeOut()
+                                location.reload()
+                            }, 1200);
+                        }
                     }
                 });
 

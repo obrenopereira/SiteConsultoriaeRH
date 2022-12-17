@@ -78,7 +78,8 @@ Route::post('/admin/cases/remove', 'admin\CasesController@remove');
 // Clientes
 Route::get('/admin/clientes', 'admin\ClientesController@index');
 Route::get('/admin/clientes/form', 'admin\ClientesController@form');
-Route::post('/admin/clientes/sendform', 'admin\ClientesController@save');
+Route::post('/admin/clientes/sendform', 'admin\ClientesController@save')->name('client.save');
+Route::post('/admin/clientes/update', 'admin\ClientesController@update')->name('client.update');
 Route::post('/admin/clientes/remove', 'admin\ClientesController@remove');
 
 //Profissionais
