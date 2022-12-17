@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Clientes;
 use App\Skills;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Session;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -42,8 +46,8 @@ class ClientesController extends Controller
         $id   = (isset($_GET['id']) ? $_GET['id'] : false);
         $cliente = ($id ? $cliente = $this->clientes->getClienteById($id) : []);
         if($id && !count($cliente)){
-            Session::flash('message-alert', 'danger'); 
-            Session::flash('message-feedback', 'Nenhum cliente foi encontrado'); 
+            Session::flash('message-alert', 'danger');
+            Session::flash('message-feedback', 'Nenhum cliente foi encontrado');
             return redirect('/admin/cases');
         }
         if($id) {
@@ -53,33 +57,117 @@ class ClientesController extends Controller
         return view('admin/clientes/form')->With(['cliente' => $cliente ]);
     }
 
+    public function update(Request $request)
+    {
+        DB::beginTransaction();
+
+        $validator = Validator::make($request->all() , [
+            'titulo' => 'required|string',
+            'imagem' => 'nullable|image',
+            'id' => 'required|numeric'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => $validator->errors()->first()
+            ], 422);
+        }
+
+        try {
+            $client = Client::find($request->id);
+
+            if ($request->imagem) {
+                Storage::delete('clientes/' . $client->imagem);
+                $image = $request->imagem;
+                $filename = 'client-' . $client->id . '.' . $image->getClientOriginalExtension();
+                $image->storeAs('clientes/', $filename);
+                $client->update([
+                    'imagem' => $filename
+                ]);
+            }
+
+            $client->update([
+                'name' => $request->titulo,
+            ]);
+
+            DB::commit();
+            return response([
+                'message' => "Cliente cadastrado com sucesso",
+            ]);
+        } catch (\Exception $e) {
+
+        }
+
+
+    }
+
     public function save(Request $request)
     {
+        DB::beginTransaction();
 
-        $data = $_POST;
+        $validator = Validator::make($request->all() , [
+            'titulo' => 'required|string',
+            'imagem' => 'required|image',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => $validator->errors()->first()
+            ], 422);
+        }
+
+        try {
+            $client = Client::create([
+                'name' => $request->titulo,
+            ]);
+
+            $image = $request->imagem;
+            $filename = 'client-' . $client->id . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('clientes/', $filename);
+
+            $client->update([
+                'imagem' => $filename
+            ]);
+
+            DB::commit();
+
+            return response([
+                'message' => "Cliente cadastrado com sucesso",
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Ocorreu um erro inesperado.'
+            ] , 500);
+
+            DB::rollBack();
+        }
+
+
+        $data = $request->all();
+
         unset($data['_token']);
         $action;
         $id;
 
-        if(isset($data['id'])) {
-            if($data['id'] == '' || $data['id'] == null || $data['id'] == 0) {
-                return response(['status' => 500, 'msg' => "Cliente não encontrado"]);
-            }
+//        if(isset($data['id'])) {
+//            if($data['id'] == '' || $data['id'] == null || $data['id'] == 0) {
+//                return response(['status' => 500, 'msg' => "Cliente não encontrado"]);
+//            }
+//
+//            $cliente = $this->clientes->getClienteById($data['id']);
+//
+//            if(!count($cliente)) {
+//                return response(['status' => 500, 'msg' => "Cliente não encontrado"]);
+//            }
+//            $this->clientes->updateCliente($data);
+//
+//            $action = 'update';
+//            $id = $data['id'];
+//        }else{
+//            $action = 'add';
+//            $id = $this->clientes->addCliente($data);
+//        }
 
-            $cliente = $this->clientes->getClienteById($data['id']);
-
-            if(!count($cliente)) {
-                return response(['status' => 500, 'msg' => "Cliente não encontrado"]);
-            }
-            $this->clientes->updateCliente($data);
-
-            $action = 'update';
-            $id = $data['id'];
-        }else{
-            $action = 'add';
-            $id = $this->clientes->addCliente($data);
-        }
-        
         $cliente = $this->clientes->getClienteById($id)[0];
 
         if(isset($request->file()['imagem'])) {

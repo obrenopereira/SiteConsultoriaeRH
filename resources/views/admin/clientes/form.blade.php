@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="box-body">
-            <form class='form'>
+            <form class='form' id="formSaveClient" action="{{ $cliente ? route('client.update') : route('client.save') }}">
                 @csrf
                 <input type="hidden" id='id' value="<?php echo @($cliente) ? $cliente->id : '' ?>">
                 <input type="hidden" class="url" value="/admin/clientes/sendform">
@@ -43,7 +43,7 @@
                 <div class='row'>
                     <div class='form-group' style='width: 100%'>
                         <label for="titulo">Nome:</label>
-                        <input type="text" id='titulo' class='data-form' name='titulo' placeholder="Digite o nome do cliente" value="<?php echo @($cliente) ? $cliente->name : '';?>">
+                        <input type="text" id='titulo' class='data-form' name='titulo' placeholder="Digite o nome do clientes" value="<?php echo @($cliente) ? $cliente->name : '';?>">
                     </div>
                 </div>
 
@@ -52,7 +52,11 @@
                         <label>Logotipo:</label>
                         <input type="file" accept=".jpeg, .jpg, .png" hidden id='imagem' class='data-form input_upload' name='imagem'>
                         <label for="imagem" class='preview <?php echo @($cliente && $cliente->imagem != '') ? 'preview-active' : '' ?>'>
-                            <img src="<?php echo @($cliente) ?  asset('clientes/'.$cliente->imagem) : '' ?>" alt="">
+                            @if($cliente)
+                            <img src="{{ asset('storage/clientes/' . $cliente->imagem) }}" alt="">
+                            @else
+                            <img src="" alt="">
+                            @endif
                             <button type='button'>Enviar imagem</button>
                             <span class='gradient'>
                                 <i class="fa fa-pencil" aria-hidden="true"></i>

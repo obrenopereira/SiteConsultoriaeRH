@@ -157,7 +157,7 @@
 	<div class="slide-track">
         <?php foreach($clientes as $cliente) { ?>
         <a href="javascript:void(0)" class='empresasBoxA'>
-            <img src="<?php echo asset('clientes/'.$cliente->imagem); ?>" alt="Cliente - <?=$cliente->name?>" title="Cliente - <?=$cliente->name?>">
+            <img src="{{ asset('storage/clientes/'.$cliente->imagem) }}" alt="Cliente - <?=$cliente->name?>" title="Cliente - <?=$cliente->name?>">
         </a>
         <?php } ?>
 	</div>
