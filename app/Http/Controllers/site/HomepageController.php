@@ -29,7 +29,15 @@ class HomepageController extends Controller
                 $bannerSecundario = $value;
             }
         }
-        $clientes = $this->clientes->getClientes();
+        $clientes = $this->clientes->getClientes()->filter(function ($client) {
+            $name = explode('-' , $client->name);
+
+            if (isset($name[1])) {
+                return $name[1] !== 'delete';
+            }
+
+            return true;
+        });
         return view("site/home")->with(['bannerPrincipal' => $bannerPrincipal, 'bannerSecundario' => $bannerSecundario, 'clientes' => $clientes]);
     }
 
