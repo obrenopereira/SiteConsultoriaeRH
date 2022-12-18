@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Candidaturas;
 use App\Categorias;
 use Illuminate\Support\Facades\Storage;
@@ -60,14 +59,17 @@ class CandidaturasController extends Controller
 
     public function download($id)
     {
-//        $file = storage_path( "app/curriculos/curriculo-".$id.".pdf");
-        return Storage::download("curriculos/curriculo-".$id.".pdf");
-        dd($file);
-        $candidatura = $this->candidaturas->getCandidaturaById($id)[0];
+        try {
+            return response()
+                ->download(storage_path( "app/curriculos/curriculo-".$id.".pdf"), "curriculo-".$id.".pdf" , [
+                    'Content-Type'=> 'application/pdf'
+                ]);
 
-        $headers = ['Content-Type' => 'application/pdf',];
-        $name = str_replace(" ", "_", $candidatura->name);
-        return response()->download($file, $name.'_CV.pdf', $headers);
+        } catch (\Exception $e) {
+            return back()
+                ->withErrors([
+                    'message' => 'Arquivo não encontrado.'
+                ]);
+        }
     }
-
 }

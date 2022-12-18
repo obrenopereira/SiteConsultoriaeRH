@@ -1,11 +1,44 @@
 @extends('layouts.admin')
 @section('title', 'Candidaturas')
 
+@section('java_scripts')
+<script>
+{{--    $(document).ready(() => {--}}
+{{--        $("#btnDownloadPDF").click((e) => {--}}
+{{--            e.preventDefault();--}}
+
+{{--            url = $("#urlDownloadPDF").val()--}}
+{{--            id = $("#idCandidatura"). val()--}}
+
+{{--            $.ajaxSetup({--}}
+{{--                headers: {--}}
+{{--                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+{{--                }--}}
+{{--            });--}}
+
+{{--            $.ajax({--}}
+{{--                url: url,--}}
+{{--                dataType: "JSON",--}}
+{{--                type: "POST",--}}
+{{--                data: {--}}
+{{--                    id:id--}}
+{{--                },--}}
+{{--                success: (data) => {--}}
+{{--                    console.log(data)--}}
+{{--                },--}}
+{{--                error: (request, status, error) => {--}}
+
+{{--                }--}}
+{{--            })--}}
+{{--        })--}}
+{{--    })--}}
+{{--</script>--}}
+@endsection
 @section('content')
 <div class="container">
-@if(Session::has('message-feedback'))
-<p class="message-feedback-session alert-{{ Session::get('message-alert') }}">{{ Session::get('message-feedback') }}</p>
-@endif
+    @if(Session::has('message-feedback'))
+    <p class="message-feedback-session alert-{{ Session::get('message-alert') }}">{{ Session::get('message-feedback') }}</p>
+    @endif
    <div class='box candidaturas'>
         <div class="box-header">
             <h2 class="title">Todas as Candidaturas <strong>(<?php echo count($candidaturas); ?>)</strong></h2>
@@ -100,8 +133,8 @@
                 <textarea id="descricao-modal" disabled style="resize:none;height: 150px;"></textarea>
             </div>
         </div>
-
-        <a href="{{ env('APP_URL') }}admin/candidaturas/download/" type='button' class='downloadPDF'>Baixar currículos</a>
+        <input type="hidden" value="{{ env('APP_URL') }}/admin/candidaturas/download/" id="urlDownloadPDF"/>
+        <a href="" type='button' class='downloadPDF'>Baixar currículos</a>
     </div>
 </div>
 @endsection

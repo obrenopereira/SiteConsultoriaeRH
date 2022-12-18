@@ -394,7 +394,7 @@ var Main = {
                     success: function (data) {
 
                         data = data.candidatura
-                        let href = $(".downloadPDF").attr("href")+id;
+                        let href = $("#urlDownloadPDF").val()+id;
                         $(".downloadPDF").attr("href", href);
                         $(".visualizar-modal h2").text('Candidatura: ('+data.id+')')
                         $("#nome-modal").val(data.name)

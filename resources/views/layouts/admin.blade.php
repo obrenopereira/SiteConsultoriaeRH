@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta author="Pedro Rago">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <link rel="icon" href="/img/logo_dark.png">
 
@@ -105,6 +106,6 @@
     <script src="{{ asset('js/plugins/sweetalert.min.js') }}"></script>
     <script src="{{ asset('js/admin/alerts.js') }}"></script>
     <script src="{{ asset('js/admin/app.js') }}"></script>
-
+    @yield('java_scripts')
 </body>
 </html>
