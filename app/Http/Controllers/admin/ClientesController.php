@@ -91,8 +91,9 @@ class ClientesController extends Controller
             ]);
 
             DB::commit();
-            return response([
-                'message' => "Cliente cadastrado com sucesso",
+
+            return response()->json([
+                'message' => "Cliente atualizado com sucesso",
             ]);
         } catch (\Exception $e) {
 
