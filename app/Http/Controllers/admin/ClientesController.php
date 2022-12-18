@@ -65,6 +65,8 @@ class ClientesController extends Controller
             'titulo' => 'required|string',
             'imagem' => 'nullable|image',
             'id' => 'required|numeric'
+        ] , [
+            'titulo.required' => 'O campo título é obrigatório.'
         ]);
 
         if ($validator->fails()) {
@@ -96,7 +98,9 @@ class ClientesController extends Controller
                 'message' => "Cliente atualizado com sucesso",
             ]);
         } catch (\Exception $e) {
-
+            return response()->json([
+                'message' => "Ocorreu um erro inesperado",
+            ] , $e->getMessage());
         }
 
 
