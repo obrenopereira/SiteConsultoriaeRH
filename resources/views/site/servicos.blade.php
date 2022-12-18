@@ -115,7 +115,7 @@
                         <li>Encaminhamento dos indicados ao requisitante</li>
                     </ul>
                     </p>
-                    <a href="https://api.whatsapp.com/send?phone=5555996879915" target="_blank">Fale com um especialista <img src="/img/site/seta_preta.svg" alt=""></a>
+                    <a href="https://api.whatsapp.com/send?phone=5555984552255" target="_blank">Fale com um especialista <img src="/img/site/seta_preta.svg" alt=""></a>
                 </div>
             </div>
             <div class="collapse-box <?php echo @($tag && $tag == 'gerenciamento-projetos') ? 'collapse-active': '' ?>" id="gerenciamento-projetos">
@@ -129,7 +129,7 @@
                 <div class="collapse-body">
                     <p>Este mercado de gerenciamento formata modelos de projetos únicos, devido às suas necessidades e contratos que se adequam a possibilidade de cada cliente, atendendo rigorosamente seus cronogramas físico-financeiros, onde o cliente só investe no que está concretizado, ou seja, com disciplina e segurança as organizações terão a garantia de que seus projetos obterão êxito e que estes serão realizados dentro dos parâmetros de lucratividade da organização.
                         Temos o foco de trabalho direcionado à exclusividade, pois nenhum projeto é igual ao outro, criando formas específicas, personalizando seu trabalho e oferecendo serviços cada vez mais atraentes.
-</p>
+                    </p>
                     <a href="https://api.whatsapp.com/send?phone=5555996879915" target="_blank">Fale com um especialista <img src="/img/site/seta_preta.svg" alt=""></a>
                 </div>
             </div>
@@ -138,13 +138,12 @@
                     <span>
                         <img src="/img/site/folder_servico.png" alt="">
                     </span>
-                    <h4>Coaching para Executivos, para seu Negócio e sua Carreira
-</h4>
+                    <h4>Coaching para Executivos, para seu Negócio e sua Carreira</h4>
                     <img src="/img/site/seta_collapse.png" class='seta_open' alt="">
                 </div>
                 <div class="collapse-body">
                     <p>A essência do coaching é apoiar pessoas, grupos e/ou empresas a mudar sua forma de atuar e ir em direção ao que deseja, na direção de suas metas e objetivos. O coaching apoia pessoas em todos os níveis, para que se tornem quem querem ser e sejam o melhor que possam ser. O Processo de coaching libera o potencial do indivíduo para que este maximize seu desempenho e faça o que antes acreditava impossível, gerando resultado para si e para Empresa onde atua.</p>
-                    <a href="https://api.whatsapp.com/send?phone=5555996879915" target="_blank">Fale com um especialista <img src="/img/site/seta_preta.svg" alt=""></a>
+                    <a href="https://api.whatsapp.com/send?phone=5555996941331" target="_blank">Fale com um especialista <img src="/img/site/seta_preta.svg" alt=""></a>
                 </div>
             </div>
         </div>
@@ -182,7 +181,6 @@
             <textarea name="mensagem" id="mensagem" placeholder="Mensagem"></textarea>
             <button type="button">ENTRAR EM CONTATO <img src="/img/site/seta_preta.svg"></button>
         </form>
-
     </div>
 </section>
 
