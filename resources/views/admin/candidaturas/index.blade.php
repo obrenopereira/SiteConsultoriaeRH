@@ -133,7 +133,7 @@
                 <textarea id="descricao-modal" disabled style="resize:none;height: 150px;"></textarea>
             </div>
         </div>
-        <input type="hidden" value="{{ env('APP_URL') }}/admin/candidaturas/download/" id="urlDownloadPDF"/>
+        <input type="hidden" value="{{ env('APP_URL') }}admin/candidaturas/download/" id="urlDownloadPDF"/>
         <a href="" type='button' class='downloadPDF'>Baixar currículos</a>
     </div>
 </div>
