@@ -37,9 +37,11 @@ class CandidaturasController extends Controller
 
         $request->file('curriculo')->getClientOriginalName();
         $curriculoName = 'curriculo-'.$candidatura->id.'.'. $request->file('curriculo')->guessExtension();
-        $request->file('curriculo')->storeAs('public/curriculos/', $curriculoName);
- 
+
+        $request->file('curriculo')
+            ->storeAs('curriculos/', $curriculoName , 'local');
+
         return response(['status' => 200, 'msg' => "Enviado com sucesso!"]);
     }
-   
+
 }
