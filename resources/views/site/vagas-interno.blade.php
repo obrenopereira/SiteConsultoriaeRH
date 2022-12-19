@@ -55,7 +55,7 @@
                     <img src="/img/site/Paperclip.png" alt="">
                 </span>
             </label>
-            <textarea name="descricao" class='data-form' id="descricao" placeholder='Fique à vontade para escrever o que desejar...' style="resize:none"></textarea>
+            <textarea name="descricao" class='data-form' id="descricao" placeholder='Fique à vontade para escrever o que desejar...' style="resize:none;max-height: 210px;min-height: 200px"></textarea>
             <button type='button' class='submitCandidatura'>Candidatar-se</button>
         </div>
         <div class='feedback'>
