@@ -388,10 +388,12 @@ var Main = {
 
                 let id = _this.data("id");
                 let url = _this.data("url");
+                console.log(url)
                 $.ajax({
                     type: "GET",
                     url: url,
                     success: function (data) {
+                        let hasFile = data.hasFile
 
                         data = data.candidatura
                         let href = $("#urlDownloadPDF").val()+id;
@@ -405,6 +407,18 @@ var Main = {
                         $("#vaga-modal").val('#'+data.vaga_id + ' - '+data.vaga_name)
                         $("#categorias-modal").val(data.categorias)
                         $("#descricao-modal").val(data.descricao)
+
+                        if (!hasFile) {
+                            // $(".downloadPDF").on('click', (e) => {
+                            //     e.preventDefault();
+                            // })
+
+                            $(".downloadPDF").removeAttr("href");
+
+                            $("#textFileNotFound").css('display' , 'block');
+                        } else{
+                            $("#textFileNotFound").css('display' , 'none');
+                        }
 
 
                         $(".gradient").fadeIn()

@@ -53,7 +53,13 @@ class CandidaturasController extends Controller
         }
         $candidatura->categorias = substr($categorias_names, 0, -2);
 
-        return response(['status' => 200, 'msg' => "Vaga visualizada com sucesso", 'candidatura' => $candidatura]);
+        $hasFile = Storage::disk('local')->exists("curriculos/curriculo-".$id.".pdf");
+
+        return response([
+            'status' => 200,
+            'msg' => "Vaga visualizada com sucesso", 'candidatura' => $candidatura,
+            'hasFile' => $hasFile
+        ]);
 
     }
 

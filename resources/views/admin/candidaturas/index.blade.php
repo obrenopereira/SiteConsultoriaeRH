@@ -1,39 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Candidaturas')
 
-@section('java_scripts')
-<script>
-{{--    $(document).ready(() => {--}}
-{{--        $("#btnDownloadPDF").click((e) => {--}}
-{{--            e.preventDefault();--}}
-
-{{--            url = $("#urlDownloadPDF").val()--}}
-{{--            id = $("#idCandidatura"). val()--}}
-
-{{--            $.ajaxSetup({--}}
-{{--                headers: {--}}
-{{--                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-{{--                }--}}
-{{--            });--}}
-
-{{--            $.ajax({--}}
-{{--                url: url,--}}
-{{--                dataType: "JSON",--}}
-{{--                type: "POST",--}}
-{{--                data: {--}}
-{{--                    id:id--}}
-{{--                },--}}
-{{--                success: (data) => {--}}
-{{--                    console.log(data)--}}
-{{--                },--}}
-{{--                error: (request, status, error) => {--}}
-
-{{--                }--}}
-{{--            })--}}
-{{--        })--}}
-{{--    })--}}
-{{--</script>--}}
-@endsection
 @section('content')
 <div class="container">
     @if(Session::has('message-feedback'))
@@ -135,6 +102,7 @@
         </div>
         <input type="hidden" value="{{ env('APP_URL') }}admin/candidaturas/download/" id="urlDownloadPDF"/>
         <a href="" type='button' class='downloadPDF'>Baixar currículos</a>
+        <p id="textFileNotFound" style="color: #CB000F;text-align: center; margin-top: 10px; display: none">Arquivo não encontrado</p>
     </div>
 </div>
 @endsection
