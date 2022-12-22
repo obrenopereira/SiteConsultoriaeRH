@@ -36,8 +36,10 @@
         <div class='content'>
             <i class="fa fa-times close-candidatura" aria-hidden="true"></i>
             <h2>Candidatar-se à vaga</h2>
+            <div class='form-group'>
             <input type="text" name='name' id='name' class='data-form' placeholder="Seu nome">
             <input type="email" name='email' id='email' class='data-form' placeholder="Seu email">
+            </div>
             <input type="hidden" name='id_vaga' id='id_vaga' value='<?php echo $vaga->id?>'>
             <div class='form-group'>
                 <select name="escolaridade" class='data-form' id="escolaridade">
@@ -55,7 +57,7 @@
                     <img src="/img/site/Paperclip.png" alt="">
                 </span>
             </label>
-            <textarea name="descricao" class='data-form' id="descricao" placeholder='Fique à vontade para escrever o que desejar...' style="resize:none;max-height: 210px;min-height: 200px"></textarea>
+            <textarea name="descricao" class='data-form' id="descricao" placeholder='Fique à vontade para escrever o que desejar...' style="resize:none"></textarea>
             <button type='button' class='submitCandidatura'>Candidatar-se</button>
         </div>
         <div class='feedback'>
