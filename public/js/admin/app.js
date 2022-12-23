@@ -465,7 +465,6 @@ var Main = {
         saveForm: function() {
             $(".enviar").on("click", function(e){
                 e.preventDefault();
-                let url = $("#formSaveClient").attr('action')
 
                 let form = $(".form");
 
@@ -485,7 +484,7 @@ var Main = {
 
                 $.ajax({
                     type: "POST",
-                    url: url,
+                    url: $(".form").find(".url").val(),
                     data: data,
                     enctype: 'multipart/form-data',
                     processData: false,

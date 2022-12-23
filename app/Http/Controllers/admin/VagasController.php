@@ -51,8 +51,8 @@ class VagasController extends Controller
         $vaga = ($id ? $vaga = $this->vagas->getVagaById($id) : []);
         $categorias = $this->categorias->getCategorias();
         if($id && !count($vaga)){
-            Session::flash('message-alert', 'danger'); 
-            Session::flash('message-feedback', 'Nenhuma vaga foi encontrada'); 
+            Session::flash('message-alert', 'danger');
+            Session::flash('message-feedback', 'Nenhuma vaga foi encontrada');
             return redirect('/admin/vagas');
         }
         if($id) {
@@ -75,35 +75,41 @@ class VagasController extends Controller
 
     public function save()
     {
+        try {
+            $data = $_POST;
+            unset($data['_token']);
 
-        $data = $_POST;
-        unset($data['_token']);
+            $data['categorias'] = json_encode($data['categorias']);
+            $area = intval($data['area']);
 
-        $data['categorias'] = json_encode($data['categorias']);
-        $area = intval($data['area']);
-
-        if(!$area) {
-            $area = $this->filtros->addNewArea($data['area']);
-        }
-
-        $data['area'] = $area;
-        
-        if(isset($data['id'])) {
-            if($data['id'] == '' || $data['id'] == null || $data['id'] == 0) {
-                return response(['status' => 500, 'msg' => "Vaga não encontrada"]);
+            if(!$area) {
+                $area = $this->filtros->addNewArea($data['area']);
             }
 
-            $vaga = $this->vagas->getVagaById($data['id']);
+            $data['area'] = $area;
 
-            if(!count($vaga)) {
-                return response(['status' => 500, 'msg' => "Vaga não encontrada"]);
+            if(isset($data['id'])) {
+                if($data['id'] == '' || $data['id'] == null || $data['id'] == 0) {
+                    return response(['status' => 500, 'message' => "Vaga não encontrada"]);
+                }
+
+                $vaga = $this->vagas->getVagaById($data['id']);
+
+                if(!count($vaga)) {
+                    return response(['status' => 500, 'message' => "Vaga não encontrada"]);
+                }
+                $this->vagas->updateVaga($data);
+
+                return response(['status' => 200, 'message' => "Vaga atualizada com sucesso", 'action' => 'update', 'id' => $vaga[0]->id]);
             }
-            $this->vagas->updateVaga($data);
-
-            return response(['status' => 200, 'msg' => "Vaga atualizada com sucesso", 'action' => 'update', 'id' => $vaga[0]->id]);
+            $vaga = $this->vagas->addVaga($data);
+            return response(['status' => 200, 'message' => "Vaga cadastrada com sucesso", 'action' => 'add', 'id' => $vaga]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Ocorreu um erro inesperado.'
+            ] , 500);
         }
-        $vaga = $this->vagas->addVaga($data);
-        return response(['status' => 200, 'msg' => "Vaga cadastrada com sucesso", 'action' => 'add', 'id' => $vaga]);
+
 
 
     }
