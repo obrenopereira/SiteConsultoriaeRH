@@ -51,14 +51,14 @@
                 <input type="text" name='cidade' class='data-form' id='cidade' placeholder="Cidade">
             </div>
             <label for="curriculo" class='curriculo'>
-                <input type="file"  accept=".pdf" id='curriculo' name='curriculo' hidden>
+                <input type="file"  accept="application/pdf" id='curriculo' name='curriculo' hidden>
                 <p>Anexe aqui seu currículo em formato PDF</p>
                 <span>
                     <img src="/img/site/Paperclip.png" alt="">
                 </span>
             </label>
             <textarea name="descricao" class='data-form' id="descricao" placeholder='Fique à vontade para escrever o que desejar...' style="resize:none; height: 150px"></textarea>
-            <button type='button' class='submitCandidatura'>Candidatar-se</button>
+            <button type='submit' class='submitCandidatura'>Candidatar-se</button>
         </div>
         <div class='feedback'>
             <img src="/img/site/check.png" alt="">

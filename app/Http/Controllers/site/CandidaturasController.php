@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Candidaturas;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 
 class CandidaturasController extends Controller
@@ -17,18 +18,38 @@ class CandidaturasController extends Controller
         $this->candidaturas = new Candidaturas();
     }
 
-    public function send(Request $request) {
-        $data = $_POST;
-        unset($data['_token']);
+    public function send(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'email' => 'required|string|email',
+            'id_vaga' => 'required|integer',
+            'escolaridade' => 'required|string',
+            "cidade" => 'required|string',
+            'descricao' => 'required|string',
+            'curriculo' => 'required|mimes:pdf'
+        ]);
 
-        if(!isset($request->file()['curriculo'])) {
-            return response(['status' => 500, 'msg' => "Currículo não foi anexado à candidatura."]);
+        if ($validator->fails()) {
+            return response()
+                ->json([
+                    'status' => 500,
+                    'msg' => 'Ops! ' . $validator->errors()->first()
+                ], 500);
         }
-        $candidatura = $this->candidaturas->addCandidatura($data);
+
+        /**if(!isset($request->file()['curriculo'])) {
+            return response(['status' => 500, 'msg' => "Currículo não foi anexado à candidatura."]);
+        }**/
+
+        $candidatura = $this->candidaturas->addCandidatura($request->all());
         $candidatura = $this->candidaturas->getCandidaturaById($candidatura);
 
-        if(!count($candidatura)) {
-            return response(['status' => 500, 'msg' => "Ocorreu um erro à candidatar-se. Por favor, contacte um administrador."]);
+        if (count($candidatura) === 0) {
+            return response()->json([
+                'status' => 500,
+                'msg' => "Ocorreu um erro à candidatar-se. Por favor, contacte um administrador."
+            ], 500);
         }
 
         $candidatura = $candidatura[0];
@@ -41,7 +62,11 @@ class CandidaturasController extends Controller
         $request->file('curriculo')
             ->storeAs('curriculos/', $curriculoName , 'local');
 
-        return response(['status' => 200, 'msg' => "Enviado com sucesso!"]);
+        return response()
+            ->json([
+                'status' => 200,
+                'msg' => 'Enviado com sucesso!'
+            ]);
     }
 
 }

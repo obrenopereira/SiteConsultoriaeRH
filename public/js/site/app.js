@@ -662,11 +662,85 @@ var Main = {
                 $(".candidatura-form").find("#descricao").val("")
                 $(".candidatura-form").find("p").text("Anexe aqui seu currículo em formato PDF")
             });
+
             $("#curriculo").on("change", function() {
                 $(this).siblings('p').text($(this)[0].files[0].name)
             })
 
-            $(".submitCandidatura").on("click", function(){
+            $(".candidatura-form").submit(function (e) {
+                let formIsValid = true;
+
+                e.preventDefault()
+
+                $('.submitCandidatura').prop("disabled",true)
+
+                $(this).find(".data-form").each(function(index, item) {
+                    if ($(item).val() == '') {
+                        $(item).addClass("border-danger");
+                        $('.submitCandidatura').prop("disabled",false)
+                        formIsValid = false;
+                    } else{
+                        $(item).removeClass("border-danger");
+                    }
+                })
+
+                if( document.getElementById("curriculo").files.length == 0 ){
+                    $("label.curriculo").addClass("border-danger");
+                    $('.submitCandidatura').prop("disabled",false)
+                    formIsValid = false;
+                } else {
+                    $("label.curriculo").removeClass("border-danger");
+                }
+
+                if (!formIsValid) {
+                    return;
+                }
+
+                let data = new FormData($(this)[0]);
+
+                $.ajax({
+                    type: "POST",
+                    url: '/candidaturas/send',
+                    data: data,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    timeout: 800000,
+                    success: function (data) {
+                        console.log(data.msg)
+                        $(".candidatura-form .feedback").find('p').text(data.msg);
+
+                        $(".candidatura-form .content").hide();
+                        $(".candidatura-form .feedback").addClass('feedback-active');
+                        $(".candidatura-form .feedback").show();
+
+                        setTimeout(function(){
+                            $(".candidatura-content").removeClass("candidatura-content-active")
+                            $(".candidatura-form").find("#name").val("")
+                            $(".candidatura-form").find("#email").val("")
+                            $(".candidatura-form").find("#curriculo").val("")
+                            $(".candidatura-form").find("#cidade").val("")
+                            $(".candidatura-form").find("#descricao").val("")
+                            $(".candidatura-form").find("p").text("Anexe aqui seu currículo em formato PDF")
+                            $(".candidatura-form .content").show();
+                            $(".candidatura-form .feedback").hide();
+
+                        }, 2000);
+                    },
+                    error: function (msg) {
+
+                    }
+                }).done(() => {
+                    $('.submitCandidatura').prop("disabled",false)
+                });
+
+                console.log(data)
+            })
+
+            /**$(".submitCandidatura").on("click", function(e){
+                e.preventDefault()
+                return
                 let form = $(".candidatura-form");
 
                 form.find(".data-form").each(function(index, item) {
@@ -712,7 +786,7 @@ var Main = {
                     }
                 });
 
-            })
+            })**/
         }
     }
 }
