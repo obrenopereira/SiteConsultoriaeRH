@@ -19,7 +19,11 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => [
+        'https://tsconsultoria.com.br',
+        'http://tsconsultoria.com.br',
+        'http://www.tsconsultoria.com.br',
+    ],
 
     'allowed_origins_patterns' => [],
 
