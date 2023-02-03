@@ -18,19 +18,12 @@ class HttpsProtocol
      */
     public function handle($request, Closure $next)
     {
-//        if (
-//            env('APP_ENV') === self::APP_ENV_PRODUCTION
-//            && (
-//                !strpos($request->header('host') , 'www')
-//                || !$request->secure()
-//            )
-//        ) {
-//            $path = $request->path() === '/'
-//                ? ''
-//                : $request->path();
-//
-//            return Redirect::to('https://www.tsconsultoria.com.br/' . $path);
-//        }
+        if (
+            !$request->secure()
+            && env('APP_ENV') === self::APP_ENV_PRODUCTION
+        ) {
+            return redirect()->secure($request->getRequestUri());
+        }
 
         return $next($request);
     }
