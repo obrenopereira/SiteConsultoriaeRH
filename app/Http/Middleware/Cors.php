@@ -16,6 +16,6 @@ class Cors
     public function handle($request, Closure $next)
     {
         return $next($request)
-            ->header('Access-Control-Allow-Origin', "*");
+            ->header('Access-Control-Allow-Origin', "http://www.tsconsultoria.com.br,https://tsconsultoria.com.br,http://tsconsultoria.com.br/");
     }
 }
