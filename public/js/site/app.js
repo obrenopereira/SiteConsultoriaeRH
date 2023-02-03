@@ -224,6 +224,10 @@ var Main = {
                 e.preventDefault()
                 $.ajax({
                     type: "GET",
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                    data :{
+                        '_token': $('meta[name="csrf-token"]').attr('content'),
+                    },
                     url: '/vagas/search?filtro='+$(".encontre-form input").val(),
                     success: function (data) {
                         if(!$(".encontre-form input").hasClass("search-interno")) {

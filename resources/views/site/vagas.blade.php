@@ -100,7 +100,7 @@
             <?php }
             } ?>
 
-            <button class='maisVagas moreActionVagas' type="button">Ver mais vagas <span class="border"></span></button>
+            <button class='maisVagas moreActionVagas' type="button">Ver mais vagas<span class="border"></span></button>
         </div>
     </div>
 
