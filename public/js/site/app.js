@@ -381,11 +381,6 @@ var Main = {
 
             jQuery(document).off('click', '.moreActionVagas');
             jQuery(document).on('click', '.moreActionVagas', function(e) {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
                 start = start + 3
                 $(".moreActionVagas").text("Buscando vagas...");
                 $(".moreActionVagas").append("<span class='border'></span>");
@@ -429,13 +424,20 @@ var Main = {
                 filters['cidades'] = cidades
 
                 setTimeout(function(){
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
                     $.ajax({
                         type: "POST",
+                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                         data:{
-                        areas : filters['areas'],
-                            escolaridades : filters['escolaridades'],
-                            experiencias : filters['experiencias'],
-                            cidades : filters['cidades'],
+                            '_token': $('meta[name="csrf-token"]').attr('content'),
+                            areas : filters['areas'],
+                                escolaridades : filters['escolaridades'],
+                                experiencias : filters['experiencias'],
+                                cidades : filters['cidades'],
                         },
                         url: '/vagas/get?start='+start,
                         success: function (data) {
