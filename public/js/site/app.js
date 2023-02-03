@@ -384,6 +384,7 @@ var Main = {
 
             jQuery(document).off('click', '.moreActionVagas');
             jQuery(document).on('click', '.moreActionVagas', function(e) {
+                let url = $("#routeGetVagas").val()
                 start = start + 3
                 $(".moreActionVagas").text("Buscando vagas...");
                 $(".moreActionVagas").append("<span class='border'></span>");
@@ -442,7 +443,7 @@ var Main = {
                                 experiencias : filters['experiencias'],
                                 cidades : filters['cidades'],
                         },
-                        url: '/vagas/get?start='+start,
+                        url: url+'?start='+start,
                         success: function (data) {
                             $(".moreActionVagas").remove();
                             data.vagas.map(function(item){
