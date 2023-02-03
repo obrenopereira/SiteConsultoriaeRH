@@ -20,7 +20,7 @@ class HttpsProtocol
     {
         if (
             !$request->secure()
-            && env('APP_ENV') === self::APP_ENV_PRODUCTION
+//            && env('APP_ENV') === self::APP_ENV_PRODUCTION
         ) {
             return redirect()->secure($request->getRequestUri());
         }
