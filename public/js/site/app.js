@@ -285,6 +285,7 @@ var Main = {
 
             $(".filtro-input").on("change", function() {
                 let url = $("#routeGetVagas").val()
+                console.log(url)
 
                 let areas = []
                 let escolaridades = []
@@ -331,7 +332,9 @@ var Main = {
 
                 $.ajax({
                     type: "POST",
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                     data:{
+                        '_token': $('meta[name="csrf-token"]').attr('content'),
                         areas : filters['areas'],
                         escolaridades : filters['escolaridades'],
                         experiencias : filters['experiencias'],
