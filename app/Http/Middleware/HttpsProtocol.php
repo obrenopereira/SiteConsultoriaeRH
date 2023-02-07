@@ -3,11 +3,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Redirect;
 
 class HttpsProtocol
 {
     private const APP_ENV_PRODUCTION = 'production';
+    private const APP_ENV_DEVELOPMENT = 'development';
 
     /**
      * Handle an incoming request.
@@ -20,7 +20,10 @@ class HttpsProtocol
     {
         if (
             !$request->secure()
-            && env('APP_ENV') === self::APP_ENV_PRODUCTION
+            && in_array(env('APP_ENV') , [
+                self::APP_ENV_PRODUCTION,
+                self::APP_ENV_DEVELOPMENT,
+            ])
         ) {
             return redirect()->secure($request->getRequestUri());
         }
