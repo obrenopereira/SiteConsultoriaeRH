@@ -210,6 +210,15 @@ var Main = {
                             $(".contato-form button").text("ENTRAR EM CONTATO")
                             $(".contato-form button").prop("disabled", false)
                         }, 1500)
+                    }else{
+                        $(".contato-form button").text("Oops! Ocorreu um erro inesperado.")
+                        form.find("#nome").val("")
+                        form.find("#email").val("")
+                        form.find("#mensagem").val("")
+                        setTimeout(function(){
+                            $(".contato-form button").text("ENTRAR EM CONTATO")
+                            $(".contato-form button").prop("disabled", false)
+                        }, 1500)
                     }
                 });
 

@@ -16,12 +16,16 @@ class ContatoController extends Controller
     }
 
     public function sendEmail() {
-        $data = $_POST;
-        $configuracoes = new Configuracoes();
-        $configuracoes = $configuracoes->getConfiguracoes()[0];
+        try {
+            $data = $_POST;
+            $configuracoes = new Configuracoes();
+            $configuracoes = $configuracoes->getConfiguracoes()[0];
 
-        Mail::to($configuracoes->email_contato)->send(new Contato($data['nome'], $data['email'], $data['mensagem'], 'contato'));
-        Mail::to($data['email'])->send(new Contato($data['nome'], $data['email'], 0, 'feedback'));
-        return response(['status' => 200, 'msg' => "Contato enviado com sucesso!"]);
+            Mail::to($configuracoes->email_contato)->send(new Contato($data['nome'], $data['email'], $data['mensagem'], 'contato'));
+            Mail::to($data['email'])->send(new Contato($data['nome'], $data['email'], 0, 'feedback'));
+            return response(['status' => 200, 'msg' => "Contato enviado com sucesso!"]);
+        } catch (\Exception $e) {
+            return response(['status' => 500, 'msg' => "Oops! Ocorreu um erro inesperado!"]);
+        }
     }
 }
