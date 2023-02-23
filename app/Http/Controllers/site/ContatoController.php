@@ -26,6 +26,11 @@ class ContatoController extends Controller
             Mail::to($data['email'])->send(new Contato($data['nome'], $data['email'], 0, 'feedback'));
             return response(['status' => 200, 'msg' => "Contato enviado com sucesso!"]);
         } catch (\Exception $e) {
+            Log::error('falha na conexão com o e-mail', [
+                'message' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'code' => $e->getCode(),
+            ]);
             Log::info('Falha ao enviar email' , [
                 'date' => now()->format('Y-m-d'),
                 'name' => $data['nome'],
