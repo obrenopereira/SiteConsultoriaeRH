@@ -42,7 +42,7 @@ class Contato extends Mailable
         if($this->type == 'feedback') {
             $view = 'mails/email-contact-feedback';
         }
-        return $this->from('tsconsultoria101@outlook.com', 'Contato')
+        return $this->from('contato@tsconsultoria.com.br', 'Contato')
         ->subject('TS Consultoria - Email de Contato')
         ->view($view)
         ->with([
