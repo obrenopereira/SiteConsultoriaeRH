@@ -181,11 +181,12 @@ var Main = {
                 }
 
                 let data = new FormData(form[0])
-
+                console.log(data)
 
                 $.ajax({
                     type: "POST",
                     url: '/contato/send',
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                     data: data,
                     enctype: 'multipart/form-data',
                     processData: false,
