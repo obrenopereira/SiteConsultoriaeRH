@@ -688,6 +688,7 @@ var Main = {
             })
 
             $(".candidatura-form").submit(function (e) {
+                console.log('aqui me chamou')
                 let formIsValid = true;
 
                 e.preventDefault()
