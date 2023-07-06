@@ -721,6 +721,7 @@ var Main = {
                 $.ajax({
                     type: "POST",
                     url: '/candidaturas/send',
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                     data: data,
                     enctype: 'multipart/form-data',
                     processData: false,
