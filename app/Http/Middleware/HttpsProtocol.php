@@ -21,7 +21,7 @@ class HttpsProtocol
         if (
             (
                 !$request->secure()
-                || !str_contains($request->url(), 'www')
+                //|| !str_contains($request->url(), 'www')
             )
             && in_array(env('APP_ENV') , [
                 self::APP_ENV_PRODUCTION,
