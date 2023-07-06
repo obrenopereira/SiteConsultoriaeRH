@@ -25,8 +25,7 @@ class HttpsProtocol
                 self::APP_ENV_DEVELOPMENT,
             ])
         ) {
-            return redirect(env('APP_URL') . $request->getRequestUri());
-            //return redirect()->secure($request->getRequestUri());
+            return redirect(explode('/', env('APP_URL', 4))[2] . $request->getRequestUri());
         }
 
         return $next($request);
