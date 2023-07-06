@@ -19,7 +19,7 @@ class HttpsProtocol
     public function handle($request, Closure $next)
     {
         if (
-                !$request->secure()
+            !$request->secure()
             && in_array(env('APP_ENV') , [
                 self::APP_ENV_PRODUCTION,
                 self::APP_ENV_DEVELOPMENT,
