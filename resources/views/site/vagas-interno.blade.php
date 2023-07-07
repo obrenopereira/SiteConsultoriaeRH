@@ -32,6 +32,7 @@
 </div>
 <div class='candidatura-content'>
     <form action="" class='candidatura-form'>
+        <input type="hidden" id="url_enviar_candidatura" value="{{ route('candidatura.send') }}">
         @csrf
         <div class='content'>
             <i class="fa fa-times close-candidatura" aria-hidden="true"></i>
