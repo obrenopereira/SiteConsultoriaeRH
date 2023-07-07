@@ -719,9 +719,11 @@ var Main = {
 
                 let data = new FormData($(this)[0]);
 
+                let url = $("#url_enviar_candidatura").val();
+
                 $.ajax({
                     type: "POST",
-                    url: '/candidaturas/send',
+                    url: url,
                     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                     data: data,
                     enctype: 'multipart/form-data',
