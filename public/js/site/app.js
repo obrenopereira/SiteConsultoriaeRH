@@ -720,7 +720,7 @@ var Main = {
                 let data = new FormData($(this)[0]);
 
                 let url = $("#url_enviar_candidatura").val();
-
+                console.log(url);
                 $.ajax({
                     type: "POST",
                     url: url,
